@@ -30,7 +30,7 @@ Lancer un container utilisant l'image **`httpd:alpine`** (image officielle Apach
 
 Vérifier que `myapache` **existe et est actif** 
 
-- Le container doit être en état `Running`
+- Le container doit être au status `Up`
 
 ---
 
