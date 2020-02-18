@@ -1,5 +1,7 @@
 # Docker - misc commands
 
+## Exercices 
+
 Puller l’image `httpd` taggée `2.4.41-alpine` et lancer un nouveau container en mode détaché sans le nommer
 
 - `docker pull -h`, si jamais...
