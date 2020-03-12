@@ -66,6 +66,11 @@ Supprimer l'ensemble des containers, volumes et réseaux de la stack avec une co
 
 --- 
 
-Copier le fichier `docker-compose.yml` et nommer cette copie `docker-compose-bis.yml`. Lancer 2 stacks en parallèle, l'une utilisant `docker-compose.yml` et l'autre `docker-compose-bis.yml`
+Plusieurs stacks peuvent coéxister en s'assurant qu'il n'y a pas de conflits de ports ou autre.
 
-- plusieurs stacks peuvent coéxister en s'assurant qu'il n'y a pas de conflits de ports ou autre... 
+Copier le fichier `docker-compose.yml` et nommer cette copie `docker-compose-bis.yml` puis lancer 2 stacks en parallèle
+
+- celle utilisant `docker-compose.yml` doit être nommé `app`
+- celle utilisant `docker-compose-bis.yml` doit être nommée `app-bis`
+
+Observer le résultat au niveau des containers existant avec `docker`
