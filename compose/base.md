@@ -15,6 +15,8 @@ git clone -b img-build https://gitlab.com/crafteo/training/example-voting-app
 - Utiliser la CLI `docker-compose` pour lancer la stack en mode détachée
 - Accéder au service Result selon le port ouvert défini par la configuration Docker Compose. 
 
+---
+
 ### Configuration de services Docker Compose
 
 Ajouter les services Redis et Vote tels que:
