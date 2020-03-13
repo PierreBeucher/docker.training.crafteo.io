@@ -50,7 +50,7 @@ Ajouter les services Redis et Vote tels que:
 - Vote 
   - utilise l'image `registry.gitlab.com/crafteo/training/example-voting-app/vote`
   - container nommé `vote`
-  - expose le port `8080` sur `5000` 
+  - expose le port `80` sur `5000` 
   
 Et relancer l'application
 

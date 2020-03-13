@@ -33,10 +33,16 @@ services:
   vote:
     image: registry.gitlab.com/crafteo/training/example-voting-app/vote
     ports:
-      - "5000:8080"
+      - "5000:80"
 ```
 
 ## Exercices 
+
+Puller l'ensemble des images de la stack en parallèle
+
+- permet de gagner du temps lors du pull de nombreuses images
+
+---
 
 Lancer la stack Compose en mode détaché
 
