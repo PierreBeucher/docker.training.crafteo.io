@@ -15,6 +15,10 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
 
+  redis:
+    container_name: redis
+    image: redis:alpine
+    
   worker:
     container_name: worker
     image: registry.gitlab.com/crafteo/training/example-voting-app/worker
@@ -25,10 +29,6 @@ services:
     ports:
       - "5001:80"
       - "5858:5858"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
 
   vote:
     image: registry.gitlab.com/crafteo/training/example-voting-app/vote

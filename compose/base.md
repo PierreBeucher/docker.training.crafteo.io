@@ -6,14 +6,37 @@ Nous utiliserons l'application Example Voting App pour l'exercice, pour obtenir 
 git clone -b img-build https://gitlab.com/crafteo/training/example-voting-app
 ```
 
+Le repository contiens un fichier `docker-compose.yml` avec les services DB, Worker et Result:
+
+```
+version: "3"
+
+services:
+  db:
+    container_name: db
+    image: postgres:9.4
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+
+  worker:
+    container_name: worker
+    image: registry.gitlab.com/crafteo/training/example-voting-app/worker
+
+  result:
+    container_name: result
+    image: registry.gitlab.com/crafteo/training/example-voting-app/result
+    ports:
+      - "5001:80"
+      - "5858:5858"
+```
+
 ## Exercices
 
 ### Lancement d'une stack Docker Compose
 
-`docker-compose.yml` contiens une base de fichier Docker Compose pour la Voting App avec les services DB, Worker & Result (Vote et Redis ne sont pas encore implémentés de façon volontaire)
-
 - Utiliser la CLI `docker-compose` pour lancer la stack en mode détachée
-- Accéder au service Result selon le port ouvert défini par la configuration Docker Compose. 
+- Accéder au service Result selon le port ouvert défini par la configuration Docker Compose
 
 ---
 
