@@ -68,7 +68,7 @@ temp_file_limit = 1000
 
 ---
 
-*Besoin: vous souhaitez configurer une procedure de backup des données via un au contrainer `postgres` qui fera un dump régulier de la BDD*
+*Besoin: vous souhaitez configurer une procedure de backup des données via un au container `postgres` qui fera un dump régulier de la BDD*
 
 
 Lancer un container utilisant permettant d'effectuer un backup:
