@@ -1,43 +1,66 @@
-# Docker - bind mount
+# Bind Mount avancé
+
+Les exercices utiliseront Docker Compose avec le fichier `docker-compose.yml` suivant:
 
 ```
-# mount file (or folder) /tmp/myfile in container at /myfile
-# short syntax: -v SOURCE:DEST
-docker run -v /tmp/myfile:/myfile -d httpd:alpine
+version: "3"
 
-# long syntax, equivalent of short syntax
-# recommended by Docker but both work just as fine
-docker run --mount type=bind,source=/tmp/myfile,target=/myfile -d httpd:alpine
+services:
+  db:
+    container_name: db
+    image: postgres:9.4
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
 
-# on oublie pas... 
-docker run -h
+  redis:
+    container_name: redis
+    image: redis:alpine
+
+  result:
+    container_name: result
+    image: registry.gitlab.com/crafteo/training/example-voting-app/result
+    ports:
+      - "5001:80"
+      - "5858:5858"
+
+  vote:
+    container_name: vote
+    image: registry.gitlab.com/crafteo/training/example-voting-app/vote
+    ports:
+      - "5000:80"
+
+  worker:
+    container_name: worker
+    image: registry.gitlab.com/crafteo/training/example-voting-app/worker
 ```
 
-## Exercices
+Lancer la stack avec:
 
-Créer un fichier `/tmp/index.html` avec contenant `"Hello Docker!"`
- 
 ```
-echo 'Hello Docker!' > /tmp/index.html
+docker-compose up -d
 ```
 
-Lancer un container `httpd:alpine` **montant le fichier `/tmp/index.html` sur `htdocs/index.html`** (et exposant `8085:80`)
+# Exercices
 
-- le chemin complet de destination sera peut-être nécéssaire
-- tester avec `curl localhost:8085` ou votre navigateur
-- lancer une session shell dans le container et modifier le fichier `index.html`, re-tester `localhost:8085` et constater les changements
-  ```
-  # rappel: lancer une session shell
-  docker exec -it mycontainer sh
-  ```
-- modifier le fichier `/tmp/index.html` directement depuis la machine locale, re-tester `localhost:8085` et constater les changements
+*Afin de conserver les données PostgreSQL sur la machine locale même si le container est supprimé et pour faciliter le processus de backup, vous cherchez une solution pour que les données de la BDD soient persistées. Un **Bind Mount** vous parait une bonne solution.*  
+
+- Configurer le service `db` pour monter le dossier local `/home/ubuntu/db-data` à l'emplacement `/var/lib/postgresql/data` 
+- Redémarrer le container de la stack pour prendre en compte les configurations
+- Observer le contenu du dossier `/home/ubuntu/db-data`
 
 ---
 
-Créer un dossier `/tmp/myhtdocs` et y copier le fichier `index.html`
+*Vous devez configurer plus finement la base de donnée via un fichier de configuration `postgresql.conf` fourni par votre administrateur système et qui doit être utilisé par la BDD:*
+
 ```
-mkdir /tmp/myhtdocs
-cp /tmp/index.html /tmp/myhtdocs
+listen_addresses = '*'
+temp_file_limit = 1000
 ```
 
-**Monter le dossier complet** dans votre container afin de pouvoir écraser l'`index.html` du container et obtenir le même résultat que précédemment
+- Trouver l'emplacement auquel le fichier doit être monté dans le container `db` basé sur l'image `postgres`
+- Monter le fichier de configuration via un Bind Mount avec les contraintes:
+  - le fichier de configuration doit être monté en **read-only** (lecture seule)
+  - Définir l'option *Bind Propagation* à `rprivate`
+  
+
