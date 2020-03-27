@@ -3,7 +3,7 @@
 Les exercices utiliseront Docker Compose avec le fichier `docker-compose.yml` suivant:
 
 ```
-version: "3"
+version: "3.7"
 
 services:
   db:
@@ -71,15 +71,25 @@ temp_file_limit = 1000
 *Besoin: vous souhaitez configurer une procedure de backup des données via un au contrainer `postgres` qui fera un dump régulier de la BDD*
 
 
-Configurer une tâche *cron* qui lancera toutes les heures un container tel que:
+Lancer un container utilisant permettant d'effectuer un backup:
 
-- Utilise la même image que le service `db`
-- Est supprimé automatiquement lorsque le container s'arrête
-- Monte les données de la BDD via un bind mount
-- Monte un dossier spécifique permettant de persister les backups 
-- Lance une commande de backup, par exemple:
-    ```
-    pg_dumpall -c -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
-    ```
+- utiliser la même image que le service `db`
+- monter un dossier spécifique permettant de persister les backups
+- supprimer automatiquement le container lorsqu'il s'arrête
+- lancer directement la commande de backup, par exemple:
+  ```
+  PGPASSWORD=postgres pg_dumpall -c -h db -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+  ```
+    - Attention: pour résoudre le nom d'hôte `db` le container de backup doit se trouver sur le même réseau.
 
 *Il est possible de monter le même dossier/fichier sur plusieurs containers, pratique dans divers situations comme le backup de données*
+
+Bonus: configurer une tâche *cron* qui lancera toutes les heures notre backup. Pour créer une tâche cron:
+
+```
+# run cron editor for user
+crontab -e
+
+# specify cronjob to run every hour
+0 * * * *   COMMAND 
+```

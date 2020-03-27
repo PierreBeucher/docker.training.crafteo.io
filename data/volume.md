@@ -17,7 +17,7 @@ docker run -v myvolume:/data some_image
 Les exercices utiliseront Docker Compose avec le fichier `docker-compose.yml` suivant:
 
 ```
-version: "3"
+version: "3.7"
 
 services:
   db:
@@ -75,3 +75,7 @@ Une fois effectué:
   - configurer un volume `redis-data` **externe** 
   - monter ce volume à l'emplacement `/data`  
   - redémarrer le service `redis` pour prendre en compte les modifications 
+  
+---
+
+Cleanup: supprimer la stack Docker Compose et les volumes utilisés par Redis et Postgre 

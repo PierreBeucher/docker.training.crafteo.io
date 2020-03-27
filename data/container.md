@@ -5,7 +5,7 @@ Quelques exercices de manipulation des données au sein d'un container
 Les exercices utiliseront Docker Compose avec le fichier `docker-compose.yml` suivant:
 
 ```
-version: "3"
+version: "3.7"
 
 services:
   db:
@@ -53,12 +53,11 @@ Lancer une session shell dans le container `vote` et:
   echo test > /test.txt
   ```  
 - Editer le fichier `app.py` et remplacer les options A et B **Cat** et **Dog** par **Windows** et **Mac**
-    - installer `nano`
     - installer un editeur avec `apk add nano` si besoin 
 - Quitter et redémarrer le container
 - Se connecter à `localhost:5000` et constater les changements
 
-*Il est fréquent d'avoir à éditer des fichiers au sein d'un container dans des environnements de dev ou test, et d'y installer des utilitaires "onl the fly" - c'est cependant déconseillé en production: les changements seraient perdu en cas de re-création du container et 
+*Il est fréquent d'avoir à éditer des fichiers au sein d'un container dans des environnements de dev ou test, et d'y installer des utilitaires "on the fly" - c'est cependant déconseillé en production: les changements seraient perdus en cas de re-création du container et 
 pourrait modifier le comportement du container.*
 
 ---
