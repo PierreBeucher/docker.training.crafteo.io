@@ -37,7 +37,7 @@ Créer un fichier `etc/docker/daemon.json` et y configuer les options suivantes 
   - sinon, un port binding avec `docker run -p 80:80 ...` écoutera sur `0.0.0.0:80` par défaut, ce qui peut représenter un risque de sécurité
 - Ajouter le DNS `8.8.8.8` 
 
-Votre Docker daemon écoute maintenant sur `127.0.0.1:2375` et n'utilisera plus la socket `/var/run/docker.sock`. La CLI Docker utilisant cette socket par défaut, des configurations supplémentaires seront requises en utilisant `docker`. 
+Votre Docker daemon écoute maintenant sur `127.0.0.1:2375` et n'utilisera plus la socket `/var/run/docker.sock`. La CLI Docker utilisant cette socket par défaut, des configurations supplémentaires seront requises en utilisant la CLI `docker`. 
 
 Redémarrer le service Docker et tester: 
 
@@ -51,14 +51,21 @@ Certains déploiements mettent à disposition un daemon Docker accessible à dis
 
 Cela peut-être utile dans certaines situations, par exemple pour partager un daemon avec une équipe de développeur ou un système de CI et accéler le build d'image: le cache de build pourra être réutilisé facilement et ainsi réduire le temps de build (pratique dans certains cas ou un build sans cache dure 20+ min et avec cache seulement quelques secondes!)
 
+Un tel déploiement demande de sécuriser les communications entre le client Docker et le daemon. Utilisant HTTP par défaut, il faut y configurer TLS pour passer en HTTPS. 
 
-Exercice: configurer le daemon Docker pour:
+Configurer le daemon Docker pour:
 
 - écouter sur `127.0.0.1:2376`
 - Configurer l'authentification du serveur en TLS - un client pourra ainsi authentifier le serveur lors de son utilisation (similaire à la connection à un site web en HTTPS)
 - (Optionnel) Configurer l'authentification du client en TLS - le client devra s'authentifier auprès du serveur avec un certificate pour pouvoir utiliser le daemon
 
-Ce setup s'appelle une double-authentification TLS. Pour ce besoin il faut un certificat et une clé pour être utilisé par le Daemon (idem pour le client). Pour générer une clé et un certificat autosigné:
+Ce setup s'appelle une double-authentification TLS. Pour ce besoin il faut un certificat et une clé pour être utilisé par le Daemon (idem pour le client):
+
+- Le client va "truster" un CA (certificate Authority) et le daemon fournira un certificat signé par ce CA pour s'authentifier (c'est exactement le même processus en se connectant à un site web en HTTPS)
+- Le Daemon va "truster" un CA (généralement le même), et le client devra fournir un certificat signé par ce CA pour être autorisé par le daemon
+
+ 
+Dans le cadre de l'exercice nous pourrons générer nos propre CA et certificats. Pour générer une clé et un certificat autosigné:
 
 ```
 # generate CA cert and key
