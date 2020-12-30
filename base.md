@@ -11,9 +11,9 @@ docker image -h
 docker run [OPTIONS] IMAGE
 
 # List existing containers
-> docker ps [-a] 
+> docker ps [-a]
 
-# Show container logs 
+# Show container logs
 > docker logs [OPTIONS] CONTAINER
 
 # start, stop, restart containers
@@ -28,7 +28,7 @@ Lancer un container utilisant l'image **`httpd:alpine`** (image officielle Apach
 
 ---
 
-Vérifier que `myapache` **existe et est actif** 
+Vérifier que `myapache` **existe et est actif**
 
 - Le container doit être au status `Up`
 
@@ -36,17 +36,14 @@ Vérifier que `myapache` **existe et est actif**
 
 Afficher les **10 dernières lignes** de logs de myapache et **suivre les changements**
 
-- Les logs, c'est facile, non?
-
 ---
 
-**Arrêter** puis **redémarrer** le container `myapache` 
+**Arrêter** puis **redémarrer** le container `myapache`
 
 - Plusieurs solutions possible utilisant le même set de commandes
 
 ---
 
-**Supprimer** le container `myapache` 
+**Supprimer** le container `myapache`
 
 - Des actions préalables peuvent être requises
-

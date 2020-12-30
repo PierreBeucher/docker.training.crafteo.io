@@ -1,7 +1,7 @@
 # Docker - build
 
 ```
-# Build an image with a Dockerfile# Build image
+# Build an image with a Dockerfile
 docker build [OPTIONS] CONTEXT_PATH
 
 # Use Dockerfile by default with context from current directory (.)
@@ -39,4 +39,3 @@ Lancer un container utilisant votre image `myapache` et exposer `8089:80`, véri
 
 - rappel: `curl localhost:8089` ou navigateur
 - essayer de monter des volumes pour obtenir un fichier `index.html` customisé!
-
