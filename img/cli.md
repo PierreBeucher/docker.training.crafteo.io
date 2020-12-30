@@ -3,7 +3,7 @@
 ```
 # list images
 docker images # mind the plural!
-docker image ls 
+docker image ls
 
 # S.O.S
 docker image -h
@@ -15,23 +15,25 @@ docker pull redis:alpine
 
 ## Exercices
 
-Inspecter l'image Vote créé précedemment, trouver l'emplacement sur le disque des fichiers de l'image
+Inspecter l'image `vote:local` créée précedemment, trouver l'emplacement sur le disque des fichiers de l'image
 
 ---
 
-Tagger votre image Vote `voting-app:cli`  
+Tagger votre image `vote:local` en `vote:cli`  
 
 ---
 
-Afficher l'historique de build de l'image `voting-app:cli`
+Afficher et comparer l'historique de build de l'image `vote:cli` et `vote:local`
 
 ---
 
-Import/export d'image:
+Import/export d'image
 
-- Exporter l'image `voting-app:cli` comme archive
-    - Bien lire la doc de la commande avant ;)
-    - Cette action peut prendre quelques secondes... 
+Une image Docker n'est rien d'autre qu'une archive contenant des fichiers. Exportons notre image sous forme d'archive avant de la ré-importer comme image Docker.
+
+- Exporter l'image `vote:cli` comme archive
+    - Trouver la commande adapée via `docker image --help`
+    - Cette action peut prendre quelques secondes...
 - Supprimer l'image Vote de votre système local
     - L'image ne doit plus apparaitre avec `docker images`
     - Si besoin, il sera possible de la re-builder from scratch
@@ -40,7 +42,8 @@ Import/export d'image:
 
 ---
 
-Lancer un container basé sur `voting-app:cli` et ouvrez une session bash dans le container (`docker exec ...`) pour modifier le contenu du fichier `/app/app.py` afin de modifier les options *Cat/Dog* pour *Windows/Mac* (les variables `options_a|b`) Redémarer le container pour constater les changements. 
+Lancer un container basé sur `vote:cli` et ouvrez une session bash dans le container (`docker exec ...`) pour modifier le contenu du fichier `/app/app.py` afin de modifier les options *Cat/Dog* pour *Windows/Mac* (les variables `options_a|b`) Redémarer le container pour constater les changements.
 
-Une fois effectué, créer une nouvelle image à partir du container modifié directement sans passer par `docker build`, tagger cette image `voting-app:from-container` puis démarrer un container à partir de celle-ci et tester. 
+Il est possible de créer une image Docker directementn à partir d'un container (sans passer par `docker build`). Ce principe est équivalent à créer une image de VM via un snapshot de VM existante afin de lancer des clones de la VM d'origine.
 
+Créer une nouvelle image à partir du container modifié précédemment **sans passer par `docker build`**, tagger cette image `voting-app:from-container` puis démarrer un container à partir de celle-ci et tester.
