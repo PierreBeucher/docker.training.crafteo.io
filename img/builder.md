@@ -24,55 +24,68 @@ ADD . /app
 CMD [ "gunicorn", "app:app", "-b", "0.0.0.0:80" ]
 ```
 
-## Exercice
-
-Modifier le Dockerfile et donné précédemment et re-builder le service Vote en le taggant `vote-service:builder` afin de tester les changements.
-
-Rappel:
+Rappel: commandes de build
 
 ```
 # builder l'image vote
-docker build -t vote-service:builder vote
+docker build -t vote:builder vote
 
 # lancer l'image vote
-docker run -d --name builder1 vote-service:builder
+docker run -d --name builder1 vote:builder
 
 # lancer une session shell dans le container
 # sera utile pour tester vos manipulations!
 docker exec -it builder1 bash
+
+# Supprimer un container et une image
+docker stop builder1
+docker rm builder1
+docker rmi vote:builder
 ```
 
-Conseil: nommez vos container builder1, builder2, etc. au fur et à mesure de vos lancements puis faire un cleanup à la fin de l'exercice (cela vous permettra de ne pas perdre de temps avec des erreurs du type *"container name already in use"*
-
----
-
-Définir la variable d'environnement `HOME=/app` par défaut dans l'image
-
-- utiliser la commande `env` dans le container pour tester l'existence de la variable
+## Exercice
 
 ---
 
 Configurer l'image pour que l'utilisateur `crafteo` soit utilisé pour lancer le processus principal
 
-- Attention: il n'est pas possible de binder un port <1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé, 8080 par exemple.
-- utiliser la commande `docker top` depuis votre machine ou `ps -ef` dans le container pour voir l'ensemble des processus et leur utilisateur
+- Pour créer un utilisateur `crafteo` sous Linux Alpine:
+  ```
+
+  adduser -S crafteo
+  ```
+
+Il sera nécéssaire d'ajouter le chemin `/home/crafteo/.local/bin` au `PATH` du user `crafteo` pour éxecuter les binaires installés par Python.
+
+- Ajouter une instruction au Dockerfile permettant de définir la variable `PATH` tel que:
+  ```
+  PATH=$PATH:/home/crafteo/.local/bin
+  ```
+
+Attention: il n'est pas possible de binder un port <1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port `8080`.
 
 ---
 
-Ajouter un healthcheck permettant de vérifier le fonctionnement de l'image avec `curl localhost:80`. Ce healthcheck permettra de vérifier que l'image est bien active si une réponse est renvoyé lors d'un appel à `localhost:80`
+Ajouter un healthcheck permettant de vérifier le fonctionnement de l'image avec `curl localhost:80`. Ce healthcheck permettra de vérifier que l'image est bien active si une réponse est renvoyée lors d'un appel à `localhost:80`
 
-- il peut-être nécéssaire d'installer `curl` ou d'utiliser une image de base ou il l'est déjà
+- Il peut-être nécéssaire d'installer `curl` ou d'utiliser une image de base ou il l'est déjà
+- Pour installer `curl` sous Linux Alpine:
+  ```
+  apk add curl
+  ```
+
+Quel est le comportement d'un container Docker en cas de failure du healthcheck?
 
 ---
 
-Ajouter un argument passable au build de l'image permettant de spécifier la version de l'image Python de base à utiliser. Utiliser la version `2.7-alpine` par défaut.  
+Ajouter un argument **utilisable au build de l'image Vote** permettant de spécifier la version de l'image Python de base à utiliser. Utiliser la version `3.7-alpine` par défaut.  
 
-Par exemple, il devra être possible de spécifier:
+Par exemple, il devra être possible de lancer les commandes:
 
 ```
-# utiliser Python 3.5
-docker build -t vote-service:builder --build-arg PYTHON_VERSION=3.5-alpine vote
+# utiliser Python 3.8
+docker build -t vote:builder --build-arg PYTHON_VERSION=3.8-alpine vote
 
-# utiliser Python 2.7
-docker build -t vote-service:builder --build-arg PYTHON_VERSION=2.7-alpine vote
+# utiliser Python 3.7 par défaut
+docker build -t vote:builder vote
 ```  
