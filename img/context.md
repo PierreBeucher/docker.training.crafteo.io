@@ -3,7 +3,7 @@
 Lors de l'exercice prédédent, nous avons buildé une image pour le service Vote. Une solution possible de Dockerfile est:
 
 ```
-FROM python:2.7-alpine
+FROM python:3.7-alpine
 
 # set the application directory
 WORKDIR /app

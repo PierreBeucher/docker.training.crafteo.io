@@ -7,7 +7,7 @@ La documentation officielle [Dockerfile reference](https://docs.docker.com/engin
 Rappel: le service Vote peut être construit avec un Dockerfile tel que:
 
 ```
-FROM python:2.7-alpine
+FROM python:3.7-alpine
 
 # set the application directory
 WORKDIR /app
@@ -35,11 +35,11 @@ Rappel:
 docker build -t vote-service:builder vote
 
 # lancer l'image vote
-docker run -d --name builder1 vote-service:builder 
+docker run -d --name builder1 vote-service:builder
 
 # lancer une session shell dans le container
 # sera utile pour tester vos manipulations!
-docker exec -it builder1 bash 
+docker exec -it builder1 bash
 ```
 
 Conseil: nommez vos container builder1, builder2, etc. au fur et à mesure de vos lancements puis faire un cleanup à la fin de l'exercice (cela vous permettra de ne pas perdre de temps avec des erreurs du type *"container name already in use"*
@@ -54,7 +54,7 @@ Définir la variable d'environnement `HOME=/app` par défaut dans l'image
 
 Configurer l'image pour que l'utilisateur `crafteo` soit utilisé pour lancer le processus principal
 
-- Attention: il n'est pas possible de binder un port <1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé, 8080 par exemple. 
+- Attention: il n'est pas possible de binder un port <1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé, 8080 par exemple.
 - utiliser la commande `docker top` depuis votre machine ou `ps -ef` dans le container pour voir l'ensemble des processus et leur utilisateur
 
 ---
@@ -63,7 +63,7 @@ Ajouter un healthcheck permettant de vérifier le fonctionnement de l'image avec
 
 - il peut-être nécéssaire d'installer `curl` ou d'utiliser une image de base ou il l'est déjà
 
---- 
+---
 
 Ajouter un argument passable au build de l'image permettant de spécifier la version de l'image Python de base à utiliser. Utiliser la version `2.7-alpine` par défaut.  
 
