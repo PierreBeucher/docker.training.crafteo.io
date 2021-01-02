@@ -1,47 +1,12 @@
 # Build avec Docker Compose
 
-Docker Compose permet de lancer le build d'images Docker en spécifiant le dossier de contexte, le Dockerfile, etc.
+`docker-compose` permet de lancer des builds d'images Docker en spécifiant le dossier de contexte, le Dockerfile, etc. de façon similaire à `docker`.
 
 ## Exercices  
 
-A partir du Docker Compose suivant:
+Les `Dockerfile` des services `vote`, `result` et `worker` est présent dans des sous-dossiers correspondants à leurs noms (i.e. `vote/Dockerfile` pour `vote`) mais le build des images n'est pas managé par Docker Compose.
 
-```
-version: "3"
+Configurer le build des services `vote`, `result` et `worker` dans `docker-compose.yml` tel que:
 
-services:
-  db:
-    container_name: db
-    image: postgres:9.4
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-    
-  worker:
-    container_name: worker
-    image: my-worker
-
-  result:
-    container_name: result
-    image: my-result
-    ports:
-      - "5001:80"
-      - "5858:5858"
-
-  vote:
-    container_name: vote
-    image: my-vote
-    ports:
-      - "5000:80"
-```
-
-Configurer le build des services Vote, Result et Worker tel que:
-
-- chaque service doit utiliser le cache de l'image `registry.gitlab.com/crafteo/training/example-voting-app/*` correspondante
-  - `vote` doit utiliser le cache de `registry.gitlab.com/crafteo/training/example-voting-app/vote`
-- le service Worker doit avoir comme argument de build `JAVA_VERSION=9-jre`
-- chaque service doit avoir un label `app.service.name=[NOM DU SERVICE]`, i.e. le service Vote doit avoir un label `app.service.name=vote`
+- Le contexte de build doit être le sous-dossier correspondant à chaque service (i.e. dossier `vote/` pour le service vote)
+- Le service `worker` doit utiliser le Dockerfile `worker/Dockerfile.j`
