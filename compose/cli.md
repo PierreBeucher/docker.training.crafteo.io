@@ -1,58 +1,30 @@
 # Docker Compose CLI
 
-De nombreuses commandes CLI `docker` ont leurs équivalents avec `docker-compose`.
-
-Utiliser le fichier `docker-compose.ym` suivant:
+La plupart des commandes `docker` ont leurs équivalents avec `docker-compose`, mais leurs fonctionnalités sont adaptées à la gestion de stack multi-container et les fonctionnalités ne sont pas toujours équivalentes.
 
 ```
-version: "3"
-
-services:
-  db:
-    container_name: db
-    image: postgres:9.4
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-    
-  worker:
-    container_name: worker
-    image: registry.gitlab.com/crafteo/training/example-voting-app/worker
-
-  result:
-    container_name: result
-    image: registry.gitlab.com/crafteo/training/example-voting-app/result
-    ports:
-      - "5001:80"
-      - "5858:5858"
-
-  vote:
-    image: registry.gitlab.com/crafteo/training/example-voting-app/vote
-    ports:
-      - "5000:80"
+# Rappel
+docker-compose --help
 ```
 
-## Exercices 
+## Exercices
 
-Puller l'ensemble des images de la stack en parallèle
+Utiliser une commande permettant de **puller** l'ensemble des images de la stack en parallèle.
 
-- permet de gagner du temps lors du pull de nombreuses images
+- Permet de gagner du temps lors du pull de nombreuses images
 
 ---
 
-Lancer la stack Compose en mode détaché
+Lancer la stack Compose avec les options suivantes:
 
-- tout comme `docker`, Docker Compose lance les containers en mode interactif par défaut
+- Mode détachée (Tout comme `docker`, `docker-compose` lance les containers en mode interactif par défaut)
+- Forcer la récréation des containers déjà existants
 
 ---
 
-Lancer la stack puis modifier le fichier `docker-compose.yml` pour changer le port exposé de Result pour `5002`. Appliquer les changements à la stack avec une commande `docker-compose` 
+Lancer la stack puis modifier le fichier `docker-compose.yml` pour changer le port exposé de `result` pour `5002`. Appliquer les changements à la stack avec une commande `docker-compose`.
 
---- 
+---
 
 Quelques manipulations:
 
@@ -62,21 +34,18 @@ Quelques manipulations:
 - Afficher les logs de l'ensemble des containers de la stack
 - Afficher les logs d'un container de la stack et suivre les changements
 - Executer une session shell interactive dans le container `vote`
+- Arrêter et supprimer la stack, puis ne lancer que le service `vote`
+- Arrêter et supprimer la stack
+
+Ces commandes seraient possibles directement avec `docker` en y spécifiant les options requises. `docker-compose` intéragi avec le Daemon Docker tout comme `docker`.
 
 ---
-
-Supprimer l'ensemble des containers, volumes et réseaux de la stack avec une commande `docker-compose`
-
-- il serait possible de passer par plusieurs commandes `docker`, mais `docker-compose` permet de le faire simplement 
-
-
---- 
 
 Plusieurs stacks peuvent coéxister en s'assurant qu'il n'y a pas de conflits de ports ou autre.
 
 Copier le fichier `docker-compose.yml` et nommer cette copie `docker-compose-bis.yml` puis lancer 2 stacks en parallèle
 
-- celle utilisant `docker-compose.yml` doit être nommé `app`
-- celle utilisant `docker-compose-bis.yml` doit être nommée `app-bis`
+- Celle utilisant `docker-compose.yml` doit être nommé `app`
+- Celle utilisant `docker-compose-bis.yml` doit être nommée `app-bis`
 
 Observer le résultat au niveau des containers existant avec `docker`
