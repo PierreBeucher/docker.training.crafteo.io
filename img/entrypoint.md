@@ -5,7 +5,7 @@ Rappel: Dockerfile du service Vote
 
 
 ```
-FROM python:2.7-alpine
+FROM python:3.7-alpine
 
 # set the application directory
 WORKDIR /app
@@ -20,94 +20,142 @@ RUN pip install -r requirements.txt
 CMD [ "gunicorn", "app:app", "-b", "0.0.0.0:80" ]
 ```
 
+Tableau de correspondance `ENTRYPOINT` vs. `CMD`:
 
-## Exercice 1: définir ENTRYPOINT et CMD
+[Voir la documentation Docker](https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact)
 
-Définir `ENTRYPOINT` et `CMD` selon divers contraintes dans votre Dockerfile pour builder des variantes de l'image `voting-app`
+---
+
+## Exercice: définir ENTRYPOINT et CMD
+
+Définir `ENTRYPOINT` et `CMD` afin d'avoir une commande lancée par Docker dans le container répondant à divers contraintes.
+
+### Exemple
+
+```
+# Le container sera lancé avec la commande
+#   gunicorn app:app -b 0.0.0.0:80
+CMD [ "gunicorn", "app:app", "-b", "0.0.0.0:80" ]
+```
+
+Pour tester:
+
+```
+# Update vote Dockerfile and build
+docker-compose build vote
+
+# Run vote container
+# COMMAND and ARG will override default COMMAND (CMD)
+docker run -d --name test_entrypoint --rm vote:local [COMMAND] [ARG...]
+# or
+docker-compose run vote [COMMAND] [ARG...]
+
+
+# Check running processus
+docker top test_entrypoint -o pid,command
+# or
+docker-compose top vote -o pid,command
+# Output like
+#   PID   COMMAND
+#   7767  /usr/local/bin/python /usr/local/bin/gunicorn app:app -b 0.0.0.0:80
+
+# stop and remove container
+docker stop test_entrypoint
+# or
+docker-compose down vote
+```
 
 ### Cas 1
 
 La commande lancée au démarrage par défaut doit être:
+
 ```
-gunicorn app:app -b 0.0.0.0:80 
+gunicorn app:app -b 0.0.0.0:80
 ```
 
-Il doit être possible de passer des arguments supplémentaires au lancement du container qui seront passés comme **options de `gunicorn`** en **overridant les options par défaut** 
+Il doit être possible d'overrider les options de `gunicorn` définies par défaut (i.e. overrider l'usage de `-b 0.0.0.0:80`)
 
 Résultat attendu:
 
 ```
-# lance la commande:
-# 
-#   gunicorn app:app -b 0.0.0.0:80
-# 
-docker run voting-app 
+#
+# Sans argument supplémentaire
+#
+docker-compose run vote
+#
+# gunicorn app:app -b 0.0.0.0:80
+#
 
-# lance la commande: 
 #
-#   gunicorn app:app --loglevel DEBUG
+# Arguments: --log-level DEBUG
 #
-# passer un argument à docker run écrase les arguments par défaut
-# app:app et -b 0.0.0.0:80
-docker run voting-app app:app --log-level DEBUG
+docker-compose run vote --log-level DEBUG
+#
+# gunicorn app:app --log-level DEBUG
+#
 ```
- 
+
+Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à `gunicorn` des options différentes (comme un port différent ou un niveau de debug plus élévé)
+
 ## Cas 2
 
 La commande lancée au démarrage par défaut doit être:
 ```
-gunicorn app:app -b 0.0.0.0:80 
+gunicorn app:app -b 0.0.0.0:80
 ```
 
-Il doit être possible de passer des arguments supplémentaires au lancement du container qui seront passés comme **options de `gunicorn`** en **conservant les options par défaut** 
+Il doit être possible de passer des options supplémentaires à `gunicorn` tout en **conservant l'usage de `-b 0.0.0.0:80` par défaut**
 
 Résultat attendu:
 
 ```
-# lance la commande:
-# 
-#   gunicorn app:app -b 0.0.0.0:80
-#  
-docker run voting-app 
+#
+# Sans argument supplémentaire
+#
+docker-compose run vote
+#
+# gunicorn app:app -b 0.0.0.0:80
+#
 
-# lance la commande:
-# 
-#   gunicorn app:app -b 0.0.0.0:80 --loglevel DEBUG
-#   
-docker run voting-app --loglevel DEBUG
+#
+# Arguments: --log-level DEBUG
+#
+docker-compose run vote --log-level DEBUG
+#
+# gunicorn app:app -b 0.0.0.0:80 --log-level DEBUG
+#
 ```
+
+Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à `gunicorn` des options différentes (comme niveau de debug plus élévé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)
 
 ## Cas 3
 
 La commande lancée au démarrage par défaut doit être:
+
 ```
-gunicorn app:app -b 0.0.0.0:80 
+gunicorn app:app -b 0.0.0.0:80
 ```
 
-Passer un argument au run du container doit overrider intégralement la commande lancée par le container par celle en paramètre. 
+Passer un argument au run du container doit overrider intégralement la commande lancée par le container par celle en paramètre.
 
 Résultat attendu:
 
 ```
-# lance la commande:
-# 
-#   gunicorn app:app -b 0.0.0.0:80
-#  
-docker run voting-app 
+#
+# Sans argument supplémentaire
+#
+docker-compose run vote
+#
+# gunicorn app:app -b 0.0.0.0:80
+#
 
-# lance la commande:
-# 
-#   gunicorn --version
-#   
-docker run voting-app gunicorn --version
+#
+# Arguments: --log-level DEBUG
+#
+docker-compose run vote sh
+#
+# Lance une session shell interactive
+#
 ```
 
-## Exercice 2
-
-Ecrire un Dockerfile pour Vote ayant comme ENTRYPOINT `gunicorn` et comme CMD `app:app -b 0.0.0.0:80` et builder l'image `vote-service:entrypoint`
-
-Utiliser `docker run` pour lancer directement une session bash ou shell avec `vote-service:entrypoint`. 
-
-L'objectif est de lancer une session shell l'image sans que l'application ne soit en train de fonctionner, il ne faut donc pas faire un `docker run -d ...` suivi d'un `docker run -it ...`.    
-
-Ce type de situation est fréquent pour debugger le contenu d'une image sans pour autant lancer le processus principal (notamment pour debugger un bug de démarrage du processus principal!)
+Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différent au lancement du container.
