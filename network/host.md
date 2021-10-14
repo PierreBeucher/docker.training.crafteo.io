@@ -46,4 +46,4 @@ Configurer `docker-compose.yml` pour:
 ---
 
 - Identifier le réseau Docker utilisant le driver `host`
-- Essayer de créer un autre réseau Docke utilisant le driver `host` 
+- Essayer de créer un autre réseau Docker utilisant le driver `host` 

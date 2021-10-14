@@ -45,11 +45,10 @@ docker-compose up -d
 
 ## Exercices
 
-Lancer une session shell dans le container `vote` et:
+Lancer une session shell dans le container `vote` (`docker exec -it vote sh`) et:
 
 - Créer un fichier `/test.txt` avec le contenu `test`
   ```
-  # si besoin
   echo test > /test.txt
   ```  
 - Editer le fichier `app.py` et remplacer les options A et B **Cat** et **Dog** par **Windows** et **Mac**

@@ -67,7 +67,7 @@ Une fois effectué:
 
 ---
 
-*Besoin: des données Redis sont présentes sur un volume existant et vous souhaitez les intégrer à votre stack Compose*
+*Besoin: vous souhaitez gérer les données Postgres via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup. Cependant vous ne souhaitez pas gérer le volume Redis sur la stack mais le créer indépendemment.*
 
 - créer un volume `redis-data` avec la CLI Docker
   - Pour l'exercice, on considérera que ce volume contiens nos données :)
