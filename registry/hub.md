@@ -22,7 +22,7 @@ services:
 
   result:
     container_name: result
-    image: crafteo/voting-app-result
+    image: crafteo/example-voting-app-result
     ports:
       - "5001:80"
       - "5858:5858"
@@ -31,7 +31,7 @@ services:
 
   vote:
     container_name: vote
-    image: crafteo/voting-app-vote
+    image: crafteo/example-voting-app-vote
     ports:
       - "5000:80"
     build:
@@ -39,7 +39,7 @@ services:
 
   worker:
     container_name: worker
-    image: crafteo/voting-app-worker
+    image: crafteo/example-voting-app-worker
     build:
       context: worker/
 ```
