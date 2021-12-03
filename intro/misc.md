@@ -30,3 +30,7 @@ Afficher l’ensemble des processus du container `myalpine`
 Obtenir les **statistiques**  d’usage ressources (CPU, RAM...) du container
 
 - pratique pour débugger dans certain cas
+
+---
+
+**Mettre à jour** la configuration du container `myalpine` pour le redémarrer automatiquement lors du boot de la machine
