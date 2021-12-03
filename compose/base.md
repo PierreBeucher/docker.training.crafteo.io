@@ -3,7 +3,7 @@
 Nous utiliserons l'application Example Voting App pour l'exercice, pour obtenir le code source:
 
 ```
-git clone -b img-build https://github.com/PierreBeucher/example-voting-app.git
+git clone https://github.com/PierreBeucher/example-voting-app.git
 ```
 
 Le repository contiens un fichier `docker-compose.yml` avec l'ensemble des **services** composant notrer **stack Docker Compose**:
