@@ -9,47 +9,6 @@ Le Registry Docker se déploie sous forme d'un container Docker, par exemple pou
 docker run -d -p 8080:5000 --name registry registry:2
 ``` 
 
-Les exercices utiliserons le `docker-compose.yml` suivant:
-
-```
-version: "3.7"
-
-services:
-  db:
-    container_name: db
-    image: postgres:9.4
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-
-  result:
-    container_name: result
-    image: crafteo/example-voting-app-result
-    ports:
-      - "5001:80"
-      - "5858:5858"
-    build:
-      context: result/
-
-  vote:
-    container_name: vote
-    image: crafteo/example-voting-app-vote
-    ports:
-      - "5000:80"
-    build:
-      context: vote/
-
-  worker:
-    container_name: worker
-    image: crafteo/example-voting-app-worker
-    build:
-      context: worker/
-```
-
 ## Exercices
 
 - Lancer une registry locale
@@ -57,5 +16,26 @@ services:
   - Votre registry est accessible via `localhost:8080` ou `127.0.0.1:8080`, il faudra donc nommer vos images en conséquence! 
 - Une fois pushée, supprimez vos images `vote`, `service` et `worker` locales et les pusher de la registry locale
 
-Si votre machine est accessible via un nom de domaine, par exemple `registry.docker.crafteo.io`, elle sera accessible à cette adresse. Le port par défaut est `443`. 
+Si votre machine est accessible via un nom de domaine, par exemple `registry.docker.crafteo.io`, elle sera accessible à cette adresse.
+
+Par défaut un Docker daemon utilisera TLS/HTTPS et une registry non sécurisée ne pourra pas être utilisée. Pour tester une registry non sécurisée, ajouter au fichier `/etc/docker/daemon.json`:
+
+```
+{
+  "insecure-registries" : ["you.training.crafteo.io:8080"]
+}
+```
+
+Et redémarrer Docker:
+
+```
+sudo systemctl restart docker
+```
   
+Puis puller une image tel que:
+
+```
+docker pull pierre.training.crafteo.io:8080/crafteo-worker:2021-12
+```
+
+Pour plus de détails, voir [la documentation officielle Docker](https://docs.docker.com/registry/deploying/)
