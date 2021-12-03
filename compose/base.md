@@ -4,6 +4,7 @@ Nous utiliserons l'application Example Voting App pour l'exercice, pour obtenir 
 
 ```
 git clone https://github.com/PierreBeucher/example-voting-app.git
+cd example-voting-app
 ```
 
 Le repository contiens un fichier `docker-compose.yml` avec l'ensemble des **services** composant notrer **stack Docker Compose**:
