@@ -15,5 +15,5 @@ cd prometheus
 docker-compose up -d
 ```
 
-- L'interface Kibana est accessible via `http://localhost:8082`
-- Explorer le contenu de `resources/elk-stack.yml` pour y trouver les configurations des différents services
+- L'interface Grafana est accessible via `http://localhost:3000`
+- Explorer le contenu de `docker-compose.yml` pour y trouver les configurations des différents services
