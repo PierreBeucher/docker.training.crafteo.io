@@ -70,19 +70,20 @@ Il est aussi possible d'utiliser un réseau déjà existant par ailleurs:
 Quid de l'isolation des réseaux Bridge? Par défaut, les containers sur un même réseau sont joignables par leur nom (i.e. le container `vote` est joignable via le hostname `vote`). Docker effectue une résolution DNS interne.
 
 - Vérifier la liaison entre le container `vote` et les autres containers de l'application
-  - Lancer une session shell sur `vote`  et installer `dig`: 
-  ```
-  # You can use getent hosts
-  # or dig (requires install)
-  docker exec -it vote sh
-   
-   $ getent hosts worker
-   $ getent hosts redis
+  - Lancer une session shell sur `vote`  et installer `dig`
+    ```sh
+    # You can use getent hosts
+    # or dig (requires install)
+    docker exec -it vote sh
+    
+    # In container
+    getent hosts worker
+    getent hosts redis
 
-   $ apt update && apt install dnsutils
-   $ dig +short worker
-   $ dig +short redis
-  ``` 
+    apt update && apt install dnsutils
+    dig +short worker
+    dig +short redis
+    ``` 
 - Créer un réseau `bridge-bis`
 - Détacher les containers `result` et `worker` de leur réseau et les attacher au réseau `bridge-bis`
 - Vérifier de nouveau la connectivité entre `vote` et les autres containers 

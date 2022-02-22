@@ -10,17 +10,19 @@ Objectif de l'exercice: écrire un Dockerfile pour l'application Vote.
 
 ## Exercice - Dockerfile pour le service Vote
 
-Cloner le repository Voting App avec la commande:
-
-```
-git clone -b img-build https://github.com/PierreBeucher/example-voting-app
-```
-
 Le code du service Vote se trouve dans `vote/`:
 - `app.py` est le fichier applicatif permettant de lancer l'application
 - `requirements.txt` contiens les dépendences de l'application
 
-Le service Vote doit être buildée et runnée selon les contraintes suivantes:
+Pour l'instant le service utilise une image Docker déjà buildée:
+
+```
+services:
+  vote:
+    image: crafteo/example-voting-app-vote
+```
+
+Nous allons faire en sorte de builder notre propre service Vote les contraintes suivantes:
 
 - Utiliser **Python 3.7**
   - Chercher sur https://hub.docker.com/ une image Python correspondante
