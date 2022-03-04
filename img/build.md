@@ -22,7 +22,7 @@ services:
     image: crafteo/example-voting-app-vote
 ```
 
-Nous allons faire en sorte de builder notre propre service Vote les contraintes suivantes:
+Nous allons faire en sorte de builder notre propre service Vote selon les contraintes suivantes:
 
 - Utiliser **Python 3.7**
   - Chercher sur https://hub.docker.com/ une image Python correspondante
