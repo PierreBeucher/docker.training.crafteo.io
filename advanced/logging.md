@@ -8,7 +8,7 @@ Déployons une stack ELK (Logstash, Elasticearch, Kibana) que nous pourrons util
 docker compose -f resources/elk-stack.yml up -d
 ```
 
-- L'interface Kibana est accessible via `http://localhost:8082`
+- L'interface Kibana est accessible via `http://<host>:8082`
 - Explorer le contenu de `resources/elk-stack.yml` pour y trouver les configurations des différents services
 
 Une fois déployée, lancer une stack de containers avec le logging driver Docker adapté. Utiliser le fichier `docker-compose.logging.yml`:
