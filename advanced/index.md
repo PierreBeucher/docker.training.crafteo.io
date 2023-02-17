@@ -2,5 +2,7 @@
 
 - [Dockerizer une application depuis le code source](dockerize-from-source.md)
 - [Best practices](best-practices.md)
-- [Logging](logging.md)
+- [Logging (ELK Stack)](logging.md)
+- [Monitoring (Prometheus)](logging.md)
+- [HTTPS and Reverse Proxy (Traefik)](traefik.md)
 - [Engine](engine.md)
