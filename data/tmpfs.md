@@ -2,41 +2,6 @@
 
 Exercices sur le montage de volume de type *tmpfs**
 
-Les exercices utiliseront Docker Compose avec le fichier `docker-compose.yml` suivant:
-
-```
-version: "3.7"
-
-services:
-  db:
-    container_name: db
-    image: postgres:9.4
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-
-  result:
-    container_name: result
-    image: crafteo/example-voting-app-result
-    ports:
-      - "5001:80"
-      - "5858:5858"
-
-  vote:
-    container_name: vote
-    image: crafteo/example-voting-app-vote
-    ports:
-      - "5000:80"
-
-  worker:
-    container_name: worker
-    image: crafteo/example-voting-app-worker
-```
-
 ## Exercices
 
 *Contexte: les données Redis sont dans notre cas considérées comme éphémères et ne doivent pas être persistées sur le disque ou dans le writable layer du container. De plus, pour optimiser les performances les données Redis doivent être stockées en mémoire directement.*

@@ -14,41 +14,6 @@ docker volume create myvolume
 docker run -v myvolume:/data some_image
 ```
 
-Les exercices utiliseront Docker Compose avec le fichier `docker-compose.yml` suivant:
-
-```
-version: "3.7"
-
-services:
-  db:
-    container_name: db
-    image: postgres:9.4
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-
-  result:
-    container_name: result
-    image: crafteo/example-voting-app-result
-    ports:
-      - "5001:80"
-      - "5858:5858"
-
-  vote:
-    container_name: vote
-    image: crafteo/example-voting-app-vote
-    ports:
-      - "5000:80"
-
-  worker:
-    container_name: worker
-    image: crafteo/example-voting-app-worker
-```
-
 ## Exercices
 
 *Besoin: vous souhaitez gérer les données Postgres via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup*

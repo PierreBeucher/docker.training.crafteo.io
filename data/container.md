@@ -1,47 +1,6 @@
 # Container Layer data
 
-Quelques exercices de manipulation des données au sein d'un container
-
-Les exercices utiliseront Docker Compose avec le fichier `docker-compose.yml` suivant:
-
-```
-version: "3.7"
-
-services:
-  db:
-    container_name: db
-    image: postgres:9.4
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-
-  result:
-    container_name: result
-    image: crafteo/example-voting-app-result
-    ports:
-      - "5001:80"
-      - "5858:5858"
-
-  vote:
-    container_name: vote
-    image: crafteo/example-voting-app-vote
-    ports:
-      - "5000:80"
-
-  worker:
-    container_name: worker
-    image: crafteo/example-voting-app-worker
-```
-
-Lancer la stack avec:
-
-```
-docker compose up -d
-```
+Quelques exercices de manipulation des données d'un container
 
 ## Exercices
 

@@ -5,16 +5,7 @@ Cette série d'exercice démontrera l'usage de Docker Hub, la registry officiell
 
 ## Exercices
 
-Exploration de la Registry Docker
-
-- Aller sur [hub.docker.com](https://hub.docker.com/), site de la Registry Docker officielle
-- Trouver l'image `httpd` (image officielle Apache2)
-- Identifier les tags disponibles pour l'image `httpd`
-- Trouver quelle version d'Apache est actuellement disponible avec l'image taggée `alpine` (i.e. la version complète comme `2.4.3` ou`2.1.6`)
-
----
-
-Nous avons buildés nos images Example Voting App, nous allons maintenant pouvoir les pusher sur la Registry!
+Après le build locale nos images Example Voting App, poussons les sur la Registry!
 
 Aller sur [hub.docker.com](https://hub.docker.com/) et créez vous un compte (gratuit). 
 

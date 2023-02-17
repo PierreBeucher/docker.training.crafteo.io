@@ -2,38 +2,6 @@
 
 Quelques exercices sur Bridge networking avec Docker. Utilisent le fichier `docker-compose.yml` suivant:
 
-```
-version: "3"
-
-services:
-  db:
-    container_name: db
-    image: postgres:9.4
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-
-  result:
-    container_name: result
-    image: crafteo/example-voting-app-result
-    ports:
-      - "5001:80"
-
-  vote:
-    container_name: vote
-    image: crafteo/example-voting-app-vote
-    ports:
-      - "5000:80"
-
-  worker:
-    container_name: worker
-    image: crafteo/example-voting-app-worker
-```
-
 # Exercices
 
 Lancer la stack `docker-compose.yml`. Par défaut, un réseau est créé et attaché à chaque container.
@@ -48,9 +16,42 @@ Lancer la stack `docker-compose.yml`. Par défaut, un réseau est créé et atta
 
 ---
 
+Quid de l'isolation des réseaux Bridge? Par défaut, les containers sur un même réseau sont joignables par leur nom (i.e. le container `vote` est joignable via le hostname `vote`). Docker effectue une résolution DNS interne.
+
+Isolons les containers de notre stack:
+- Configurer les réseaux `vote-net` et `result-net`
+- Isoler `vote`, `redis`, `worker` dans le réseau `vote-net`
+- Isoler `worker`, `db` et `result` dans le réseau `result-net`
+
+Seul `worker` pourra communiquer avec chaque container. `vote` / `redis` et `db` / `result` seront mutuellement isolés dans leurs réseaux respectifs. 
+
+
+Vérifier la connectivité entre le container `vote` et  `result`
+- Lancer une session shell sur `vote`  et essayer de joindre `result`
+    ```sh
+    docker exec -it vote sh
+
+    # Try to connect
+    $ curl result
+
+    # Check DNS resolution
+    $ getent result
+    $ getent worker
+    ```
+
+---
+
+Docker peut aussi connecter et déconnecter des containers d'un réseau à la volée (sans besoin de redémarrer ou recréer un container).
+
+- Connecter le container `vote` manuellement au réseau `result-net`
+- Vérifier à nouveau la connectivité
+- Déconnecter le container `vote` de `result-net`
+
+---
+
 Configuration réseau customisée avec Docker Compose
 
-- Ajouter un réseau bridge `my-bridge` dans `docker-compose.yml` et configurer chaque container pour utiliser ce réseau, redémarrer la stack et vérifier l'existence du réseau
+- Ajouter un réseau bridge `my-bridge` dans `docker-compose.yml` et configurer chaque container pour utiliser ce réseau
 - Modifier la configuration de `my-bridge` pour:
   - Forcer l'utilisation du driver réseau `bridge`
   - Affecter un nom spécifique `named-bridge`
@@ -64,33 +65,3 @@ Il est aussi possible d'utiliser un réseau déjà existant par ailleurs:
 - Créer un réseau Bridge nommé `my-external-network`
   - `docker network --help`
 - Configurer les services pour utiliser ce réseau déjà existant et appliquer les configurations 
-
----
-
-Quid de l'isolation des réseaux Bridge? Par défaut, les containers sur un même réseau sont joignables par leur nom (i.e. le container `vote` est joignable via le hostname `vote`). Docker effectue une résolution DNS interne.
-
-- Vérifier la liaison entre le container `vote` et les autres containers de l'application
-  - Lancer une session shell sur `vote`  et installer `dig`
-    ```sh
-    # You can use getent hosts
-    # or dig (requires install)
-    docker exec -it vote sh
-    
-    # In container
-    getent hosts worker
-    getent hosts redis
-
-    apt update && apt install dnsutils
-    dig +short worker
-    dig +short redis
-    ``` 
-- Créer un réseau `bridge-bis`
-- Détacher les containers `result` et `worker` de leur réseau et les attacher au réseau `bridge-bis`
-- Vérifier de nouveau la connectivité entre `vote` et les autres containers 
-- Vérifier la connectivité entre `result`, `worker` et les autres containers
-
----
-
-Cleanup:
-- Détruire le réseau `bridge-bis`, `named-bridge`
-- Détruire la stack Docker Compose
