@@ -2,7 +2,7 @@
 
 Ajoutons des configurations TLS (HTTPS) et un reverse proxy (Traefik). 
 
-- Explore le contenu de `resources/traefik.yml`
+- Explorer le contenu de `resources/traefik.yml`
 - Modifier les configurations TLS pour utiliser `vote.<you>.training.crafteo.io`
 - Lancer la stack avec les overrides Traefik:
     ```sh
@@ -10,7 +10,7 @@ Ajoutons des configurations TLS (HTTPS) et un reverse proxy (Traefik).
     docker compose -f docker-compose.yml -f resources/traefik.yml up -d
     ```
 
-`vote` et `result` sont maintenant exposées via:
+`vote` et `result` sont maintenant exposés via:
 - `https://vote.<you>.training.crafteo.io`
 - `https://result.<you>.training.crafteo.io`
 

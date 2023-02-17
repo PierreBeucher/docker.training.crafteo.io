@@ -15,5 +15,5 @@ cd prometheus
 docker compose up -d
 ```
 
-- L'interface Grafana est accessible via `http://<host>:3000`
+- L'interface Grafana est accessible via `http://<host>:3000` (login: `admin`, password: `Prometheus2023`)
 - Explorer le contenu de `docker-compose.yml` pour y trouver les configurations des différents services
