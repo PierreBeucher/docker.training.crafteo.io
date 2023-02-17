@@ -47,7 +47,7 @@ services:
 Lancer la stack avec:
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Exercice

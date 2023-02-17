@@ -7,7 +7,7 @@ git clone https://github.com/PierreBeucher/example-voting-app.git
 cd example-voting-app
 ```
 
-Le repository contiens un fichier `docker-compose.yml` avec l'ensemble des **services** composant notrer **stack Docker Compose**:
+Le repository contient un fichier `docker-compose.yml` avec l'ensemble des **services** définissant notre **stack Docker Compose**:
 
 - Vote: permet de voter pour Chien ou Chat
 - Result: permet de voir les résultats des votes
@@ -19,15 +19,22 @@ Nous utiliserons cette application pour illustrer nos exemples et exercices.
 
 Le fichier `docker-stack.yml` n'est pas utilisé pour le moment.
 
+Documentation de référence:
+
+- [Compose file specs](https://docs.docker.com/compose/compose-file/)
+- [Docker Compose CLI](https://docs.docker.com/compose/reference/)
+
+_Note: la CLI `docker-compose` standalone a été dépréciée en faveur de `docker compose`_
+
 ---
 
 ## Exercices
 
 ### Lancement d'une stack Docker Compose
 
-- Utiliser la CLI `docker-compose` pour lancer la stack en mode détachée
+- Utiliser la CLI `docker compose` pour lancer la stack en mode détachée
   ```
-  docker-compose --help
+  docker compose --help
   ```
 
 Les services Vote et Result expose une interface web accessible depuis la machine locale une fois lancés. Trouver dans le fichier `docker-compose.yml` les bindings de ports utilisés pour y accéder via votre navigateur.

@@ -24,7 +24,7 @@ services:
 
 Nous allons faire en sorte de builder notre propre service Vote selon les contraintes suivantes:
 
-- Utiliser **Python 3.7**
+- Utiliser **Python 3.9**
   - Chercher sur https://hub.docker.com/ une image Python correspondante
 - L'ensemble du code source du service (fichiers dans `/vote`) doit être **copié dans l'image Docker**
 - L'image Docker doit contenir l'ensemble du service. Pour **intaller les dépendences**, utiliser la commande
@@ -40,5 +40,5 @@ Nous allons faire en sorte de builder notre propre service Vote selon les contra
 Exercices:
 
 - Ecrire un fichier `vote/Dockerfile` permettant de builder l'image du service Vote
-- Builder votre image Vote et la tagger `vote:local`
-- Lancer les composants Vote, Worker, Result, Redis et DB avec `docker-compose` et le fichier `docker-compose.yml`
+- Builder votre image Vote et la tagger `vote:local` (mettre à jour la `docker-compose.yml` en conséquence)
+- Lancer la stack avec votre nouvelle image `vote`

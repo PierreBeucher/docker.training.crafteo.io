@@ -1,28 +1,6 @@
 # ENTRYPOINT vs CMD
 
-
-Rappel: Dockerfile du service Vote
-
-
-```
-FROM python:3.7-alpine
-
-# set the application directory
-WORKDIR /app
-
-# copy source code
-ADD . /app
-
-# install dependencies
-RUN pip install -r requirements.txt
-
-# Define our command to be run when launching the container
-CMD [ "gunicorn", "app:app", "-b", "0.0.0.0:80" ]
-```
-
-Tableau de correspondance `ENTRYPOINT` vs. `CMD`:
-
-[Voir la documentation Docker](https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact)
+Tableau de correspondance `ENTRYPOINT` vs. `CMD`: [Voir la documentation Docker](https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact)
 
 ---
 
@@ -42,19 +20,19 @@ Pour tester:
 
 ```
 # Update vote Dockerfile and build
-docker-compose build vote
+docker compose build vote
 
 # Run vote container
 # COMMAND and ARG will override default COMMAND (CMD)
 docker run -d --name test_entrypoint --rm vote:local [COMMAND] [ARG...]
 # or
-docker-compose run vote [COMMAND] [ARG...]
+docker compose run vote [COMMAND] [ARG...]
 
 
 # Check running processus
 docker top test_entrypoint -o pid,command
 # or
-docker-compose top vote -o pid,command
+docker compose top vote -o pid,command
 # Output like
 #   PID   COMMAND
 #   7767  /usr/local/bin/python /usr/local/bin/gunicorn app:app -b 0.0.0.0:80
@@ -62,7 +40,7 @@ docker-compose top vote -o pid,command
 # stop and remove container
 docker stop test_entrypoint
 # or
-docker-compose down vote
+docker compose down vote
 ```
 
 ### Cas 1
@@ -81,7 +59,7 @@ Résultat attendu:
 #
 # Sans argument supplémentaire
 #
-docker-compose run vote
+docker compose run vote
 #
 # gunicorn app:app -b 0.0.0.0:80
 #
@@ -89,7 +67,7 @@ docker-compose run vote
 #
 # Arguments: --log-level DEBUG
 #
-docker-compose run vote --log-level DEBUG
+docker compose run vote --log-level DEBUG
 #
 # gunicorn app:app --log-level DEBUG
 #
@@ -112,7 +90,7 @@ Résultat attendu:
 #
 # Sans argument supplémentaire
 #
-docker-compose run vote
+docker compose run vote
 #
 # gunicorn app:app -b 0.0.0.0:80
 #
@@ -120,7 +98,7 @@ docker-compose run vote
 #
 # Arguments: --log-level DEBUG
 #
-docker-compose run vote --log-level DEBUG
+docker compose run vote --log-level DEBUG
 #
 # gunicorn app:app -b 0.0.0.0:80 --log-level DEBUG
 #
@@ -144,7 +122,7 @@ Résultat attendu:
 #
 # Sans argument supplémentaire
 #
-docker-compose run vote
+docker compose run vote
 #
 # gunicorn app:app -b 0.0.0.0:80
 #
@@ -152,7 +130,7 @@ docker-compose run vote
 #
 # Arguments: --log-level DEBUG
 #
-docker-compose run vote sh
+docker compose run vote sh
 #
 # Lance une session shell interactive
 #

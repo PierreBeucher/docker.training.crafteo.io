@@ -12,7 +12,7 @@ Lancer la stack Docker Compose:
 
 ```sh
 cd prometheus
-docker-compose up -d
+docker compose up -d
 ```
 
 - L'interface Grafana est accessible via `http://localhost:3000`

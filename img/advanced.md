@@ -4,26 +4,6 @@ De nombreuses instructions de build existent pour Dockerfile.
 
 La documentation officielle [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) référence l'ensemble des instructions disponibles
 
-Rappel: le service Vote peut être construit avec un Dockerfile tel que:
-
-```
-FROM python:3.7-alpine
-
-# set the application directory
-WORKDIR /app
-
-ADD requirements.txt /app/requirements.txt
-
-# install dependencies
-RUN pip install -r requirements.txt
-
-# copy source code
-ADD . /app
-
-# Define our command to be run when launching the container
-CMD [ "gunicorn", "app:app", "-b", "0.0.0.0:80" ]
-```
-
 Rappel: commandes de build
 
 ```

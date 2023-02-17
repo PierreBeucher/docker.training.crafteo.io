@@ -26,8 +26,8 @@ Aller sur [hub.docker.com](https://hub.docker.com/) et créez vous un compte (gr
 Nous avons à présent accès au Docker Hub depuis notre machine
 
 - Modifier `docker-compose.yml` pour que l'image `vote`, `worker` et `result` buildée soit nommée selon votre registry
-- Utiliser `docker-compose` pour pusher l'image `vote` dans votre domaine Docker Hub
-- Utiliser `docker-compose` pour pusher l'image `worker` dans votre domaine Docker Hub - pour lequel vous n'avez pas créé de repository pour l'instant
+- Utiliser `docker compose` pour pusher l'image `vote` dans votre domaine Docker Hub
+- Utiliser `docker compose` pour pusher l'image `worker` dans votre domaine Docker Hub - pour lequel vous n'avez pas créé de repository pour l'instant
 - Utiliser la CLI `docker` pour pusher l'image `result`
 - Modifier `docker-compose.yml` pour tagger les images `1.0` et pusher toutes les images en une seule commande
 
