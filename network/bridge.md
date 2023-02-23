@@ -1,6 +1,6 @@
 # Bridge networking
 
-Quelques exercices sur Bridge networking avec Docker. Utilisent le fichier `docker-compose.yml` suivant:
+Quelques exercices sur Bridge networking avec Docker.
 
 # Exercices
 
