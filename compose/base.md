@@ -1,6 +1,8 @@
 # Docker Compose - basics
 
-Nous utiliserons l'application Example Voting App pour l'exercice, pour obtenir le code source:
+Nous utiliserons l'application Example Voting App pour l'exercice. Elle se trouve dans le dossier `~/example-voting-app`.
+
+Si besoin, la cloner directement:
 
 ```
 git clone https://github.com/PierreBeucher/example-voting-app.git
@@ -16,8 +18,6 @@ Le repository contient un fichier `docker-compose.yml` avec l'ensemble des **ser
 - DB (Postgres): stocke les résultats
 
 Nous utiliserons cette application pour illustrer nos exemples et exercices.
-
-Le fichier `docker-stack.yml` n'est pas utilisé pour le moment.
 
 Documentation de référence:
 
