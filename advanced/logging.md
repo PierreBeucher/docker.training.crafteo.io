@@ -6,7 +6,7 @@ Déployons une stack ELK (Logstash, Elasticearch, Kibana) que nous pourrons util
 
 ```sh
 # make elk
-docker compose -f resources/elk.yml
+docker compose -f resources/elk-stack.yml up -d
 ```
 
 - L'interface Kibana est accessible via `http://<host>:8082`
