@@ -3,7 +3,11 @@
 Ajoutons des configurations TLS (HTTPS) et un reverse proxy (Traefik). 
 
 - Explorer le contenu de `resources/traefik.yml`
-- Modifier les configurations TLS pour utiliser `vote.<you>.training.crafteo.io`
+- Créer un fichier `.env` (remplacer `<you>` par votre nom):
+  ```
+  VOTE_URL=vote.<you>.training.crafteo.io
+  RESULT_URL=result.<you>.training.crafteo.io
+  ```
 - Lancer la stack avec les overrides Traefik:
     ```sh
     # make traefik
