@@ -32,7 +32,7 @@ Une fois effectué:
 
 ---
 
-*Besoin: vous souhaitez gérer les données Postgres via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup. Cependant vous ne souhaitez pas gérer le volume Redis sur la stack mais le créer indépendemment.*
+*Besoin: vous souhaitez gérer les données Redis via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup. Cependant vous ne souhaitez pas gérer le volume Redis sur la stack mais le créer indépendemment.*
 
 - créer un volume `redis-data` avec la CLI Docker
   - Pour l'exercice, on considérera que ce volume contiens nos données :)
