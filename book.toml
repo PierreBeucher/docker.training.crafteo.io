@@ -5,5 +5,8 @@ multilingual = false
 src = "src"
 title = "Crafteo - Docker Training"
 
+[build]
+build-dir = "docs"
+
 [output.html]
 git-repository-url = "https://github.com/PierreBeucher/docker.training.crafteo.io"

@@ -1,0 +1,1240 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Crafteo - Docker Training</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="intro/base.html"><strong aria-hidden="true">1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="intro/port.html"><strong aria-hidden="true">2.</strong> Exposition de ports</a></li><li class="chapter-item expanded "><a href="intro/misc.html"><strong aria-hidden="true">3.</strong> Quelques manipulations...</a></li><li class="chapter-item expanded "><a href="intro/exec.html"><strong aria-hidden="true">4.</strong> Commandes dans un container</a></li><li class="chapter-item expanded "><a href="intro/fs.html"><strong aria-hidden="true">5.</strong> Système de fichier</a></li><li class="chapter-item expanded "><a href="intro/bind.html"><strong aria-hidden="true">6.</strong> Bind Mount</a></li><li class="chapter-item expanded "><a href="intro/volume.html"><strong aria-hidden="true">7.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="intro/build.html"><strong aria-hidden="true">8.</strong> Build d'images</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker Compose</li><li class="chapter-item expanded "><a href="compose/base.html"><strong aria-hidden="true">9.</strong> Base</a></li><li class="chapter-item expanded "><a href="compose/build.html"><strong aria-hidden="true">10.</strong> Build</a></li><li class="chapter-item expanded "><a href="compose/cli.html"><strong aria-hidden="true">11.</strong> CLI</a></li><li class="chapter-item expanded "><a href="compose/advanced.html"><strong aria-hidden="true">12.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Networking</li><li class="chapter-item expanded "><a href="network/bridge.html"><strong aria-hidden="true">13.</strong> Bridge</a></li><li class="chapter-item expanded "><a href="network/bridge-advanced.html"><strong aria-hidden="true">14.</strong> Bridge advanced</a></li><li class="chapter-item expanded "><a href="network/host.html"><strong aria-hidden="true">15.</strong> Host</a></li><li class="chapter-item expanded affix "><li class="part-title">Image & Build</li><li class="chapter-item expanded "><a href="img/cli.html"><strong aria-hidden="true">16.</strong> CLI</a></li><li class="chapter-item expanded "><a href="img/build.html"><strong aria-hidden="true">17.</strong> Build basic</a></li><li class="chapter-item expanded "><a href="img/build-optim.html"><strong aria-hidden="true">18.</strong> Build optimization</a></li><li class="chapter-item expanded "><a href="img/entrypoint.html"><strong aria-hidden="true">19.</strong> Entrypoint</a></li><li class="chapter-item expanded "><a href="img/advanced.html"><strong aria-hidden="true">20.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Registry</li><li class="chapter-item expanded "><a href="registry/harbor.html"><strong aria-hidden="true">21.</strong> Harbor</a></li><li class="chapter-item expanded "><a href="registry/hub.html"><strong aria-hidden="true">22.</strong> Docker Hub</a></li><li class="chapter-item expanded "><a href="registry/private.html"><strong aria-hidden="true">23.</strong> Registry privée</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker en Production et concepts avancés</li><li class="chapter-item expanded "><a href="advanced/dockerize-from-source.html"><strong aria-hidden="true">24.</strong> Dockerizer une application</a></li><li class="chapter-item expanded "><a href="advanced/traefik.html"><strong aria-hidden="true">25.</strong> HTTPS and Reverse Proxy (Traefik)</a></li><li class="chapter-item expanded "><a href="advanced/best-practices.html"><strong aria-hidden="true">26.</strong> Bonnes pratiques</a></li><li class="chapter-item expanded "><a href="advanced/logging.html"><strong aria-hidden="true">27.</strong> Logging (ELK Stack)</a></li><li class="chapter-item expanded "><a href="advanced/monitoring.html"><strong aria-hidden="true">28.</strong> Monitoring (Prometheus)</a></li><li class="chapter-item expanded "><a href="advanced/engine.html"><strong aria-hidden="true">29.</strong> Configuration du daemon</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Crafteo - Docker Training</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/PierreBeucher/docker.training.crafteo.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="docker---basics"><a class="header" href="#docker---basics">Docker - basics</a></h1>
+<pre><code>docker --help|-h
+docker [COMMAND] --help
+docker run --help
+docker image -h
+
+# Run a container
+docker run [OPTIONS] IMAGE
+
+# List existing containers
+&gt; docker ps [-a]
+
+# Show container logs
+&gt; docker logs [OPTIONS] CONTAINER
+
+# start, stop, restart containers
+&gt; docker start|stop|restart CONTNER
+</code></pre>
+<h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
+<p>Lancer un container utilisant l'image <strong><code>httpd:alpine</code></strong> (image officielle Apache HTTP server) <strong>en mode détaché (daemon)</strong> et le <strong>nommer <code>myapache</code></strong></p>
+<ul>
+<li><code>docker run</code> devra rendre la main et afficher un ID de container</li>
+</ul>
+<hr />
+<p>Vérifier que <code>myapache</code> <strong>existe et est actif</strong></p>
+<ul>
+<li>Le container doit être au status <code>Up</code></li>
+</ul>
+<hr />
+<p>Afficher les <strong>10 dernières lignes</strong> de logs de myapache et <strong>suivre les changements</strong></p>
+<hr />
+<p><strong>Arrêter</strong> puis <strong>redémarrer</strong> le container <code>myapache</code></p>
+<ul>
+<li>Plusieurs solutions possible utilisant le même set de commandes</li>
+</ul>
+<hr />
+<p><strong>Supprimer</strong> le container <code>myapache</code></p>
+<ul>
+<li>Des actions préalables peuvent être requises</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker---exposing-container-ports"><a class="header" href="#docker---exposing-container-ports">Docker - exposing container ports</a></h1>
+<pre><code># expose host port 8080 on container port 80
+docker run -d --name myport -p 8080:80 httpd:alpine
+
+# try it out!
+curl localhost:8080
+
+# help may always be useful
+docker run -h
+</code></pre>
+<h2 id="exercices-1"><a class="header" href="#exercices-1">Exercices</a></h2>
+<p>Lancer 2 containers basés sur <code>httpd:alpine</code> exposant leur port <code>80</code> sur deux ports différents (tel que <code>8081</code> et <code>8082</code>) et vérifier le fonctionnement</p>
+<ul>
+<li>l'option <code>-d</code> peut être utile pour lancer le container en background</li>
+<li>curl <code>localhost:8081</code> et <code>localhost:8082</code> permettront de tester avec l'un et l'autre</li>
+<li>possible aussi de tester avec votre navigateur web </li>
+</ul>
+<hr />
+<p>Lancer 2 containers <code>httpd:alpine</code> utilisant le <strong>réseau hôte</strong> directement et tester</p>
+<ul>
+<li>l'interface réseau de la machine sera utilisé directement, attention aux conflits de ports!</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker---misc-commands"><a class="header" href="#docker---misc-commands">Docker - misc commands</a></h1>
+<h2 id="exercices-2"><a class="header" href="#exercices-2">Exercices</a></h2>
+<p>Puller l’image <code>httpd</code> taggée <code>2.4.41-alpine</code> et lancer un nouveau container en mode détaché sans le nommer</p>
+<ul>
+<li><code>docker pull -h</code>, si jamais...</li>
+<li>penser à récupérer l'identifiant unique de votre container donné en sortie de <code>docker run</code></li>
+</ul>
+<hr />
+<p>Renommer le container lancé précédemment en <code>myalpine</code> en utilisant son identifiant unique (pas son nom)</p>
+<ul>
+<li>l'occasion de découvrir une nouvelle commande?</li>
+</ul>
+<hr />
+<p>Afficher l’ensemble des processus du container <code>myalpine</code></p>
+<ul>
+<li>équivalent de Linux <code>top</code> ou <code>ps</code> pour un container Docker</li>
+</ul>
+<hr />
+<p><strong>Inspecter</strong> le container <code>myalpine</code> et trouver la <strong>commande lancée au démarrage</strong></p>
+<ul>
+<li>il s'agit du processus qui sera lancé au démarrage du container</li>
+</ul>
+<hr />
+<p>Obtenir les <strong>statistiques</strong>  d’usage ressources (CPU, RAM...) du container</p>
+<ul>
+<li>pratique pour débugger dans certain cas</li>
+</ul>
+<hr />
+<p><strong>Mettre à jour</strong> la configuration du container <code>myalpine</code> pour le redémarrer automatiquement lors du boot de la machine</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker---exec-and-co"><a class="header" href="#docker---exec-and-co">Docker - <code>exec</code> and co.</a></h1>
+<pre><code># Execute command inside a container
+docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+# delete /tmp/somefile in container
+docker exec mycontainer rm /tmp/somefile
+
+# need help?
+docker exec -h 
+</code></pre>
+<h2 id="exercices-3"><a class="header" href="#exercices-3">Exercices</a></h2>
+<p>Lancer un container <code>httpd:alpine</code> exposant <code>8083:80</code> et y
+<strong>ouvrir une session shell interactive</strong> avec <strong>pseudo-TTY</strong> et explorer le système de fichier (i.e. filesystem ou FS)</p>
+<ul>
+<li>le résultat est équivalent à ouvrir une session SSH sur une machine virtuelle... même si le fonctionnement n'a absolument rien à voir</li>
+<li>le FS de votre container est-il le même que celui de votre machine? </li>
+</ul>
+<hr />
+<p>Modifier le fichier <code>htdocs/index.html</code> dans le container et vérifier ce que renvoi <code>localhost:8083</code></p>
+<ul>
+<li>que se passe-t-il si on lance un autre container utilisant la même image? Lancer un autre container <code>httpd:alpine</code> exposant <code>8084:80</code> et comparer!</li>
+</ul>
+<hr />
+<p>Lister les process du container lancé précédemment <strong>depuis le container lui-même</strong>. Vérifier si ce même processus est visible depuis la machine hôte. </p>
+<ul>
+<li><code>ps -ef</code> permet d'afficher les processus machine et/ou du container</li>
+<li><code>pstree -as PID</code> permet d'afficher l'arbre de processus pour le processus <code>PID</code> (ex. <code>pstree -as 29698</code>)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker---file-system"><a class="header" href="#docker---file-system">Docker - File System</a></h1>
+<p>Les fichiers de nos containers et images ne sortent pas de n'importe ou! </p>
+<h2 id="exercices-4"><a class="header" href="#exercices-4">Exercices</a></h2>
+<p>Lancer un container <code>httpd:alpine</code> nommé <code>filesystem</code> et y créer un fichier. Trouver l'emplacement des fichiers du container sur la machine hôte.</p>
+<ul>
+<li><code>docker exec -it filesystem bash</code> avec <code>touch somefile</code> pour créer un fichier</li>
+<li><code>docker exec filesystem sh -c 'touch somefile'</code> pour les pros ;)</li>
+<li><code>docker -h</code> est toujous notre ami!</li>
+</ul>
+<hr />
+<p>Trouver l'emplacement des fichiers de l'image <code>httpd:alpine</code> sur la machine hôte. </p>
+<ul>
+<li>il est conseillé de ne toucher à ces fichiers qu'avec les yeux... </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker---bind-mount"><a class="header" href="#docker---bind-mount">Docker - bind mount</a></h1>
+<pre><code># mount file (or folder) /tmp/myfile in container at /myfile
+# short syntax: -v SOURCE:DEST
+docker run -v /tmp/myfile:/myfile -d httpd:alpine
+
+# long syntax, equivalent of short syntax
+# recommended by Docker but both work just as fine
+docker run --mount type=bind,source=/tmp/myfile,target=/myfile -d httpd:alpine
+
+# on oublie pas... 
+docker run -h
+</code></pre>
+<h2 id="exercices-5"><a class="header" href="#exercices-5">Exercices</a></h2>
+<p>Créer un fichier <code>/tmp/index.html</code> avec contenant <code>&quot;Hello Docker!&quot;</code></p>
+<pre><code>echo 'Hello Docker!' &gt; /tmp/index.html
+</code></pre>
+<p>Lancer un container <code>httpd:alpine</code> <strong>montant le fichier <code>/tmp/index.html</code> sur <code>htdocs/index.html</code></strong> (et exposant <code>8085:80</code>)</p>
+<ul>
+<li>le chemin complet de destination sera peut-être nécéssaire</li>
+<li>tester avec <code>curl localhost:8085</code> ou votre navigateur</li>
+<li>lancer une session shell dans le container et modifier le fichier <code>index.html</code>, re-tester <code>localhost:8085</code> et constater les changements
+<pre><code># rappel: lancer une session shell
+docker exec -it mycontainer sh
+</code></pre>
+</li>
+<li>modifier le fichier <code>/tmp/index.html</code> directement depuis la machine locale, re-tester <code>localhost:8085</code> et constater les changements</li>
+</ul>
+<hr />
+<p>Créer un dossier <code>/tmp/myhtdocs</code> et y copier le fichier <code>index.html</code></p>
+<pre><code>mkdir /tmp/myhtdocs
+cp /tmp/index.html /tmp/myhtdocs
+</code></pre>
+<p><strong>Monter le dossier complet</strong> dans votre container afin de pouvoir écraser l'<code>index.html</code> du container et obtenir le même résultat que précédemment</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker---volumes"><a class="header" href="#docker---volumes">Docker - Volumes</a></h1>
+<pre><code>docker volume -h
+# should be sufficient for this one! 
+</code></pre>
+<h2 id="exercices-6"><a class="header" href="#exercices-6">Exercices</a></h2>
+<p>Créer un volume Docker nommé <code>httpd_vol</code> </p>
+<ul>
+<li>cette étape est optionnelle pour la suite, mais il serait intéréssant de comprendre pourquoi</li>
+</ul>
+<hr />
+<p>Lancer un container <code>httpd:alpine</code> nommé <code>containervol</code> montant le volume Docker <code>htdocs_vol</code> sur <code>/usr/local/apache2/htdocs</code>. Vérifier le contenu du dossier <code>htdocs</code> dans le container une fois démarré. </p>
+<ul>
+<li>que se passe-t-il si le Volume n'existe pas au préalable?</li>
+<li>afficher les montages avec <code>df -h</code> ou <code>mount</code> donne des infos intéréssantes</li>
+</ul>
+<hr />
+<p>Modifier le contenu de <code>htodcs/index.html</code> dans le container <code>containervol</code> puis stoppez et supprimer le container <code>containervol</code>. Relancer un nouveau container nommé <code>containervol2</code> montant <code>httpd_vol</code></p>
+<ul>
+<li>plutôt pratique pour backuper et manipuler des données lorsqu'une base de donnée type Mongo ou MySQL tourne en containerisée</li>
+</ul>
+<hr />
+<p>Lancer un container basé sur <code>busybox</code> montant <code>httpd_vol</code> en parallèle 
+de <code>containervol2</code> et faites des manipulations sur le fichier dans chacun des containers</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker---build"><a class="header" href="#docker---build">Docker - build</a></h1>
+<pre><code># Build an image with a Dockerfile
+docker build [OPTIONS] CONTEXT_PATH
+
+# Use Dockerfile by default with context from current directory (.)
+docker build .
+
+# did you miss me?
+docker build -h
+</code></pre>
+<hr />
+<pre><code># Example Dockerfile content to build a custom Apache image
+
+# Image used as base to create our new image
+FROM alpine:3.10
+
+# Run some commands to install apache
+RUN apk add apache2
+
+# define commands which will be run on startup
+CMD [&quot;-DFOREGROUND&quot;]
+ENTRYPOINT [&quot;httpd&quot;]
+</code></pre>
+<h2 id="exercices-7"><a class="header" href="#exercices-7">Exercices</a></h2>
+<p>Créer un dossier <code>mybuild</code> et y créer un fichier <code>Dockerfile</code> avec le contenu de l'exemple ci-dessus. <strong>Builder</strong> une image Docker à partir du Dockerfile et la <strong>tagger <code>myapache:1.0</code></strong></p>
+<ul>
+<li>votre image doit apparaitre via <code>docker images</code></li>
+</ul>
+<hr />
+<p>Lancer un container utilisant votre image <code>myapache</code> et exposer <code>8089:80</code>, vérifier le fonctionnement</p>
+<ul>
+<li>rappel: <code>curl localhost:8089</code> ou navigateur</li>
+<li>essayer de monter des volumes pour obtenir un fichier <code>index.html</code> customisé!</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker-compose---basics"><a class="header" href="#docker-compose---basics">Docker Compose - basics</a></h1>
+<p>Nous utiliserons l'application Example Voting App pour l'exercice. Elle se trouve dans le dossier <code>~/example-voting-app</code>.</p>
+<p>Si besoin, la cloner directement:</p>
+<pre><code>git clone https://github.com/PierreBeucher/example-voting-app.git
+cd example-voting-app
+</code></pre>
+<p>Le repository contient un fichier <code>docker-compose.yml</code> avec l'ensemble des <strong>services</strong> définissant notre <strong>stack Docker Compose</strong>:</p>
+<ul>
+<li>Vote: permet de voter pour Chien ou Chat</li>
+<li>Result: permet de voir les résultats des votes</li>
+<li>Worker: Traite les votes pour les insérer en base de donnée</li>
+<li>Redis: gère les votes en cours via un système de queue</li>
+<li>DB (Postgres): stocke les résultats</li>
+</ul>
+<p>Nous utiliserons cette application pour illustrer nos exemples et exercices.</p>
+<p>Documentation de référence:</p>
+<ul>
+<li><a href="https://docs.docker.com/compose/compose-file/">Compose file specs</a></li>
+<li><a href="https://docs.docker.com/compose/reference/">Docker Compose CLI</a></li>
+</ul>
+<p><em>Note: la CLI <code>docker-compose</code> standalone a été dépréciée en faveur de <code>docker compose</code></em></p>
+<hr />
+<h2 id="exercices-8"><a class="header" href="#exercices-8">Exercices</a></h2>
+<h3 id="lancement-dune-stack-docker-compose"><a class="header" href="#lancement-dune-stack-docker-compose">Lancement d'une stack Docker Compose</a></h3>
+<ul>
+<li>Utiliser la CLI <code>docker compose</code> pour lancer la stack en mode détachée
+<pre><code>docker compose --help
+</code></pre>
+</li>
+</ul>
+<p>Les services Vote et Result expose une interface web accessible depuis la machine locale une fois lancés. Trouver dans le fichier <code>docker-compose.yml</code> les bindings de ports utilisés pour y accéder via votre navigateur.</p>
+<hr />
+<h3 id="configuration-de-services-docker-compose"><a class="header" href="#configuration-de-services-docker-compose">Configuration de services Docker Compose</a></h3>
+<ul>
+<li>Modifier le service Redis pour:</li>
+<li>Utiliser l'image <code>redis:8.0-alpine</code></li>
+<li>Nommer le container <code>my_redis</code> au démarrage</li>
+<li>Ajouter une variable d'environnement <code>FOO=BAR</code> au runtime du container</li>
+</ul>
+<h3 id="fichier-env-et-variables-denvironnement"><a class="header" href="#fichier-env-et-variables-denvironnement">Fichier <code>.env</code> et variables d'environnement</a></h3>
+<p>Il est possible de référencer des variables d'environnements dans notre fichier <code>docker-compose.yml</code> et de spécifier un fichier <code>.env</code> contenant des variables d'environnements par défaut. Par exemple:</p>
+<pre><code># .env example
+DOTENV_POSTGRES_USER: &quot;postgres&quot;
+DOTENV_POSTGRES_PASSWORD: &quot;postgres&quot;
+</code></pre>
+<p>Créer un fichier <code>.env</code> et modifier le service <code>db</code> pour utiliser les valeurs de ce fichier plutôt que des valeurs hardcodées.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="build-avec-docker-compose"><a class="header" href="#build-avec-docker-compose">Build avec Docker Compose</a></h1>
+<p><code>docker compose build</code> permet de lancer des builds d'images Docker en spécifiant le dossier de contexte, le Dockerfile, etc. de façon similaire à <code>docker build</code>.</p>
+<h2 id="exercices-9"><a class="header" href="#exercices-9">Exercices</a></h2>
+<p>Les <code>Dockerfile</code> des services <code>result</code> et <code>worker</code> sont présents dans des sous-dossiers correspondants à leurs noms (i.e. <code>result/Dockerfile</code>) mais le build des images n'est pas managé par Docker Compose avec la configuration actuelle.</p>
+<p>Modifier la configuration des services <code>result</code> et <code>worker</code> dans <code>docker-compose.yml</code> pour indiquer l'emplacement de build à Docker Compose.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker-compose-cli"><a class="header" href="#docker-compose-cli">Docker Compose CLI</a></h1>
+<p>La plupart des commandes <code>docker</code> ont leurs équivalents avec <code>docker compose</code>, mais leurs fonctionnalités sont adaptées à la gestion de stack multi-container et les fonctionnalités ne sont pas toujours équivalentes.</p>
+<pre><code># Rappel
+docker compose --help
+</code></pre>
+<h2 id="exercices-10"><a class="header" href="#exercices-10">Exercices</a></h2>
+<p>Utiliser une commande permettant de <strong>puller</strong> l'ensemble des images de la stack en parallèle.</p>
+<ul>
+<li>Permet de gagner du temps lors du pull de nombreuses images</li>
+</ul>
+<hr />
+<p>Lancer la stack Compose avec les options suivantes:</p>
+<ul>
+<li>Mode détachée (Tout comme <code>docker</code>, <code>docker compose</code> lance les containers en mode interactif par défaut)</li>
+<li>Forcer la récréation des containers déjà existants</li>
+</ul>
+<hr />
+<p>Lancer la stack puis modifier le fichier <code>docker-compose.yml</code> pour changer le port exposé de <code>result</code> pour <code>5002</code>. Appliquer les changements à la stack avec une commande <code>docker compose</code>.</p>
+<hr />
+<p>Quelques manipulations:</p>
+<ul>
+<li>Arrêter, démarrer puis re-démarrer la stack</li>
+<li>Lister les images utilisées par la stack</li>
+<li>Lister les containers de la stack</li>
+<li>Afficher les logs de l'ensemble des containers de la stack</li>
+<li>Afficher les logs d'un container de la stack et suivre les changements</li>
+<li>Executer une session shell interactive dans le container <code>vote</code></li>
+<li>Arrêter et supprimer la stack, puis ne lancer que le service <code>vote</code></li>
+<li>Arrêter et supprimer la stack</li>
+</ul>
+<p>Ces commandes seraient possibles directement avec <code>docker</code> en y spécifiant les options requises. <code>docker compose</code> intéragi avec le Daemon Docker tout comme <code>docker</code>.</p>
+<hr />
+<p>Plusieurs stacks peuvent coéxister en s'assurant qu'il n'y a pas de conflits de ports ou autre.</p>
+<p>Copier le fichier <code>docker-compose.yml</code> et nommer cette copie <code>docker-compose-bis.yml</code> puis lancer 2 stacks en parallèle</p>
+<ul>
+<li>Celle utilisant <code>docker-compose.yml</code> doit être nommé <code>app</code></li>
+<li>Celle utilisant <code>docker-compose-bis.yml</code> doit être nommée <code>app-bis</code></li>
+<li>Attention aux conflits de nom de container et ports: le nom des containers doivent être uniques ainsi que les ports exposées sur la machine</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker-compose---ateliers-avancés"><a class="header" href="#docker-compose---ateliers-avancés">Docker Compose - ateliers avancés</a></h1>
+<h2 id="volumes"><a class="header" href="#volumes">Volumes</a></h2>
+<p>Configuration de Volume: configurer un volume persistant pour le service <code>postgres</code>. Il doit être conservé même en cas de destruction du container ou de la stack Compose. </p>
+<ul>
+<li>Ajouter un volume <code>db-data</code></li>
+<li>Configurer le service <code>db</code> pour utiliser le volume <code>db-data</code> à l'emplacement <code>/var/lib/postgresql/data</code></li>
+</ul>
+<h2 id="réseaux"><a class="header" href="#réseaux">Réseaux</a></h2>
+<p>Configuration de Réseaux:</p>
+<ul>
+<li>Ajouter un réseau <code>app-network</code></li>
+<li>Configurer l'ensemble des services pour que les containers soient associés au réseau <code>app-network</code> et relancer la stack</li>
+</ul>
+<h2 id="variables-denvironnement"><a class="header" href="#variables-denvironnement">Variables d'environnement</a></h2>
+<p>Docker Compose permet de définir un fichier de variable d'environnement global qui seront affectées à chaque container. </p>
+<ul>
+<li>Trouver dans la documentation la fonctionnalité correspondante</li>
+<li>Remplacer les variables d'environnement du service <code>db</code> dans <code>docker-compose.yml</code> et par le fichier de variable d'environnement utilisé par Compose</li>
+</ul>
+<p>Docker Compose permet de définir des variables qui seront substituées aux variables d'environnement.</p>
+<ul>
+<li>Modifier <code>docker-compose.yml</code> pour définir la version du service <code>redis</code> pour qu'elle utilise la variable d'environnement <code>REDIS_VERSION</code> si possible, et <code>alpine</code> par défaut:</li>
+<li>Définir la variable d'environnement <code>REDIS_VERSION=5.0.7-alpine</code> et relancer la stack. Vérifier que le container <code>redis</code> utilise l'image <code>redis:5.0.7-alpine</code></li>
+</ul>
+<h2 id="override-docker-composeyml"><a class="header" href="#override-docker-composeyml">Override <code>docker-compose.yml</code></a></h2>
+<p>Docker Compose permet d'utiliser plusieurs fichiers de configuration <code>.yml</code> pour étendre une configuration de base.</p>
+<ul>
+<li>Trouver dans la documentation la référence à ce méchanisme d'extention des configurations</li>
+<li>Créer un fichier <code>docker-compose.dev.yml</code> étendant <code>docker-compose.yml</code> tel que:
+<ul>
+<li>le service <code>vote</code> monte le code source <code>vote/</code> à l'emplacement <code>/app</code></li>
+<li>le service <code>vote</code> utilise la commande <code>python -m flask run -h 0.0.0.0 -p 80</code></li>
+<li>le service <code>vote</code> dispose des variables d'environnements:
+<pre><code>FLASK_APP=app.app
+FLASK_ENV=development
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Relancer la stack en combinant <code>docker-compose.yml</code> et <code>docker-compose.dev.yml</code></li>
+<li>Renommer <code>docker-compose.dev.yml</code> de façon à pouvoir lancer la stack avec <code>docker-compose.yml</code> et le fichier d'override avec uniquement la commande <code>docker compose up -d</code> sans aucune autre option</li>
+</ul>
+<p>Cette configuration permet de monter le code source de l'application Vote (Python) directement dans le container et de relancer l'application dynamiquement au sein du container sans avoir à re-builder ou redémarrer le container.</p>
+<p>Cette méthode utilise les fonctionnalités de Flask (serveur web Python) mais la plupart des frameworks permettent un setup similaire pour les environnement de développement.</p>
+<p>Il est ainsi possible de définir une configuration de base Docker Compose avec des overrides selon différent contextes (dev, CI, production, etc.)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bridge-networking"><a class="header" href="#bridge-networking">Bridge networking</a></h1>
+<p>Quelques exercices sur Bridge networking avec Docker.</p>
+<h1 id="exercices-11"><a class="header" href="#exercices-11">Exercices</a></h1>
+<p>Lancer la stack <code>docker-compose.yml</code>. Par défaut, un réseau est créé et attaché à chaque container.</p>
+<ul>
+<li>Identifier le réseau <code>bridge</code> créé et utilisé par la stack par défaut
+<ul>
+<li>Utiliser la CLI Docker: <code>docker network --help</code> </li>
+</ul>
+</li>
+<li>Identifier l'ensemble des réseaux actuellement existant et le Driver utilisé par chacun</li>
+<li>Inspecter le réseau utilisé par la stack Compose et:
+<ul>
+<li>Trouver la liste des containers associés au réseau</li>
+<li>Identifier le subnet utilisé par le réseau</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>Quid de l'isolation des réseaux Bridge? Par défaut, les containers sur un même réseau sont joignables par leur nom (i.e. le container <code>vote</code> est joignable via le hostname <code>vote</code>). Docker effectue une résolution DNS interne.</p>
+<p>Isolons les containers de notre stack:</p>
+<ul>
+<li>Configurer les réseaux <code>vote-net</code> et <code>result-net</code></li>
+<li>Isoler <code>vote</code>, <code>redis</code>, <code>worker</code> dans le réseau <code>vote-net</code></li>
+<li>Isoler <code>worker</code>, <code>db</code> et <code>result</code> dans le réseau <code>result-net</code></li>
+</ul>
+<p>Seul <code>worker</code> pourra communiquer avec chaque container. <code>vote</code> / <code>redis</code> et <code>db</code> / <code>result</code> seront mutuellement isolés dans leurs réseaux respectifs. </p>
+<p>Vérifier la connectivité entre le container <code>vote</code> et  <code>result</code></p>
+<ul>
+<li>Lancer une session shell sur <code>vote</code>  et essayer de joindre <code>result</code>
+<pre><code class="language-sh">docker exec -it vote sh
+
+# Try to connect
+$ curl result
+
+# Check DNS resolution
+$ getent result
+$ getent worker
+</code></pre>
+</li>
+</ul>
+<hr />
+<p>Docker peut aussi connecter et déconnecter des containers d'un réseau à la volée (sans besoin de redémarrer ou recréer un container).</p>
+<ul>
+<li>Connecter le container <code>vote</code> manuellement au réseau <code>result-net</code></li>
+<li>Vérifier à nouveau la connectivité</li>
+<li>Déconnecter le container <code>vote</code> de <code>result-net</code></li>
+</ul>
+<hr />
+<p>Configuration réseau customisée avec Docker Compose</p>
+<ul>
+<li>Ajouter un réseau bridge <code>my-bridge</code> dans <code>docker-compose.yml</code> et configurer chaque container pour utiliser ce réseau</li>
+<li>Modifier la configuration de <code>my-bridge</code> pour:
+<ul>
+<li>Forcer l'utilisation du driver réseau <code>bridge</code></li>
+<li>Affecter un nom spécifique <code>named-bridge</code></li>
+<li>Utiliser le subnet <code>172.42.0.0/16</code> </li>
+</ul>
+</li>
+<li>Appliquer les configurations et inspecter le réseau <code>my-named-bridge</code> pour vérifier les configurations </li>
+</ul>
+<hr />
+<p>Il est aussi possible d'utiliser un réseau déjà existant par ailleurs:</p>
+<ul>
+<li>Créer un réseau Bridge nommé <code>my-external-network</code>
+<ul>
+<li><code>docker network --help</code></li>
+</ul>
+</li>
+<li>Configurer les services pour utiliser ce réseau déjà existant et appliquer les configurations </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bridge-networking---advanced"><a class="header" href="#bridge-networking---advanced">Bridge networking - advanced</a></h1>
+<p>Recherchons comment Docker intéragi avec le système Linux pour manager les réseaux et interfaces:</p>
+<ul>
+<li>Lancer la stack Compose </li>
+<li>Trouver l'interface réseau Linux sous-jacente du réseau Docker utilisé par la stack
+<ul>
+<li>Les interfaces réseaux sont les <em>devices</em> Linux tels que <code>eth0</code>, <code>lo</code> (loop local), etc.</li>
+<li>Les commandes <code>nmcli device status</code> ou <code>ifconfig</code> permettent d'afficher les interfaces réseaux</li>
+</ul>
+</li>
+<li>Trouver l'entrée de la table de routage permettant de rediriger les packets réseaux vers cette interface réseau
+<ul>
+<li>Utiliser <code>ip route</code> ou <code>netstat -rn</code></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="host-networking"><a class="header" href="#host-networking">Host networking</a></h1>
+<p>Configurer <code>docker-compose.yml</code> pour:</p>
+<ul>
+<li>Utiliser le network <code>host</code> pour chacun des services</li>
+<li>Lancer la stack et vérifier que chacun des services est <code>Up</code></li>
+<li>Se connecter au service Vote et Worker pour vérifier leur fonctionnement</li>
+<li>Trouver l'adresse IP du container <code>worker</code> - si elle existe</li>
+</ul>
+<hr />
+<ul>
+<li>Identifier le réseau Docker utilisant le driver <code>host</code></li>
+<li>Essayer de créer un autre réseau Docker utilisant le driver <code>host</code> </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cli-docker-images"><a class="header" href="#cli-docker-images">CLI Docker: images</a></h1>
+<pre><code># list images
+docker images # mind the plural!
+docker image ls
+
+# S.O.S
+docker image -h
+
+# pull an image
+docker images pull redis:alpine
+docker pull redis:alpine
+</code></pre>
+<h2 id="exercices-12"><a class="header" href="#exercices-12">Exercices</a></h2>
+<p>Inspecter l'image <code>vote</code> de votre stack Example Voting App et trouver l'emplacement sur le disque des fichiers de l'image.</p>
+<hr />
+<p>Tagger l'image <code>vote</code> de votre stack en <code>vote:newtag</code> et configurer votre stack pour l'utiliser</p>
+<hr />
+<p>Afficher et comparer l'historique de build de l'image <code>vote</code> de base et <code>vote:newtag</code></p>
+<hr />
+<p>Import/export d'image</p>
+<p>Une image Docker n'est rien d'autre qu'une archive contenant des fichiers. Exportons notre image sous forme d'archive avant de la ré-importer comme image Docker.</p>
+<ul>
+<li>Exporter l'image <code>vote:newtag</code> comme archive
+<ul>
+<li>Trouver la commande adapée via <code>docker image --help</code></li>
+<li>Cette action peut prendre quelques secondes...</li>
+</ul>
+</li>
+<li>Supprimer l'image Vote de votre système local
+<ul>
+<li>L'image ne doit plus apparaitre avec <code>docker images</code></li>
+<li>Si besoin, il sera possible de la re-builder from scratch</li>
+</ul>
+</li>
+<li>Re-importer l'image Vote depuis l'archive créée précédemment
+<ul>
+<li><code>docker images</code> doit affiche l'image</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>Lancer un container basé sur <code>vote:newtag</code> et ouvrez une session bash dans le container (<code>docker exec ...</code>) pour modifier le contenu du fichier <code>/app/app.py</code> afin de modifier les options <em>Cat/Dog</em> pour <em>Windows/Mac</em> (les variables <code>options_a|b</code>) Redémarer le container pour constater les changements.</p>
+<p>Il est possible de créer une image Docker directement à partir d'un container (sans passer par <code>docker build</code>). Ce principe est équivalent à créer une image de VM via un snapshot de VM existante afin de lancer des clones de la VM d'origine.</p>
+<p>Créer une nouvelle image à partir du container modifié précédemment <strong>sans passer par <code>docker build</code></strong>, tagger cette image <code>voting-app:from-container</code> puis démarrer un container à partir de celle-ci et tester.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="voting-app-build-python-image"><a class="header" href="#voting-app-build-python-image">Voting App: Build Python image</a></h1>
+<p>L'appplication Voting App dispose de plusieurs services:</p>
+<ul>
+<li><strong>Worker</strong>: récupère les votes et les stockes en base de donnée</li>
+<li><strong>Vote</strong>: application web permettant de voter</li>
+<li><strong>Result</strong> : permet d'afficher les résultats</li>
+</ul>
+<p>Objectif de l'exercice: écrire un Dockerfile pour l'application Vote.</p>
+<h2 id="exercice---dockerfile-pour-le-service-vote"><a class="header" href="#exercice---dockerfile-pour-le-service-vote">Exercice - Dockerfile pour le service Vote</a></h2>
+<p>Le code du service Vote se trouve dans <code>vote/</code>:</p>
+<ul>
+<li><code>app.py</code> est le fichier applicatif permettant de lancer l'application</li>
+<li><code>requirements.txt</code> contiens les dépendences de l'application</li>
+</ul>
+<p>Pour l'instant le service utilise une image Docker déjà buildée:</p>
+<pre><code>services:
+  vote:
+    image: crafteo/example-voting-app-vote
+</code></pre>
+<p>Nous allons faire en sorte de builder notre propre service Vote selon les contraintes suivantes:</p>
+<ul>
+<li>Utiliser <strong>Python 3.9</strong>
+<ul>
+<li>Chercher sur https://hub.docker.com/ une image Python correspondante</li>
+</ul>
+</li>
+<li>L'ensemble du code source du service (fichiers dans <code>/vote</code>) doit être <strong>copiée dans l'image Docker</strong></li>
+<li>L'image Docker doit contenir l'ensemble du service. Pour <strong>intaller les dépendences</strong>, utiliser la commande
+<pre><code>pip install -r requirements.txt
+</code></pre>
+</li>
+<li>La commande qui doit être lancée au démarrage du container est:
+<pre><code>gunicorn app:app -b 0.0.0.0:80
+</code></pre>
+et doit être <strong>éxecutée depuis le dossier contenant l'ensemble du code source</strong> du service (le service exposera le port 80 par défaut une fois lancé)</li>
+</ul>
+<p>Exercices:</p>
+<ul>
+<li>Ecrire un fichier <code>vote/Dockerfile</code> permettant de builder l'image du service Vote</li>
+<li>Builder votre image Vote et la tagger <code>vote:local</code> (mettre à jour la <code>docker-compose.yml</code> en conséquence)</li>
+<li>Lancer la stack avec votre nouvelle image <code>vote</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="optimization-de-build"><a class="header" href="#optimization-de-build">Optimization de build</a></h1>
+<p>Problèmes typiques de build: </p>
+<ul>
+<li>temps de build (notamment download des dépendances)</li>
+<li>taille finale de l'image (temps de push/pull) </li>
+<li>contenu de l'image: ne pas y copier des fichiers par accident (secret, token, etc.)</li>
+</ul>
+<p>Documentation de référence:</p>
+<ul>
+<li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices">Dockerfile best practices</a></li>
+</ul>
+<h2 id="exercices-13"><a class="header" href="#exercices-13">Exercices</a></h2>
+<ul>
+<li>Ajouter un fichier <code>.dockerignore</code> permettant de filtrer Dockerfile du contexte</li>
+<li>Changer les instructions de build pour n'invalider le cache de <code>pip install</code> qu'en cas de modification de <code>requirements.txt</code></li>
+<li>Utiliser une image <code>alpine</code> pour réduire la taille finale de l'image</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="entrypoint-vs-cmd"><a class="header" href="#entrypoint-vs-cmd">ENTRYPOINT vs CMD</a></h1>
+<p>Tableau de correspondance <code>ENTRYPOINT</code> vs. <code>CMD</code>: <a href="https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact">Voir la documentation Docker</a></p>
+<hr />
+<h2 id="exercice-définir-entrypoint-et-cmd"><a class="header" href="#exercice-définir-entrypoint-et-cmd">Exercice: définir ENTRYPOINT et CMD</a></h2>
+<p>Définir <code>ENTRYPOINT</code> et <code>CMD</code> afin d'avoir une commande lancée par Docker dans le container répondant à divers contraintes.</p>
+<h3 id="exemple"><a class="header" href="#exemple">Exemple</a></h3>
+<pre><code># Le container sera lancé avec la commande
+#   gunicorn app:app -b 0.0.0.0:80
+CMD [ &quot;gunicorn&quot;, &quot;app:app&quot;, &quot;-b&quot;, &quot;0.0.0.0:80&quot; ]
+</code></pre>
+<p>Pour tester:</p>
+<pre><code># Update vote Dockerfile and build
+docker compose build vote
+
+# Run vote container
+# COMMAND and ARG will override default COMMAND (CMD)
+docker run -d --name test_entrypoint --rm vote:local [COMMAND] [ARG...]
+# or
+docker compose run vote [COMMAND] [ARG...]
+
+
+# Check running processus
+docker top test_entrypoint -o pid,command
+# or
+docker compose top vote -o pid,command
+# Output like
+#   PID   COMMAND
+#   7767  /usr/local/bin/python /usr/local/bin/gunicorn app:app -b 0.0.0.0:80
+
+# stop and remove container
+docker stop test_entrypoint
+# or
+docker compose down vote
+</code></pre>
+<h3 id="cas-1"><a class="header" href="#cas-1">Cas 1</a></h3>
+<p>La commande lancée au démarrage par défaut doit être:</p>
+<pre><code>gunicorn app:app -b 0.0.0.0:80
+</code></pre>
+<p>Il doit être possible d'overrider les options de <code>gunicorn</code> définies par défaut (i.e. overrider l'usage de <code>-b 0.0.0.0:80</code>)</p>
+<p>Résultat attendu:</p>
+<pre><code>#
+# Sans argument supplémentaire
+#
+docker compose run vote
+#
+# gunicorn app:app -b 0.0.0.0:80
+#
+
+#
+# Arguments: --log-level DEBUG
+#
+docker compose run vote --log-level DEBUG
+#
+# gunicorn app:app --log-level DEBUG
+#
+</code></pre>
+<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme un port différent ou un niveau de debug plus élévé)</p>
+<h2 id="cas-2"><a class="header" href="#cas-2">Cas 2</a></h2>
+<p>La commande lancée au démarrage par défaut doit être:</p>
+<pre><code>gunicorn app:app -b 0.0.0.0:80
+</code></pre>
+<p>Il doit être possible de passer des options supplémentaires à <code>gunicorn</code> tout en <strong>conservant l'usage de <code>-b 0.0.0.0:80</code> par défaut</strong></p>
+<p>Résultat attendu:</p>
+<pre><code>#
+# Sans argument supplémentaire
+#
+docker compose run vote
+#
+# gunicorn app:app -b 0.0.0.0:80
+#
+
+#
+# Arguments: --log-level DEBUG
+#
+docker compose run vote --log-level DEBUG
+#
+# gunicorn app:app -b 0.0.0.0:80 --log-level DEBUG
+#
+</code></pre>
+<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme niveau de debug plus élévé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)</p>
+<h2 id="cas-3"><a class="header" href="#cas-3">Cas 3</a></h2>
+<p>La commande lancée au démarrage par défaut doit être:</p>
+<pre><code>gunicorn app:app -b 0.0.0.0:80
+</code></pre>
+<p>Passer un argument au run du container doit overrider intégralement la commande lancée par le container par celle en paramètre.</p>
+<p>Résultat attendu:</p>
+<pre><code>#
+# Sans argument supplémentaire
+#
+docker compose run vote
+#
+# gunicorn app:app -b 0.0.0.0:80
+#
+
+#
+# Arguments: --log-level DEBUG
+#
+docker compose run vote sh
+#
+# Lance une session shell interactive
+#
+</code></pre>
+<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différent au lancement du container.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="instruction-de-build-dockerfile-avancées"><a class="header" href="#instruction-de-build-dockerfile-avancées">Instruction de build Dockerfile avancées</a></h1>
+<p>De nombreuses instructions de build existent pour Dockerfile.</p>
+<p>La documentation officielle <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a> référence l'ensemble des instructions disponibles</p>
+<p>Rappel: commandes de build</p>
+<pre><code># builder l'image vote
+docker build -t vote:builder vote
+
+# lancer l'image vote
+docker run -d --name builder1 vote:builder
+
+# lancer une session shell dans le container
+# sera utile pour tester vos manipulations!
+docker exec -it builder1 bash
+
+# Supprimer un container et une image
+docker stop builder1
+docker rm builder1
+docker rmi vote:builder
+</code></pre>
+<h2 id="exercice"><a class="header" href="#exercice">Exercice</a></h2>
+<hr />
+<p>Configurer l'image pour que l'utilisateur <code>crafteo</code> soit utilisé pour lancer le processus principal</p>
+<ul>
+<li>Pour créer un utilisateur <code>crafteo</code> sous Linux Alpine:
+<pre><code>
+adduser -S crafteo
+</code></pre>
+</li>
+</ul>
+<p>Il sera nécéssaire d'ajouter le chemin <code>/home/crafteo/.local/bin</code> au <code>PATH</code> du user <code>crafteo</code> pour éxecuter les binaires installés par Python.</p>
+<ul>
+<li>Ajouter une instruction au Dockerfile permettant de définir la variable <code>PATH</code> tel que:
+<pre><code>PATH=$PATH:/home/crafteo/.local/bin
+</code></pre>
+</li>
+</ul>
+<p>Attention: il n'est pas possible de binder un port &lt;1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port <code>8080</code>.</p>
+<hr />
+<p>Ajouter un healthcheck permettant de vérifier le fonctionnement de l'image avec <code>curl localhost:80</code>. Ce healthcheck permettra de vérifier que l'image est bien active si une réponse est renvoyée lors d'un appel à <code>localhost:80</code></p>
+<ul>
+<li>Il peut-être nécéssaire d'installer <code>curl</code> ou d'utiliser une image de base ou il l'est déjà</li>
+<li>Pour installer <code>curl</code> sous Linux Alpine:
+<pre><code>apk add curl
+</code></pre>
+</li>
+</ul>
+<p>Quel est le comportement d'un container Docker en cas de failure du healthcheck?</p>
+<hr />
+<p>Ajouter un argument <strong>utilisable au build de l'image Vote</strong> permettant de spécifier la version de l'image Python de base à utiliser. Utiliser la version <code>3.7-alpine</code> par défaut.</p>
+<p>Par exemple, il devra être possible de lancer les commandes:</p>
+<pre><code># utiliser Python 3.8
+docker build -t vote:builder --build-arg PYTHON_VERSION=3.8-alpine vote
+
+# utiliser Python 3.7 par défaut
+docker build -t vote:builder vote
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="harbor"><a class="header" href="#harbor">Harbor</a></h1>
+<p>Harbor est un outil de registry Docker. Nous allons créer un compte sur https://demo.goharbor.io pour expérimenter les fonctionnalités. </p>
+<h2 id="exercices-14"><a class="header" href="#exercices-14">Exercices</a></h2>
+<p>Après le build locale nos images Example Voting App, pushons les sur une Registry pour les partager !</p>
+<p>Aller sur <a href="https://demo.goharbor.io">demo.goharbor.io</a> et créez-vous un compte (gratuit). </p>
+<ul>
+<li>Créer un projet <code>example-voting-app</code></li>
+<li>Pusher les images Example Voting App dans la registry <code>demo.goharbor.io</code>. Vous devrez:
+<ul>
+<li>Vous authentifier avec <code>docker login</code></li>
+<li>Modifier <code>docker-compose.yml</code> pour spécifier l'URL de Harbor demo pour chaque image</li>
+<li>Rebuilder les images avec le tag pointant vers Harbor demo</li>
+<li>Pusher vos images avec <code>docker compose push</code> ou <code>docker push</code></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker-hub---registry-docker-officielle"><a class="header" href="#docker-hub---registry-docker-officielle">Docker Hub - Registry Docker officielle</a></h1>
+<p>Cette série d'exercice démontrera l'usage de Docker Hub, la registry officielle. Nous allons créer un compte, s'authentifier avec la CLI <code>docker</code> et pusher nos imagees buildées localement directement sur la registry.</p>
+<h2 id="exercices-15"><a class="header" href="#exercices-15">Exercices</a></h2>
+<p>Après le build locale nos images Example Voting App, poussons les sur la Registry!</p>
+<p>Aller sur <a href="https://hub.docker.com/">hub.docker.com</a> et créez vous un compte (gratuit). </p>
+<ul>
+<li>Avec votre compte, créer un repository sur Docker Hub nommé <code>voting-app-vote</code> qui sera utilisé pour héberger l'image <code>vote</code></li>
+<li>Pour pouvoir pusher sur la registry, vous aurez besoin de vous authentifier avec <code>docker login</code> après avoir généré un token
+<ul>
+<li>Sur votre <em>profil &gt; Account settings &gt; Security</em> générer un token</li>
+<li>Utiliser <code>docker login</code> avec votre ID et token pour vous authentifier</li>
+</ul>
+</li>
+</ul>
+<p>Nous avons à présent accès au Docker Hub depuis notre machine</p>
+<ul>
+<li>Modifier <code>docker-compose.yml</code> pour que l'image <code>vote</code>, <code>worker</code> et <code>result</code> buildée soit nommée selon votre registry</li>
+<li>Utiliser <code>docker compose</code> pour pusher l'image <code>vote</code> dans votre domaine Docker Hub</li>
+<li>Utiliser <code>docker compose</code> pour pusher l'image <code>worker</code> dans votre domaine Docker Hub - pour lequel vous n'avez pas créé de repository pour l'instant</li>
+<li>Utiliser la CLI <code>docker</code> pour pusher l'image <code>result</code></li>
+<li>Modifier <code>docker-compose.yml</code> pour tagger les images <code>1.0</code> et pusher toutes les images en une seule commande</li>
+</ul>
+<hr />
+<p>Les images pushées sur la registry peuvent maintenant être utilisée publiquement. Il est aussi possible de les rendre privées, auquel cas il sera obligatoire de s'authentifier sur la registry avant de pouvoir les puller. </p>
+<ul>
+<li>Essayer de puller les images construires et pushées depuis la registry de votre voisin</li>
+<li>Essayer de pusher une image construite par vous-même sur la registry de votre voisin</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="self-hosted-docker-registry"><a class="header" href="#self-hosted-docker-registry">Self-hosted Docker Registry</a></h1>
+<p>Cette série d'exercice nous permettra de déployer notre propre registry Docker.</p>
+<p>Le Registry Docker se déploie sous forme d'un container Docker, par exemple pour déployer une registry sur votre machine écoutant sur le port 8080:</p>
+<pre><code>docker run -d -p 5010:5000 --name registry registry:2
+</code></pre>
+<p>Taggons une image pour la pusher sur notre registry locale:</p>
+<pre><code>docker pull ubuntu:latest
+docker tag ubuntu localhost:5010/ubuntu
+docker push localhost:5010/ubuntu
+</code></pre>
+<p>Pour plus de détails, voir <a href="https://docs.docker.com/registry/deploying/">la documentation officielle Docker</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dockerizer-une-application-depuis-le-code-source"><a class="header" href="#dockerizer-une-application-depuis-le-code-source">Dockerizer une application depuis le code source</a></h1>
+<p>Considérons le contexte suivant:</p>
+<p><em>Vous êtes un opérateur travaillant avec une équipe de développeur. L'équipe de dev viens de vous livrer le code source d'une application web que vous devez déployer sous Docker.</em></p>
+<p><em>L'application est codé en <a href="https://nodejs.org/en/">NodeJS</a> et a pour but d'afficher un message à partir d'un fichier de configuration. Le code source de l'application se trouve à l'emplacement suivant: <a href="https://github.com/PierreBeucher/example-voting-app/tree/master/resources/nodejs-sample">NodeJS app</a></em></p>
+<p>Les développeurs vous donnent les instructions suivantes:</p>
+<ul>
+<li>L'application peut se lancer avec NodeJS 15+</li>
+<li>Pour fonctionner, elle va charger au démarrage le fichier de configuration <code>./config.yaml</code> qui doit lui être mis à disposition. Les devs vous fournissent le fichier de config testé en développement:
+<pre><code class="language-yaml"># Message to print when app is accessed via a web browser
+message: &quot;Test message from dev&quot;
+
+# Host and port on which to bind server
+hostname: 127.0.0.1
+port: 8080
+</code></pre>
+</li>
+<li>Instructions d'utilisation de l'application:
+<pre><code class="language-sh"># Install Node dependencies
+npm install
+
+# Run node app
+node app.js
+
+# App should not respond to web request
+# For example, localhost:8080
+</code></pre>
+</li>
+</ul>
+<p>Vous devez <em>dockeriser</em> l'application:</p>
+<ul>
+<li>Ecrire un <code>Dockerfile</code> permettant de builder l'application</li>
+<li>Ecrire un <code>docker-compose.yml</code> permettant de lancer l'application:
+<ul>
+<li>Assurez-vous de monter un fichier <code>config.yaml</code> dans le container</li>
+</ul>
+</li>
+<li>Lancer l'application et vérifier qu'elle soit joignable</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="https--reverse-proxying-avec-traefik"><a class="header" href="#https--reverse-proxying-avec-traefik">HTTPS &amp; Reverse Proxying avec Traefik</a></h1>
+<p>Ajoutons des configurations TLS (HTTPS) et un reverse proxy (Traefik). </p>
+<ul>
+<li>Explorer le contenu de <code>resources/traefik.yml</code></li>
+<li>Créer un fichier <code>.env</code> (remplacer <code>&lt;you&gt;</code> par votre nom):
+<pre><code>VOTE_URL=vote.&lt;you&gt;.training.crafteo.io
+RESULT_URL=result.&lt;you&gt;.training.crafteo.io
+</code></pre>
+</li>
+<li>Lancer la stack avec les overrides Traefik:
+<pre><code class="language-sh"># make traefik
+docker compose -f docker-compose.yml -f resources/traefik.yml up -d
+</code></pre>
+</li>
+</ul>
+<p><code>vote</code> et <code>result</code> sont maintenant exposés via:</p>
+<ul>
+<li><code>https://vote.&lt;you&gt;.training.crafteo.io</code></li>
+<li><code>https://result.&lt;you&gt;.training.crafteo.io</code></li>
+</ul>
+<p><em>Note: le certificat TLS ne sera pas reconnu par votre navigateur, ils sont fournis par <code>(STAGING) Let's Encrypt</code>, une version de test des certificats <a href="https://letsencrypt.org/">Let's Encrypt</a></em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="docker-quelques-bonnes-pratiques"><a class="header" href="#docker-quelques-bonnes-pratiques">Docker: quelques bonnes pratiques!</a></h1>
+<p>Quelques exercices sur les bonnes pratiques avec Docker: limitation de ressources, healthcheck, logging...</p>
+<p>Les exercices utiliserons le <code>docker-compose.yml</code> suivant:</p>
+<pre><code>version: &quot;3.7&quot;
+
+services:
+  db:
+    container_name: db
+    image: postgres:9.4
+    environment:
+      POSTGRES_USER: &quot;postgres&quot;
+      POSTGRES_PASSWORD: &quot;postgres&quot;
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+
+  result:
+    container_name: result
+    image: crafteo/example-voting-app-result
+    ports:
+      - &quot;5001:80&quot;
+      - &quot;5858:5858&quot;
+
+  vote:
+    container_name: vote
+    image: crafteo/example-voting-app-vote
+    ports:
+      - &quot;5000:80&quot;
+
+  worker:
+    container_name: worker
+    image: crafteo/example-voting-app-worker
+</code></pre>
+<h2 id="exercices-16"><a class="header" href="#exercices-16">Exercices</a></h2>
+<p>Se documenter sur les méthodes de limitation de ressources pour les containers Docker puis modifier le <code>docker-compose.yml</code> pour limiter la consommation de chaque service:</p>
+<ul>
+<li>Maximum de 0.2 CPU et 256Mo RAM par service</li>
+<li>Réservation de 0.1 CPU 128Mo de RAM par service</li>
+</ul>
+<p><em>Note: Docker Compose v3 ignore par défaut les paramètres <code>deploy.resources</code> qui sont réservés à Docker Swarm. Pour les prendre en compte, utiliser <code>--compatibility</code> ou un fichier compose <code>version: &quot;2&quot;</code></em></p>
+<hr />
+<p>Docker permet de configurer des drivers de Logging. Faire quelques recherches sur les configuration de logging possible avec Docker puis:</p>
+<ul>
+<li>Lancer un container <code>fluent/fluentd</code> écoutant montant le volume <code>/tmp/docker-logs:/fluentd/log</code>
+<pre><code>docker run -d --rm --name fluentd -v /tmp/docker-logs:/fluentd/log fluent/fluentd
+</code></pre>
+</li>
+<li>Configurer le service <code>db</code> pour utiliser le driver <code>fluentd</code> afin d'envoyer les logs vers le container <code>fluentd</code>
+<ul>
+<li>Utiliser <code>docker inspect</code> pour obtenir l'IP du container <code>fluentd</code></li>
+<li>Ne pas utiliser le nom du container directement qui ne sera pas reconnu </li>
+</ul>
+</li>
+<li>Lancer la stack ainsi configurée</li>
+</ul>
+<p>Vérifier l'existence des logs dans <code>/tmp/docker-logs</code></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logging-with-docker-example-elk-stack"><a class="header" href="#logging-with-docker-example-elk-stack">Logging with Docker example: ELK Stack</a></h1>
+<p>Déployons une stack ELK (Logstash, Elasticearch, Kibana) que nous pourrons utiliser pour obtenir les logs de nos containers:</p>
+<p><code>resources/elk-stack.yml</code> contiens les configurations d'une stack ELK. La déployer avec:</p>
+<pre><code class="language-sh"># make elk
+docker compose -f resources/elk-stack.yml up -d
+</code></pre>
+<ul>
+<li>L'interface Kibana est accessible via <code>http://&lt;host&gt;:8082</code></li>
+<li>Explorer le contenu de <code>resources/elk-stack.yml</code> pour y trouver les configurations des différents services</li>
+</ul>
+<p>Une fois déployée, lancer une stack de containers avec le logging driver Docker adapté. Utiliser le fichier <code>resources/logging.yml</code>:</p>
+<pre><code class="language-sh"># make logging
+docker compose -f docker-compose.yml -f resources/logging.yml up -d
+</code></pre>
+<p>Aller sur Kibana (<code>&lt;host&gt;:8082</code>) et:</p>
+<ul>
+<li>Cliquer sur <em>Discover</em> (bouton avec la boussole)</li>
+<li>Vous serez redirigé sur la page <em>Create index pattern</em>. Entrez <code>logstash-*</code> et cliquer sur <em>Next step</em></li>
+<li>Choisissez <code>@timestamp</code> comme <em>Time filter field</em> et confirmer avec <em>Create index pattern</em></li>
+<li>Cliquer à nouveau sur <em>Discover</em> pour accéder aux logs </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="monitoring-example-prometheus--grafana-stack"><a class="header" href="#monitoring-example-prometheus--grafana-stack">Monitoring example: Prometheus + Grafana stack</a></h1>
+<p>Déployons une stack Prometheus + Grafana que nous pourrons utiliser pour obtenir des metrics sur nos containers (CPU, RAM, etc.) et configurer des alertes. </p>
+<p>Cloner le repository Git Prometheus:</p>
+<pre><code>git clone https://github.com/PierreBeucher/prometheus.git
+</code></pre>
+<p>Lancer la stack Docker Compose:</p>
+<pre><code class="language-sh">cd prometheus
+docker compose up -d
+</code></pre>
+<ul>
+<li>L'interface Grafana est accessible via <code>http://&lt;host&gt;:3000</code> (login: <code>admin</code>, password: <code>Prometheus2023</code>)</li>
+<li>Explorer le contenu de <code>docker-compose.yml</code> pour y trouver les configurations des différents services</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configuration-avancées-du-docker-daemon"><a class="header" href="#configuration-avancées-du-docker-daemon">Configuration avancées du Docker Daemon</a></h1>
+<p>Suite à l'installation de Docker sur Linux:</p>
+<ul>
+<li>Docker est installé comme service Linux (<code>systemd</code>)</li>
+<li>La CLI <code>dockerd</code> est utilisé pour lancer le Docker daemon</li>
+<li>Il est possible d'overrider les configurations du daemon via des options CLI au lancement du service ou via un fichier <code>/etc/docker/daemon.json</code> lu par <code>dockerd</code> par défaut</li>
+</ul>
+<p>Quelques infos et rappels:</p>
+<ul>
+<li>Le <strong>Docker daemon</strong> est aussi appelé <strong>Docker host</strong> ou <strong>Docker server</strong></li>
+<li>Le Docker client (CLI <code>docker</code>) communique avec le client via API REST en utilisant la socket <code>/var/run/docker.sock</code> par défaut. Le client peut aussi contacter directement une adresse tel que <code>tcp://127.0.0.1:2375</code> ou <code>tcp://198.265.78.1:2376</code> en fonction des configurations du Daemon</li>
+<li>Memo de commandes <code>systemctl</code> utile pour manipuler les services Linux:
+<pre><code># restart, stop, get status of docker
+sudo systemctl [restart|stop|status|...] docker
+
+# edit systemd file override
+# or edit file directly at /lib/systemd/system/docker.service
+sudo systemctl edit docker 
+
+# reload after edit
+sudo systemctl daemon-reload
+
+# see newest service logs
+sudo journalctl -u docker -r
+</code></pre>
+</li>
+</ul>
+<h1 id="exercices-17"><a class="header" href="#exercices-17">Exercices</a></h1>
+<p>Créer un fichier <code>etc/docker/daemon.json</code> et y configuer les options suivantes pour le Docker daemon:</p>
+<ul>
+<li>Activer le mode debug</li>
+<li>Configurer le daemon Docker pour écouter sur <code>127.0.0.1:2375</code></li>
+<li>Configurer le port binding pour écouter sur <code>127.0.0.1</code> par défaut
+<ul>
+<li>sinon, un port binding avec <code>docker run -p 80:80 ...</code> écoutera sur <code>0.0.0.0:80</code> par défaut, ce qui peut représenter un risque de sécurité</li>
+</ul>
+</li>
+<li>Ajouter le DNS <code>8.8.8.8</code> </li>
+</ul>
+<p>Votre Docker daemon écoute maintenant sur <code>127.0.0.1:2375</code> et n'utilisera plus la socket <code>/var/run/docker.sock</code>. La CLI Docker utilisant cette socket par défaut, des configurations supplémentaires seront requises en utilisant la CLI <code>docker</code>. </p>
+<p>Redémarrer le service Docker et tester: </p>
+<ul>
+<li>Lancer un container exposant un port et vérifier que l'adresse d'écoute est bien <code>127.0.0.1</code></li>
+<li>Au sein du container, vérifier que le DNS <code>8.8.8.8</code> est bien utilisé</li>
+<li>Afficher les logs du Daemon</li>
+</ul>
+<hr />
+<p>Certains déploiements mettent à disposition un daemon Docker accessible à distance. (i.e. le daemon Docker est installé sur une machine différente du client Docker)</p>
+<p>Cela peut-être utile dans certaines situations, par exemple pour partager un daemon avec une équipe de développeur ou un système de CI et accéler le build d'image: le cache de build pourra être réutilisé facilement et ainsi réduire le temps de build (pratique dans certains cas ou un build sans cache dure 20+ min et avec cache seulement quelques secondes!)</p>
+<p>Un tel déploiement demande de sécuriser les communications entre le client Docker et le daemon. Utilisant HTTP par défaut, il faut y configurer TLS pour passer en HTTPS. </p>
+<p>Configurer le daemon Docker pour:</p>
+<ul>
+<li>écouter sur <code>127.0.0.1:2376</code></li>
+<li>Configurer l'authentification du serveur en TLS - un client pourra ainsi authentifier le serveur lors de son utilisation (similaire à la connection à un site web en HTTPS)</li>
+<li>(Optionnel) Configurer l'authentification du client en TLS - le client devra s'authentifier auprès du serveur avec un certificate pour pouvoir utiliser le daemon</li>
+</ul>
+<p>Ce setup s'appelle une double-authentification TLS. Pour ce besoin il faut un certificat et une clé pour être utilisé par le Daemon (idem pour le client):</p>
+<ul>
+<li>Le client va &quot;truster&quot; un CA (certificate Authority) et le daemon fournira un certificat signé par ce CA pour s'authentifier (c'est exactement le même processus en se connectant à un site web en HTTPS)</li>
+<li>Le Daemon va &quot;truster&quot; un CA (généralement le même), et le client devra fournir un certificat signé par ce CA pour être autorisé par le daemon</li>
+</ul>
+<p>Dans le cadre de l'exercice nous pourrons générer nos propre CA et certificats. Pour générer une clé et un certificat autosigné:</p>
+<pre><code># generate CA cert and key
+openssl genrsa -out ca.key 4096
+openssl req  -nodes -new -x509  -keyout ca.key -out ca.cert
+
+# Generate key for daemon
+openssl genrsa -out daemon.key 4096
+
+# Generate CSR for daemon
+openssl req -new -sha256 -key daemon.key -out daemon.csr
+
+# Generate cert for daemon signed by CA
+openssl x509 -req -in daemon.csr -CA ca.cert -CAkey ca.key -CAcreateserial -out daemon.cert -days 500
+
+# same for client: key, csr and cert
+</code></pre>
+<p>Points d'attention:</p>
+<ul>
+<li>Par convention, le port d'écoute de Docker est <code>2375</code> sans TLS et <code>2376</code> avec TLS. </li>
+<li>Le client aura besoin de configuration supplémentaire pour activer TLS et vérifier l'authenticité du serveur</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

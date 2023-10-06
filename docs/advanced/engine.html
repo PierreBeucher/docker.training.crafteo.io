@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Configuration du daemon - Crafteo - Docker Training</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../intro/base.html"><strong aria-hidden="true">1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../intro/port.html"><strong aria-hidden="true">2.</strong> Exposition de ports</a></li><li class="chapter-item expanded "><a href="../intro/misc.html"><strong aria-hidden="true">3.</strong> Quelques manipulations...</a></li><li class="chapter-item expanded "><a href="../intro/exec.html"><strong aria-hidden="true">4.</strong> Commandes dans un container</a></li><li class="chapter-item expanded "><a href="../intro/fs.html"><strong aria-hidden="true">5.</strong> Système de fichier</a></li><li class="chapter-item expanded "><a href="../intro/bind.html"><strong aria-hidden="true">6.</strong> Bind Mount</a></li><li class="chapter-item expanded "><a href="../intro/volume.html"><strong aria-hidden="true">7.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="../intro/build.html"><strong aria-hidden="true">8.</strong> Build d'images</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker Compose</li><li class="chapter-item expanded "><a href="../compose/base.html"><strong aria-hidden="true">9.</strong> Base</a></li><li class="chapter-item expanded "><a href="../compose/build.html"><strong aria-hidden="true">10.</strong> Build</a></li><li class="chapter-item expanded "><a href="../compose/cli.html"><strong aria-hidden="true">11.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../compose/advanced.html"><strong aria-hidden="true">12.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Networking</li><li class="chapter-item expanded "><a href="../network/bridge.html"><strong aria-hidden="true">13.</strong> Bridge</a></li><li class="chapter-item expanded "><a href="../network/bridge-advanced.html"><strong aria-hidden="true">14.</strong> Bridge advanced</a></li><li class="chapter-item expanded "><a href="../network/host.html"><strong aria-hidden="true">15.</strong> Host</a></li><li class="chapter-item expanded affix "><li class="part-title">Image & Build</li><li class="chapter-item expanded "><a href="../img/cli.html"><strong aria-hidden="true">16.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../img/build.html"><strong aria-hidden="true">17.</strong> Build basic</a></li><li class="chapter-item expanded "><a href="../img/build-optim.html"><strong aria-hidden="true">18.</strong> Build optimization</a></li><li class="chapter-item expanded "><a href="../img/entrypoint.html"><strong aria-hidden="true">19.</strong> Entrypoint</a></li><li class="chapter-item expanded "><a href="../img/advanced.html"><strong aria-hidden="true">20.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Registry</li><li class="chapter-item expanded "><a href="../registry/harbor.html"><strong aria-hidden="true">21.</strong> Harbor</a></li><li class="chapter-item expanded "><a href="../registry/hub.html"><strong aria-hidden="true">22.</strong> Docker Hub</a></li><li class="chapter-item expanded "><a href="../registry/private.html"><strong aria-hidden="true">23.</strong> Registry privée</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker en Production et concepts avancés</li><li class="chapter-item expanded "><a href="../advanced/dockerize-from-source.html"><strong aria-hidden="true">24.</strong> Dockerizer une application</a></li><li class="chapter-item expanded "><a href="../advanced/traefik.html"><strong aria-hidden="true">25.</strong> HTTPS and Reverse Proxy (Traefik)</a></li><li class="chapter-item expanded "><a href="../advanced/best-practices.html"><strong aria-hidden="true">26.</strong> Bonnes pratiques</a></li><li class="chapter-item expanded "><a href="../advanced/logging.html"><strong aria-hidden="true">27.</strong> Logging (ELK Stack)</a></li><li class="chapter-item expanded "><a href="../advanced/monitoring.html"><strong aria-hidden="true">28.</strong> Monitoring (Prometheus)</a></li><li class="chapter-item expanded "><a href="../advanced/engine.html" class="active"><strong aria-hidden="true">29.</strong> Configuration du daemon</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Crafteo - Docker Training</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/PierreBeucher/docker.training.crafteo.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="configuration-avancées-du-docker-daemon"><a class="header" href="#configuration-avancées-du-docker-daemon">Configuration avancées du Docker Daemon</a></h1>
+<p>Suite à l'installation de Docker sur Linux:</p>
+<ul>
+<li>Docker est installé comme service Linux (<code>systemd</code>)</li>
+<li>La CLI <code>dockerd</code> est utilisé pour lancer le Docker daemon</li>
+<li>Il est possible d'overrider les configurations du daemon via des options CLI au lancement du service ou via un fichier <code>/etc/docker/daemon.json</code> lu par <code>dockerd</code> par défaut</li>
+</ul>
+<p>Quelques infos et rappels:</p>
+<ul>
+<li>Le <strong>Docker daemon</strong> est aussi appelé <strong>Docker host</strong> ou <strong>Docker server</strong></li>
+<li>Le Docker client (CLI <code>docker</code>) communique avec le client via API REST en utilisant la socket <code>/var/run/docker.sock</code> par défaut. Le client peut aussi contacter directement une adresse tel que <code>tcp://127.0.0.1:2375</code> ou <code>tcp://198.265.78.1:2376</code> en fonction des configurations du Daemon</li>
+<li>Memo de commandes <code>systemctl</code> utile pour manipuler les services Linux:
+<pre><code># restart, stop, get status of docker
+sudo systemctl [restart|stop|status|...] docker
+
+# edit systemd file override
+# or edit file directly at /lib/systemd/system/docker.service
+sudo systemctl edit docker 
+
+# reload after edit
+sudo systemctl daemon-reload
+
+# see newest service logs
+sudo journalctl -u docker -r
+</code></pre>
+</li>
+</ul>
+<h1 id="exercices"><a class="header" href="#exercices">Exercices</a></h1>
+<p>Créer un fichier <code>etc/docker/daemon.json</code> et y configuer les options suivantes pour le Docker daemon:</p>
+<ul>
+<li>Activer le mode debug</li>
+<li>Configurer le daemon Docker pour écouter sur <code>127.0.0.1:2375</code></li>
+<li>Configurer le port binding pour écouter sur <code>127.0.0.1</code> par défaut
+<ul>
+<li>sinon, un port binding avec <code>docker run -p 80:80 ...</code> écoutera sur <code>0.0.0.0:80</code> par défaut, ce qui peut représenter un risque de sécurité</li>
+</ul>
+</li>
+<li>Ajouter le DNS <code>8.8.8.8</code> </li>
+</ul>
+<p>Votre Docker daemon écoute maintenant sur <code>127.0.0.1:2375</code> et n'utilisera plus la socket <code>/var/run/docker.sock</code>. La CLI Docker utilisant cette socket par défaut, des configurations supplémentaires seront requises en utilisant la CLI <code>docker</code>. </p>
+<p>Redémarrer le service Docker et tester: </p>
+<ul>
+<li>Lancer un container exposant un port et vérifier que l'adresse d'écoute est bien <code>127.0.0.1</code></li>
+<li>Au sein du container, vérifier que le DNS <code>8.8.8.8</code> est bien utilisé</li>
+<li>Afficher les logs du Daemon</li>
+</ul>
+<hr />
+<p>Certains déploiements mettent à disposition un daemon Docker accessible à distance. (i.e. le daemon Docker est installé sur une machine différente du client Docker)</p>
+<p>Cela peut-être utile dans certaines situations, par exemple pour partager un daemon avec une équipe de développeur ou un système de CI et accéler le build d'image: le cache de build pourra être réutilisé facilement et ainsi réduire le temps de build (pratique dans certains cas ou un build sans cache dure 20+ min et avec cache seulement quelques secondes!)</p>
+<p>Un tel déploiement demande de sécuriser les communications entre le client Docker et le daemon. Utilisant HTTP par défaut, il faut y configurer TLS pour passer en HTTPS. </p>
+<p>Configurer le daemon Docker pour:</p>
+<ul>
+<li>écouter sur <code>127.0.0.1:2376</code></li>
+<li>Configurer l'authentification du serveur en TLS - un client pourra ainsi authentifier le serveur lors de son utilisation (similaire à la connection à un site web en HTTPS)</li>
+<li>(Optionnel) Configurer l'authentification du client en TLS - le client devra s'authentifier auprès du serveur avec un certificate pour pouvoir utiliser le daemon</li>
+</ul>
+<p>Ce setup s'appelle une double-authentification TLS. Pour ce besoin il faut un certificat et une clé pour être utilisé par le Daemon (idem pour le client):</p>
+<ul>
+<li>Le client va &quot;truster&quot; un CA (certificate Authority) et le daemon fournira un certificat signé par ce CA pour s'authentifier (c'est exactement le même processus en se connectant à un site web en HTTPS)</li>
+<li>Le Daemon va &quot;truster&quot; un CA (généralement le même), et le client devra fournir un certificat signé par ce CA pour être autorisé par le daemon</li>
+</ul>
+<p>Dans le cadre de l'exercice nous pourrons générer nos propre CA et certificats. Pour générer une clé et un certificat autosigné:</p>
+<pre><code># generate CA cert and key
+openssl genrsa -out ca.key 4096
+openssl req  -nodes -new -x509  -keyout ca.key -out ca.cert
+
+# Generate key for daemon
+openssl genrsa -out daemon.key 4096
+
+# Generate CSR for daemon
+openssl req -new -sha256 -key daemon.key -out daemon.csr
+
+# Generate cert for daemon signed by CA
+openssl x509 -req -in daemon.csr -CA ca.cert -CAkey ca.key -CAcreateserial -out daemon.cert -days 500
+
+# same for client: key, csr and cert
+</code></pre>
+<p>Points d'attention:</p>
+<ul>
+<li>Par convention, le port d'écoute de Docker est <code>2375</code> sans TLS et <code>2376</code> avec TLS. </li>
+<li>Le client aura besoin de configuration supplémentaire pour activer TLS et vérifier l'authenticité du serveur</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../advanced/monitoring.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../advanced/monitoring.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
