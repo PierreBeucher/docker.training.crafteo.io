@@ -1,5 +1,7 @@
 # Summary
 
+[Crafteo - Docker Training](welcome.md)
+
 # Introduction
 
 - [Basics](intro/base.md)
