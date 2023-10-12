@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Registry privée - Crafteo - Docker Training</title>
+        <title>Volumes - Crafteo - Docker Training</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../welcome.html">Crafteo - Docker Training</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../intro/base.html"><strong aria-hidden="true">1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../intro/port.html"><strong aria-hidden="true">2.</strong> Exposition de ports</a></li><li class="chapter-item expanded "><a href="../intro/misc.html"><strong aria-hidden="true">3.</strong> Quelques manipulations...</a></li><li class="chapter-item expanded "><a href="../intro/exec.html"><strong aria-hidden="true">4.</strong> Commandes dans un container</a></li><li class="chapter-item expanded "><a href="../intro/fs.html"><strong aria-hidden="true">5.</strong> Système de fichier</a></li><li class="chapter-item expanded "><a href="../intro/bind.html"><strong aria-hidden="true">6.</strong> Bind Mount</a></li><li class="chapter-item expanded "><a href="../intro/volume.html"><strong aria-hidden="true">7.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="../intro/build.html"><strong aria-hidden="true">8.</strong> Build d'images</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker Compose</li><li class="chapter-item expanded "><a href="../compose/base.html"><strong aria-hidden="true">9.</strong> Base</a></li><li class="chapter-item expanded "><a href="../compose/build.html"><strong aria-hidden="true">10.</strong> Build</a></li><li class="chapter-item expanded "><a href="../compose/cli.html"><strong aria-hidden="true">11.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../compose/advanced.html"><strong aria-hidden="true">12.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Networking</li><li class="chapter-item expanded "><a href="../network/bridge.html"><strong aria-hidden="true">13.</strong> Bridge</a></li><li class="chapter-item expanded "><a href="../network/bridge-advanced.html"><strong aria-hidden="true">14.</strong> Bridge advanced</a></li><li class="chapter-item expanded "><a href="../network/host.html"><strong aria-hidden="true">15.</strong> Host</a></li><li class="chapter-item expanded affix "><li class="part-title">Data</li><li class="chapter-item expanded "><a href="../data/bind.html"><strong aria-hidden="true">16.</strong> Bind mount</a></li><li class="chapter-item expanded "><a href="../data/volume.html"><strong aria-hidden="true">17.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="../data/tmpfs.html"><strong aria-hidden="true">18.</strong> tmpfs</a></li><li class="chapter-item expanded "><a href="../data/container.html"><strong aria-hidden="true">19.</strong> Container layer</a></li><li class="chapter-item expanded "><a href="../data/copy.html"><strong aria-hidden="true">20.</strong> Copy</a></li><li class="chapter-item expanded affix "><li class="part-title">Image & Build</li><li class="chapter-item expanded "><a href="../img/cli.html"><strong aria-hidden="true">21.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../img/build.html"><strong aria-hidden="true">22.</strong> Build basic</a></li><li class="chapter-item expanded "><a href="../img/build-optim.html"><strong aria-hidden="true">23.</strong> Build optimization</a></li><li class="chapter-item expanded "><a href="../img/entrypoint.html"><strong aria-hidden="true">24.</strong> Entrypoint</a></li><li class="chapter-item expanded "><a href="../img/advanced.html"><strong aria-hidden="true">25.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Registry</li><li class="chapter-item expanded "><a href="../registry/harbor.html"><strong aria-hidden="true">26.</strong> Harbor</a></li><li class="chapter-item expanded "><a href="../registry/hub.html"><strong aria-hidden="true">27.</strong> Docker Hub</a></li><li class="chapter-item expanded "><a href="../registry/private.html" class="active"><strong aria-hidden="true">28.</strong> Registry privée</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker en Production et concepts avancés</li><li class="chapter-item expanded "><a href="../advanced/dockerize-from-source.html"><strong aria-hidden="true">29.</strong> Dockerizer une application</a></li><li class="chapter-item expanded "><a href="../advanced/traefik.html"><strong aria-hidden="true">30.</strong> HTTPS and Reverse Proxy (Traefik)</a></li><li class="chapter-item expanded "><a href="../advanced/best-practices.html"><strong aria-hidden="true">31.</strong> Bonnes pratiques</a></li><li class="chapter-item expanded "><a href="../advanced/logging.html"><strong aria-hidden="true">32.</strong> Logging (ELK Stack)</a></li><li class="chapter-item expanded "><a href="../advanced/monitoring.html"><strong aria-hidden="true">33.</strong> Monitoring (Prometheus)</a></li><li class="chapter-item expanded "><a href="../advanced/engine.html"><strong aria-hidden="true">34.</strong> Configuration du daemon</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../welcome.html">Crafteo - Docker Training</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../intro/base.html"><strong aria-hidden="true">1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../intro/port.html"><strong aria-hidden="true">2.</strong> Exposition de ports</a></li><li class="chapter-item expanded "><a href="../intro/misc.html"><strong aria-hidden="true">3.</strong> Quelques manipulations...</a></li><li class="chapter-item expanded "><a href="../intro/exec.html"><strong aria-hidden="true">4.</strong> Commandes dans un container</a></li><li class="chapter-item expanded "><a href="../intro/fs.html"><strong aria-hidden="true">5.</strong> Système de fichier</a></li><li class="chapter-item expanded "><a href="../intro/bind.html"><strong aria-hidden="true">6.</strong> Bind Mount</a></li><li class="chapter-item expanded "><a href="../intro/volume.html"><strong aria-hidden="true">7.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="../intro/build.html"><strong aria-hidden="true">8.</strong> Build d'images</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker Compose</li><li class="chapter-item expanded "><a href="../compose/base.html"><strong aria-hidden="true">9.</strong> Base</a></li><li class="chapter-item expanded "><a href="../compose/build.html"><strong aria-hidden="true">10.</strong> Build</a></li><li class="chapter-item expanded "><a href="../compose/cli.html"><strong aria-hidden="true">11.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../compose/advanced.html"><strong aria-hidden="true">12.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Networking</li><li class="chapter-item expanded "><a href="../network/bridge.html"><strong aria-hidden="true">13.</strong> Bridge</a></li><li class="chapter-item expanded "><a href="../network/bridge-advanced.html"><strong aria-hidden="true">14.</strong> Bridge advanced</a></li><li class="chapter-item expanded "><a href="../network/host.html"><strong aria-hidden="true">15.</strong> Host</a></li><li class="chapter-item expanded affix "><li class="part-title">Data</li><li class="chapter-item expanded "><a href="../data/bind.html"><strong aria-hidden="true">16.</strong> Bind mount</a></li><li class="chapter-item expanded "><a href="../data/volume.html" class="active"><strong aria-hidden="true">17.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="../data/tmpfs.html"><strong aria-hidden="true">18.</strong> tmpfs</a></li><li class="chapter-item expanded "><a href="../data/container.html"><strong aria-hidden="true">19.</strong> Container layer</a></li><li class="chapter-item expanded "><a href="../data/copy.html"><strong aria-hidden="true">20.</strong> Copy</a></li><li class="chapter-item expanded affix "><li class="part-title">Image & Build</li><li class="chapter-item expanded "><a href="../img/cli.html"><strong aria-hidden="true">21.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../img/build.html"><strong aria-hidden="true">22.</strong> Build basic</a></li><li class="chapter-item expanded "><a href="../img/build-optim.html"><strong aria-hidden="true">23.</strong> Build optimization</a></li><li class="chapter-item expanded "><a href="../img/entrypoint.html"><strong aria-hidden="true">24.</strong> Entrypoint</a></li><li class="chapter-item expanded "><a href="../img/advanced.html"><strong aria-hidden="true">25.</strong> Advanced</a></li><li class="chapter-item expanded affix "><li class="part-title">Registry</li><li class="chapter-item expanded "><a href="../registry/harbor.html"><strong aria-hidden="true">26.</strong> Harbor</a></li><li class="chapter-item expanded "><a href="../registry/hub.html"><strong aria-hidden="true">27.</strong> Docker Hub</a></li><li class="chapter-item expanded "><a href="../registry/private.html"><strong aria-hidden="true">28.</strong> Registry privée</a></li><li class="chapter-item expanded affix "><li class="part-title">Docker en Production et concepts avancés</li><li class="chapter-item expanded "><a href="../advanced/dockerize-from-source.html"><strong aria-hidden="true">29.</strong> Dockerizer une application</a></li><li class="chapter-item expanded "><a href="../advanced/traefik.html"><strong aria-hidden="true">30.</strong> HTTPS and Reverse Proxy (Traefik)</a></li><li class="chapter-item expanded "><a href="../advanced/best-practices.html"><strong aria-hidden="true">31.</strong> Bonnes pratiques</a></li><li class="chapter-item expanded "><a href="../advanced/logging.html"><strong aria-hidden="true">32.</strong> Logging (ELK Stack)</a></li><li class="chapter-item expanded "><a href="../advanced/monitoring.html"><strong aria-hidden="true">33.</strong> Monitoring (Prometheus)</a></li><li class="chapter-item expanded "><a href="../advanced/engine.html"><strong aria-hidden="true">34.</strong> Configuration du daemon</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -169,27 +169,59 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="self-hosted-docker-registry"><a class="header" href="#self-hosted-docker-registry">Self-hosted Docker Registry</a></h1>
-<p>Cette série d'exercice nous permettra de déployer notre propre registry Docker.</p>
-<p>Le Registry Docker se déploie sous forme d'un container Docker, par exemple pour déployer une registry sur votre machine écoutant sur le port 8080:</p>
-<pre><code>docker run -d -p 5010:5000 --name registry registry:2
+                        <h1 id="docker-volumes"><a class="header" href="#docker-volumes">Docker Volumes</a></h1>
+<p>Exercices sur les <strong>volumes</strong> Docker. Quelques rappels: </p>
+<pre><code># as usual
+docker volume --help
+docker volume create --help
+
+# create a volume named myvolume
+docker volume create myvolume
+
+# run a container and attach a volume
+docker run -v myvolume:/data some_image
 </code></pre>
-<p>Taggons une image pour la pusher sur notre registry locale:</p>
-<pre><code>docker pull ubuntu:latest
-docker tag ubuntu localhost:5010/ubuntu
-docker push localhost:5010/ubuntu
-</code></pre>
-<p>Pour plus de détails, voir <a href="https://docs.docker.com/registry/deploying/">la documentation officielle Docker</a></p>
+<h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
+<p><em>Besoin: vous souhaitez gérer les données Postgres via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup</em></p>
+<p>Modifier <code>docker-compose.yml</code> pour:</p>
+<ul>
+<li>configurer un volume <code>psqsl-data</code> et</li>
+<li>monter ce volume à l'emplacement <code>/var/lib/postgresql/data</code> du service <code>db</code></li>
+<li>redémarrer le service <code>db</code> pour prendre en compte les modifications</li>
+</ul>
+<p>Une fois effectué:</p>
+<ul>
+<li>Lister les volumes existants et trouver le volume créé par Docker Compose</li>
+<li>Trouver l'emplacement des données du volume sur le disque local</li>
+</ul>
+<hr />
+<p><em>Besoin: vous souhaitez gérer les données Redis via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup. Cependant vous ne souhaitez pas gérer le volume Redis sur la stack mais le créer indépendemment.</em></p>
+<ul>
+<li>créer un volume <code>redis-data</code> avec la CLI Docker
+<ul>
+<li>Pour l'exercice, on considérera que ce volume contiens nos données :)</li>
+</ul>
+</li>
+<li>modifier <code>docker-compose.yml</code> pour:
+<ul>
+<li>configurer un volume <code>redis-data</code> <strong>externe</strong> </li>
+<li>monter ce volume à l'emplacement <code>/data</code></li>
+<li>redémarrer le service <code>redis</code> pour prendre en compte les modifications </li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>Cleanup: supprimer la stack Docker Compose et les volumes utilisés par Redis et Postgre </p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../registry/hub.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../data/bind.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../advanced/dockerize-from-source.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../data/tmpfs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -199,11 +231,11 @@ docker push localhost:5010/ubuntu
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../registry/hub.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../data/bind.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../advanced/dockerize-from-source.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../data/tmpfs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

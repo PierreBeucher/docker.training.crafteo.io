@@ -26,6 +26,14 @@
 - [Bridge advanced](network/bridge-advanced.md)
 - [Host](network/host.md)
 
+# Data 
+
+- [Bind mount](data/bind.md)
+- [Volumes](data/volume.md)
+- [tmpfs](data/tmpfs.md)
+- [Container layer](data/container.md)
+- [Copy](data/copy.md)
+
 # Image & Build
 
 - [CLI](img/cli.md)
