@@ -35,8 +35,8 @@ Vérifier la connectivité entre le container `vote` et  `result`
     $ curl result
 
     # Check DNS resolution
-    $ getent result
-    $ getent worker
+    $ getent hosts result
+    $ getent hosts worker
     ```
 
 ---
