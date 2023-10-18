@@ -431,7 +431,7 @@ cd example-voting-app
 <h3 id="configuration-de-services-docker-compose"><a class="header" href="#configuration-de-services-docker-compose">Configuration de services Docker Compose</a></h3>
 <ul>
 <li>Modifier le service Redis pour:</li>
-<li>Utiliser l'image <code>redis:8.0-alpine</code></li>
+<li>Utiliser l'image <code>redis:7.2.1</code></li>
 <li>Nommer le container <code>my_redis</code> au démarrage</li>
 <li>Ajouter une variable d'environnement <code>FOO=BAR</code> au runtime du container</li>
 </ul>
@@ -567,8 +567,8 @@ FLASK_ENV=development
 $ curl result
 
 # Check DNS resolution
-$ getent result
-$ getent worker
+$ getent hosts result
+$ getent hosts worker
 </code></pre>
 </li>
 </ul>
