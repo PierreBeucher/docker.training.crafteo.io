@@ -635,9 +635,9 @@ $ getent hosts worker
 <h1 id="exercices-12"><a class="header" href="#exercices-12">Exercices</a></h1>
 <p><em>Besoin: afin de conserver les données PostgreSQL sur la machine locale même si le container est supprimé et pour faciliter le processus de backup, vous cherchez une solution pour que les données de la BDD soient persistées. Un <strong>Bind Mount</strong> vous parait une bonne solution.</em></p>
 <ul>
-<li>Configurer le service <code>db</code> pour monter le dossier local <code>/home/ubuntu/db-data</code> à l'emplacement <code>/var/lib/postgresql/data</code> </li>
+<li>Configurer le service <code>db</code> pour monter le dossier local <code>/home/docker/db-data</code> à l'emplacement <code>/var/lib/postgresql/data</code> </li>
 <li>Redémarrer le container de la stack pour prendre en compte les configurations</li>
-<li>Observer le contenu du dossier <code>/home/ubuntu/db-data</code></li>
+<li>Observer le contenu du dossier <code>/home/docker/db-data</code></li>
 </ul>
 <hr />
 <p><em>Besoin: vous devez configurer plus finement la base de donnée via un fichier de configuration <code>postgresql.conf</code> fourni par votre administrateur système et qui doit être utilisé par la BDD:</em></p>
