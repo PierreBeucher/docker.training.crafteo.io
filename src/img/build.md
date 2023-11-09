@@ -27,7 +27,7 @@ Nous allons faire en sorte de builder notre propre service Vote selon les contra
 - Utiliser **Python 3.9**
   - Chercher sur https://hub.docker.com/ une image Python correspondante
 - L'ensemble du code source du service (fichiers dans `/vote`) doit être **copiée dans l'image Docker**
-- L'image Docker doit contenir l'ensemble du service. Pour **intaller les dépendences**, utiliser la commande
+- L'image Docker doit contenir l'ensemble du service. Pour **installer les dépendences**, utiliser la commande
    ```
    pip install -r requirements.txt
    ```
