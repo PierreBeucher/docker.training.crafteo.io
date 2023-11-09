@@ -22,11 +22,12 @@ Isolons les containers de notre stack:
 - Configurer les réseaux `vote-net` et `result-net`
 - Isoler `vote`, `redis`, `worker` dans le réseau `vote-net`
 - Isoler `worker`, `db` et `result` dans le réseau `result-net`
+- _Note: le container `worker` sera dans 2 réseaux: `vote-net` et `result-net`_
 
 Seul `worker` pourra communiquer avec chaque container. `vote` / `redis` et `db` / `result` seront mutuellement isolés dans leurs réseaux respectifs. 
 
 
-Vérifier la connectivité entre le container `vote` et  `result`
+Vérifier la *non-connectivité* entre le container `vote` et  `result`
 - Lancer une session shell sur `vote`  et essayer de joindre `result`
     ```sh
     docker exec -it vote sh
