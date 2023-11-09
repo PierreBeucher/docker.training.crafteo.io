@@ -556,9 +556,10 @@ FLASK_ENV=development
 <li>Configurer les réseaux <code>vote-net</code> et <code>result-net</code></li>
 <li>Isoler <code>vote</code>, <code>redis</code>, <code>worker</code> dans le réseau <code>vote-net</code></li>
 <li>Isoler <code>worker</code>, <code>db</code> et <code>result</code> dans le réseau <code>result-net</code></li>
+<li><em>Note: le container <code>worker</code> sera dans 2 réseaux: <code>vote-net</code> et <code>result-net</code></em></li>
 </ul>
 <p>Seul <code>worker</code> pourra communiquer avec chaque container. <code>vote</code> / <code>redis</code> et <code>db</code> / <code>result</code> seront mutuellement isolés dans leurs réseaux respectifs. </p>
-<p>Vérifier la connectivité entre le container <code>vote</code> et  <code>result</code></p>
+<p>Vérifier la <em>non-connectivité</em> entre le container <code>vote</code> et  <code>result</code></p>
 <ul>
 <li>Lancer une session shell sur <code>vote</code>  et essayer de joindre <code>result</code>
 <pre><code class="language-sh">docker exec -it vote sh
