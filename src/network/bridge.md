@@ -32,6 +32,10 @@ Vérifier la *non-connectivité* entre le container `vote` et  `result`
     ```sh
     docker exec -it vote sh
 
+    # Use 'apk add curl' 
+    # or 'apt update && apt install curl'
+    # to install curl 
+
     # Try to connect
     $ curl result
 
