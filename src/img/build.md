@@ -26,7 +26,8 @@ services:
 
 Nous allons faire en sorte de builder notre propre service Vote selon les contraintes suivantes:
 
-- Utiliser **Python 3.9**
+- Utiliser **Python 3.9** ou plus récente 
+
   - Chercher sur [Docker Hub](https://hub.docker.com/) une image Python correspondante
 - L'ensemble du code source du service (fichiers dans `/vote`) doit être **copiée dans l'image Docker**
 - L'image Docker doit contenir l'ensemble du service. Pour **installer les dépendences**, utiliser la commande
