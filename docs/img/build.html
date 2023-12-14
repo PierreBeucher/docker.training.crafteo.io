@@ -191,20 +191,26 @@
 </code></pre>
 <p>Nous allons faire en sorte de builder notre propre service Vote selon les contraintes suivantes:</p>
 <ul>
-<li>Utiliser <strong>Python 3.9</strong>
+<li>
+<p>Utiliser <strong>Python 3.9</strong> ou plus récente </p>
 <ul>
 <li>Chercher sur <a href="https://hub.docker.com/">Docker Hub</a> une image Python correspondante</li>
 </ul>
 </li>
-<li>L'ensemble du code source du service (fichiers dans <code>/vote</code>) doit être <strong>copiée dans l'image Docker</strong></li>
-<li>L'image Docker doit contenir l'ensemble du service. Pour <strong>installer les dépendences</strong>, utiliser la commande
+<li>
+<p>L'ensemble du code source du service (fichiers dans <code>/vote</code>) doit être <strong>copiée dans l'image Docker</strong></p>
+</li>
+<li>
+<p>L'image Docker doit contenir l'ensemble du service. Pour <strong>installer les dépendences</strong>, utiliser la commande</p>
 <pre><code>pip install -r requirements.txt
 </code></pre>
 </li>
-<li>La commande qui doit être lancée au démarrage du container est:
+<li>
+<p>La commande qui doit être lancée au démarrage du container est:</p>
 <pre><code>gunicorn app:app -b 0.0.0.0:80
 </code></pre>
-et doit être <strong>éxecutée depuis le dossier contenant l'ensemble du code source</strong> du service (le service exposera le port 80 par défaut une fois lancé)</li>
+<p>et doit être <strong>éxecutée depuis le dossier contenant l'ensemble du code source</strong> du service (le service exposera le port 80 par défaut une fois lancé)</p>
+</li>
 </ul>
 <p>Exercices:</p>
 <ul>
