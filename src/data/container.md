@@ -11,7 +11,7 @@ Lancer une session shell dans le container `vote` (`docker exec -it vote sh`) et
   echo test > /test.txt
   ```  
 - Editer le fichier `app.py` et remplacer les options A et B **Cat** et **Dog** par **Windows** et **Mac**
-    - installer un editeur avec `apk add nano` si besoin 
+    - installer un editeur avec `apt update && apt install nano` si besoin (`ctrl+O`: sauvegarder et `ctrl+X`: exit) 
 - Quitter et redémarrer le container
 - Se connecter à `localhost:5000` et constater les changements
 

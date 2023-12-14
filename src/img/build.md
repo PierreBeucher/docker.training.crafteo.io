@@ -8,6 +8,8 @@ L'appplication Voting App dispose de plusieurs services:
 
 Objectif de l'exercice: écrire un Dockerfile pour l'application Vote.
 
+Lien utile: [Dockerfile reference](https://docs.docker.com/engine/reference/builder) - l'ensemble des instructions utilisables dans un Dockerfile
+
 ## Exercice - Dockerfile pour le service Vote
 
 Le code du service Vote se trouve dans `vote/`:
@@ -25,7 +27,7 @@ services:
 Nous allons faire en sorte de builder notre propre service Vote selon les contraintes suivantes:
 
 - Utiliser **Python 3.9**
-  - Chercher sur https://hub.docker.com/ une image Python correspondante
+  - Chercher sur [Docker Hub](https://hub.docker.com/) une image Python correspondante
 - L'ensemble du code source du service (fichiers dans `/vote`) doit être **copiée dans l'image Docker**
 - L'image Docker doit contenir l'ensemble du service. Pour **installer les dépendences**, utiliser la commande
    ```
