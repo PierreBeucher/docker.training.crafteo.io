@@ -194,24 +194,7 @@ docker run -v myvolume:/data some_image
 <li>Lister les volumes existants et trouver le volume créé par Docker Compose</li>
 <li>Trouver l'emplacement des données du volume sur le disque local</li>
 </ul>
-<hr />
-<p><em>Besoin: vous souhaitez gérer les données Redis via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup. Cependant vous ne souhaitez pas gérer le volume Redis sur la stack mais le créer indépendemment.</em></p>
-<ul>
-<li>créer un volume <code>redis-data</code> avec la CLI Docker
-<ul>
-<li>Pour l'exercice, on considérera que ce volume contiens nos données :)</li>
-</ul>
-</li>
-<li>modifier <code>docker-compose.yml</code> pour:
-<ul>
-<li>configurer un volume <code>redis-data</code> <strong>externe</strong> </li>
-<li>monter ce volume à l'emplacement <code>/data</code></li>
-<li>redémarrer le service <code>redis</code> pour prendre en compte les modifications </li>
-</ul>
-</li>
-</ul>
-<hr />
-<p>Cleanup: supprimer la stack Docker Compose et les volumes utilisés par Redis et Postgre </p>
+<p>Cleanup: supprimer la stack Docker Compose et les volumes utilisés par Postgres </p>
 
                     </main>
 
