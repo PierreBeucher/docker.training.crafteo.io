@@ -34,7 +34,7 @@ Vérifier que `myapache` **existe et est actif**
 
 ---
 
-Afficher les **10 dernières lignes** de logs de myapache et **suivre les changements**
+Afficher les **2 dernières lignes** de logs de myapache et **suivre les changements**
 
 ---
 
