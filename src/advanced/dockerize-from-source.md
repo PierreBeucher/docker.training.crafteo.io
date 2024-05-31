@@ -21,6 +21,7 @@ Les développeurs vous donnent les instructions suivantes:
 - Instructions d'utilisation de l'application:
   ```sh
   # Install Node dependencies
+  # Require package.json and package-lock.json
   npm install
 
   # Run node app
