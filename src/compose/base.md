@@ -59,3 +59,11 @@ DOTENV_POSTGRES_PASSWORD: "postgres"
 ```
 
 Créer un fichier `.env` et modifier le service `db` pour utiliser les valeurs de ce fichier plutôt que des valeurs hardcodées.
+
+### Healthcheck & depends on
+
+Faisons en sorte de démarrer le service Worker après nous êtes assuré que la base de donnée Postgres soit disponible:
+
+Ajouter une instruction `healthcheck` au service `db`:
+- Faire un bind mount du script `resources/healthchecks/postgres.sh` dans le container
+- Configurer `healthcheck` pour lancer le script toutes les 5s afin de vérifier la "healthiness" du service
