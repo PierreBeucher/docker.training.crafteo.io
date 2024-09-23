@@ -215,6 +215,13 @@ DOTENV_POSTGRES_USER: &quot;postgres&quot;
 DOTENV_POSTGRES_PASSWORD: &quot;postgres&quot;
 </code></pre>
 <p>Créer un fichier <code>.env</code> et modifier le service <code>db</code> pour utiliser les valeurs de ce fichier plutôt que des valeurs hardcodées.</p>
+<h3 id="healthcheck--depends-on"><a class="header" href="#healthcheck--depends-on">Healthcheck &amp; depends on</a></h3>
+<p>Faisons en sorte de démarrer le service Worker après nous êtes assuré que la base de donnée Postgres soit disponible:</p>
+<p>Ajouter une instruction <code>healthcheck</code> au service <code>db</code>:</p>
+<ul>
+<li>Faire un bind mount du script <code>resources/healthchecks/postgres.sh</code> dans le container</li>
+<li>Configurer <code>healthcheck</code> pour lancer le script toutes les 5s afin de vérifier la &quot;healthiness&quot; du service</li>
+</ul>
 
                     </main>
 

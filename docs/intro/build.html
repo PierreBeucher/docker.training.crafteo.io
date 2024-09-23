@@ -183,7 +183,7 @@ docker build -h
 <pre><code># Example Dockerfile content to build a custom Apache image
 
 # Image used as base to create our new image
-FROM alpine:3.10
+FROM alpine:3.20
 
 # Run some commands to install apache
 RUN apk add apache2
@@ -203,6 +203,10 @@ ENTRYPOINT [&quot;httpd&quot;]
 <li>rappel: <code>curl localhost:8089</code> ou navigateur</li>
 <li>essayer de monter des volumes pour obtenir un fichier <code>index.html</code> customisé!</li>
 </ul>
+<hr />
+<p>Créez un fichier <code>index.html</code> avec un contenu customisé, par exemple <code>echo &quot;Hello from file&quot; &gt; index.html</code>.</p>
+<p>Modifier votre Dockerfile pour y ajouter une instruction <code>COPY</code> permettant de copier <code>index.html</code> à l'emplacement <code>/var/www/localhost/htdocs/</code> (emplacement par défaut du package Alpine <code>apache2</code>, différent de l'image officiel <code>httpd</code>). </p>
+<p>Testez le fonctionnement de votre image en lançant un container. </p>
 
                     </main>
 

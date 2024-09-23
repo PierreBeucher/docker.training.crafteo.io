@@ -376,7 +376,7 @@ docker build -h
 <pre><code># Example Dockerfile content to build a custom Apache image
 
 # Image used as base to create our new image
-FROM alpine:3.10
+FROM alpine:3.20
 
 # Run some commands to install apache
 RUN apk add apache2
@@ -396,6 +396,10 @@ ENTRYPOINT [&quot;httpd&quot;]
 <li>rappel: <code>curl localhost:8089</code> ou navigateur</li>
 <li>essayer de monter des volumes pour obtenir un fichier <code>index.html</code> customisé!</li>
 </ul>
+<hr />
+<p>Créez un fichier <code>index.html</code> avec un contenu customisé, par exemple <code>echo &quot;Hello from file&quot; &gt; index.html</code>.</p>
+<p>Modifier votre Dockerfile pour y ajouter une instruction <code>COPY</code> permettant de copier <code>index.html</code> à l'emplacement <code>/var/www/localhost/htdocs/</code> (emplacement par défaut du package Alpine <code>apache2</code>, différent de l'image officiel <code>httpd</code>). </p>
+<p>Testez le fonctionnement de votre image en lançant un container. </p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="docker-compose---basics"><a class="header" href="#docker-compose---basics">Docker Compose - basics</a></h1>
 <p>Nous utiliserons l'application Example Voting App pour l'exercice. Elle se trouve dans le dossier <code>~/example-voting-app</code>.</p>
 <p>Si besoin, la cloner directement:</p>
@@ -442,6 +446,13 @@ DOTENV_POSTGRES_USER: &quot;postgres&quot;
 DOTENV_POSTGRES_PASSWORD: &quot;postgres&quot;
 </code></pre>
 <p>Créer un fichier <code>.env</code> et modifier le service <code>db</code> pour utiliser les valeurs de ce fichier plutôt que des valeurs hardcodées.</p>
+<h3 id="healthcheck--depends-on"><a class="header" href="#healthcheck--depends-on">Healthcheck &amp; depends on</a></h3>
+<p>Faisons en sorte de démarrer le service Worker après nous êtes assuré que la base de donnée Postgres soit disponible:</p>
+<p>Ajouter une instruction <code>healthcheck</code> au service <code>db</code>:</p>
+<ul>
+<li>Faire un bind mount du script <code>resources/healthchecks/postgres.sh</code> dans le container</li>
+<li>Configurer <code>healthcheck</code> pour lancer le script toutes les 5s afin de vérifier la &quot;healthiness&quot; du service</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="build-avec-docker-compose"><a class="header" href="#build-avec-docker-compose">Build avec Docker Compose</a></h1>
 <p><code>docker compose build</code> permet de lancer des builds d'images Docker en spécifiant le dossier de contexte, le Dockerfile, etc. de façon similaire à <code>docker build</code>.</p>
 <h2 id="exercices-9"><a class="header" href="#exercices-9">Exercices</a></h2>
