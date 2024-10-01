@@ -284,7 +284,8 @@ docker exec -h
 <hr />
 <p>Modifier le fichier <code>htdocs/index.html</code> dans le container et vérifier ce que renvoi <code>localhost:8083</code></p>
 <ul>
-<li>que se passe-t-il si on lance un autre container utilisant la même image? Lancer un autre container <code>httpd:alpine</code> exposant <code>8084:80</code> et comparer!</li>
+<li>Utiliser une commande <code>echo &quot;Test content&quot; &gt; inddex.html</code> ou <code>vi</code></li>
+<li>Que se passe-t-il si on lance un autre container utilisant la même image? Lancer un autre container <code>httpd:alpine</code> exposant <code>8084:80</code> et comparer!</li>
 </ul>
 <hr />
 <p>Lister les process du container lancé précédemment <strong>depuis le container lui-même</strong>. Vérifier si ce même processus est visible depuis la machine hôte. </p>
