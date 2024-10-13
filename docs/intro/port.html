@@ -180,16 +180,21 @@ curl localhost:8080
 docker run -h
 </code></pre>
 <h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
-<p>Lancer 2 containers basés sur <code>httpd:alpine</code> exposant leur port <code>80</code> sur deux ports différents (tel que <code>8081</code> et <code>8082</code>) et vérifier le fonctionnement</p>
+<p>Lancer 2 containers <code>httpd:alpine</code> exposant chacun leur port <code>80</code> sur des ports différents (tel que <code>8081</code> et <code>8082</code>) et vérifier le fonctionnement</p>
 <ul>
 <li>l'option <code>-d</code> peut être utile pour lancer le container en background</li>
 <li>curl <code>localhost:8081</code> et <code>localhost:8082</code> permettront de tester avec l'un et l'autre</li>
 <li>possible aussi de tester avec votre navigateur web </li>
 </ul>
 <hr />
-<p>Lancer 2 containers <code>httpd:alpine</code> utilisant le <strong>réseau hôte</strong> directement et tester</p>
+<p>Lancer un container <code>httpd:alpine</code> utilisant le <strong>réseau hôte</strong> directement et tester</p>
 <ul>
-<li>l'interface réseau de la machine sera utilisé directement, attention aux conflits de ports!</li>
+<li>Apache se lancera directement sur le réseau de la machine hôte en se bindant au port <code>80</code></li>
+<li>Si le port <code>80</code> de la machine hote est déjà utilisé par un autre processus il y aura un conflit de port</li>
+<li>Pour voir les process utilisant le port <code>80</code> sur la machine hote:
+<pre><code class="language-sh">sudo netstat -lnap | grep -e &quot;:80\s&quot;
+</code></pre>
+</li>
 </ul>
 
                     </main>
