@@ -23,7 +23,7 @@ Lancer un container `httpd:alpine` exposant `8083:80` et y
 
 Modifier le fichier `htdocs/index.html` dans le container et vérifier ce que renvoi `localhost:8083`
 
-- Utiliser une commande `echo "Test content" > inddex.html` ou `vi`
+- Utiliser une commande `echo "Test content" > index.html` ou `vi`
 - Que se passe-t-il si on lance un autre container utilisant la même image? Lancer un autre container `httpd:alpine` exposant `8084:80` et comparer!
 
 ---
