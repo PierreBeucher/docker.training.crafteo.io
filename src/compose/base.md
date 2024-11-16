@@ -21,8 +21,11 @@ Nous utiliserons cette application pour illustrer nos exemples et exercices.
 
 Documentation de référence:
 
-- [Compose file specs](https://docs.docker.com/compose/compose-file/)
-- [Docker Compose CLI](https://docs.docker.com/compose/reference/)
+- [Compose file specs](https://docs.docker.com/reference/compose-file/)
+- [Docker Compose CLI](https://docs.docker.com/reference/cli/docker/compose/)
+  - Par ex, `service` et les sous-éléments sont documentés dans [_Services top-level elements_](https://docs.docker.com/reference/compose-file/services/)
+
+**🔖 Conseil: Ajoutez des liens à fos favoris, ils seront utiles !**
 
 _Note: la CLI `docker-compose` standalone a été dépréciée en faveur de `docker compose`_
 
