@@ -61,7 +61,7 @@ Configuration réseau customisée avec Docker Compose
   - Forcer l'utilisation du driver réseau `bridge`
   - Affecter un nom spécifique `named-bridge`
   - Utiliser le subnet `172.42.0.0/16` 
-- Appliquer les configurations et inspecter le réseau `my-named-bridge` pour vérifier les configurations 
+- Appliquer les configurations et inspecter le réseau `named-bridge` pour vérifier les configurations 
 
 ---
 
