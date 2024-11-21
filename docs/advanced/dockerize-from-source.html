@@ -208,6 +208,7 @@ node app.js
 </li>
 <li>Lancer l'application et vérifier qu'elle soit joignable</li>
 </ul>
+<p>Note: ⚠️ attention avec l'image <code>node</code>: lancer <code>npm install</code> à la racine du système de fichier (dossier <code>/</code>) provoque un bug du type <code>&quot;idealTree&quot; already exists</code>. Cf. <a href="https://stackoverflow.com/questions/57534295/npm-err-tracker-idealtree-already-exists-while-creating-the-docker-image-for">ce post Stack Overflow</a>. Penser à utiliser un <code>WORKDIR</code> au préalable. </p>
 
                     </main>
 

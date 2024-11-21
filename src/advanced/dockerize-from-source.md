@@ -37,3 +37,5 @@ Vous devez _dockeriser_ l'application:
 - Ecrire un `docker-compose.yml` permettant de lancer l'application:
   - Assurez-vous de monter un fichier `config.yaml` dans le container
 - Lancer l'application et vérifier qu'elle soit joignable
+
+Note: ⚠️ attention avec l'image `node`: lancer `npm install` à la racine du système de fichier (dossier `/`) provoque un bug du type `"idealTree" already exists`. Cf. [ce post Stack Overflow](https://stackoverflow.com/questions/57534295/npm-err-tracker-idealtree-already-exists-while-creating-the-docker-image-for). Penser à utiliser un `WORKDIR` au préalable. 
