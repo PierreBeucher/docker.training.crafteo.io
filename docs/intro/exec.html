@@ -196,7 +196,7 @@ docker exec -h
 <p>Lister les process du container lancé précédemment <strong>depuis le container lui-même</strong>. Vérifier si ce même processus est visible depuis la machine hôte. </p>
 <ul>
 <li><code>ps -ef</code> permet d'afficher les processus machine et/ou du container</li>
-<li><code>pstree -as PID</code> permet d'afficher l'arbre de processus pour le processus <code>PID</code> (ex. <code>pstree -as 29698</code>)</li>
+<li><code>pstree -p</code> permet d'afficher l'ensemble des process sous forme d'arbre parent/enfant</li>
 </ul>
 
                     </main>

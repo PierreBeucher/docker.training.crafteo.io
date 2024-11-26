@@ -31,5 +31,5 @@ Modifier le fichier `htdocs/index.html` dans le container et vérifier ce que re
 Lister les process du container lancé précédemment **depuis le container lui-même**. Vérifier si ce même processus est visible depuis la machine hôte. 
 
 - `ps -ef` permet d'afficher les processus machine et/ou du container
-- `pstree -as PID` permet d'afficher l'arbre de processus pour le processus `PID` (ex. `pstree -as 29698`)  
+- `pstree -p` permet d'afficher l'ensemble des process sous forme d'arbre parent/enfant
 

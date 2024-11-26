@@ -170,9 +170,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="docker---bind-mount"><a class="header" href="#docker---bind-mount">Docker - bind mount</a></h1>
-<pre><code># mount file (or folder) /tmp/myfile in container at /myfile
+<pre><code># mount file (or folder) from ./some-data in container at /example/mydir
 # short syntax: -v SOURCE:DEST
-docker run -v /tmp/myfile:/myfile -d httpd:alpine
+docker run -v ./some-data:/example/mydir -d httpd:alpine
 
 # long syntax, equivalent of short syntax
 # recommended by Docker but both work just as fine
@@ -182,10 +182,12 @@ docker run --mount type=bind,source=/tmp/myfile,target=/myfile -d httpd:alpine
 docker run -h
 </code></pre>
 <h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
-<p>Créer un fichier <code>/tmp/index.html</code> avec contenant <code>&quot;Hello Docker!&quot;</code></p>
-<pre><code>echo 'Hello Docker!' &gt; /tmp/index.html
+<p>Créer un dossier <code>apache/</code> avec un fichier <code>apache/index.html</code> contenant <code>&quot;Hello Docker!&quot;</code></p>
+<pre><code># Example
+mkdir apache
+echo 'Hello Docker!' &gt; ./apache/index.html
 </code></pre>
-<p>Lancer un container <code>httpd:alpine</code> <strong>montant le fichier <code>/tmp/index.html</code> sur <code>htdocs/index.html</code></strong> (et exposant <code>8085:80</code>)</p>
+<p>Lancer un container <code>httpd:alpine</code> <strong>montant le fichier <code>./apache/index.html</code> sur <code>htdocs/index.html</code> du container</strong> (et exposant <code>8085:80</code>)</p>
 <ul>
 <li>le chemin complet de destination sera peut-être nécéssaire</li>
 <li>tester avec <code>curl localhost:8085</code> ou votre navigateur</li>
@@ -194,14 +196,10 @@ docker run -h
 docker exec -it mycontainer sh
 </code></pre>
 </li>
-<li>modifier le fichier <code>/tmp/index.html</code> directement depuis la machine locale, re-tester <code>localhost:8085</code> et constater les changements</li>
+<li>modifier le fichier <code>apache/index.html</code> directement depuis la machine locale, re-tester <code>localhost:8085</code> et constater les changements</li>
 </ul>
 <hr />
-<p>Créer un dossier <code>/tmp/myhtdocs</code> et y copier le fichier <code>index.html</code></p>
-<pre><code>mkdir /tmp/myhtdocs
-cp /tmp/index.html /tmp/myhtdocs
-</code></pre>
-<p><strong>Monter le dossier complet</strong> dans votre container afin de pouvoir écraser l'<code>index.html</code> du container et obtenir le même résultat que précédemment</p>
+<p>Même exercice mais <strong>monter le dossier complet <code>./apache/</code></strong> dans le container afin de pouvoir écraser l'<code>index.html</code> du container et obtenir le même résultat que précédemment</p>
 
                     </main>
 
