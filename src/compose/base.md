@@ -2,14 +2,7 @@
 
 Nous utiliserons l'application Example Voting App pour l'exercice. Elle se trouve dans le dossier `~/example-voting-app`.
 
-Si besoin, la cloner directement:
-
-```
-git clone https://github.com/PierreBeucher/example-voting-app.git
-cd example-voting-app
-```
-
-Le repository contient un fichier `docker-compose.yml` avec l'ensemble des **services** définissant notre **stack Docker Compose**:
+Le fichier `docker-compose.yml` décrit l'ensemble des **services** définissant notre **stack Docker Compose**:
 
 - Vote: permet de voter pour Chien ou Chat
 - Result: permet de voir les résultats des votes
