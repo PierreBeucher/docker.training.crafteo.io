@@ -42,7 +42,7 @@ Les services Vote et Result expose une interface web accessible depuis la machin
 Modifier le service Redis pour:
  - Utiliser l'image `redis:7.2.1`
  - Nommer le container `my_redis` au démarrage
- - Ajouter une variable d'environnement `FOO=BAR` au runtime du container
+ - Ajouter une variable d'environnement `FOO=BAR`
 
 ### Fichier `.env` et variables d'environnement
 
