@@ -23,7 +23,6 @@ temp_file_limit = 1000
   - Pour `postgres` il faudra passer un flag de configuration au binaire lancé au démarrage du container
 - Monter le fichier de configuration via un Bind Mount avec les contraintes:
   - le fichier de configuration doit être monté en **read-only** (lecture seule)
-  - Définir l'option *Bind Propagation* à `rprivate`
 - Appliquer les modifications **sans redémarrer le container**, à la place *envoyer un signal `SIGHUP` au container pour reloader la configuration*
 
 *De nombreux applicatifs utilisent `SIGHUP` pour recharger une configuration sans avoir à faire un redémarrage complet, cette feature n'est pas spécifique à Docker mais néanmoins très pratique.* 
