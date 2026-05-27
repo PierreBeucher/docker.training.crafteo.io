@@ -182,8 +182,8 @@ docker compose --help
 <hr />
 <p>Lancer la stack Compose avec les options suivantes:</p>
 <ul>
-<li>Mode détachée (Tout comme <code>docker</code>, <code>docker compose</code> lance les containers en mode interactif par défaut)</li>
-<li>Forcer la récréation des containers déjà existants</li>
+<li>Mode détaché (Tout comme <code>docker</code>, <code>docker compose</code> lance les containers en mode interactif par défaut)</li>
+<li>Forcer la recréation des containers déjà existants</li>
 </ul>
 <hr />
 <p>Lancer la stack puis modifier le fichier <code>docker-compose.yml</code> pour changer le port exposé de <code>result</code> pour <code>5002</code>. Appliquer les changements à la stack avec une commande <code>docker compose</code>.</p>
@@ -195,18 +195,18 @@ docker compose --help
 <li>Lister les containers de la stack</li>
 <li>Afficher les logs de l'ensemble des containers de la stack</li>
 <li>Afficher les logs d'un container de la stack et suivre les changements</li>
-<li>Executer une session shell interactive dans le container <code>vote</code></li>
+<li>Exécuter une session shell interactive dans le container <code>vote</code></li>
 <li>Arrêter et supprimer la stack, puis ne lancer que le service <code>vote</code></li>
 <li>Arrêter et supprimer la stack</li>
 </ul>
 <p>Ces commandes seraient possibles directement avec <code>docker</code> en y spécifiant les options requises. <code>docker compose</code> intéragi avec le Daemon Docker tout comme <code>docker</code>.</p>
 <hr />
-<p>Plusieurs stacks peuvent coéxister en s'assurant qu'il n'y a pas de conflits de ports ou autre.</p>
+<p>Plusieurs stacks peuvent coexister en s'assurant qu'il n'y a pas de conflits de ports ou autre.</p>
 <p>Copier le fichier <code>docker-compose.yml</code> et nommer cette copie <code>docker-compose-bis.yml</code> puis lancer 2 stacks en parallèle</p>
 <ul>
-<li>Celle utilisant <code>docker-compose.yml</code> doit être nommé <code>app</code></li>
+<li>Celle utilisant <code>docker-compose.yml</code> doit être nommée <code>app</code></li>
 <li>Celle utilisant <code>docker-compose-bis.yml</code> doit être nommée <code>app-bis</code></li>
-<li>Attention aux conflits de nom de container et ports: le nom des containers doivent être uniques ainsi que les ports exposées sur la machine</li>
+<li>Attention aux conflits de nom de container et ports: le nom des containers doivent être uniques ainsi que les ports exposés sur la machine</li>
 </ul>
 
                     </main>

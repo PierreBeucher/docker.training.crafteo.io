@@ -178,7 +178,7 @@
 <li>Observer le contenu du dossier <code>/home/docker/db-data</code></li>
 </ul>
 <hr />
-<p><em>Besoin: vous devez configurer plus finement la base de donnée via un fichier de configuration <code>postgresql.conf</code> fourni par votre administrateur système et qui doit être utilisé par la BDD:</em></p>
+<p><em>Besoin: vous devez configurer plus finement la base de données via un fichier de configuration <code>postgresql.conf</code> fourni par votre administrateur système et qui doit être utilisé par la BDD:</em></p>
 <pre><code># Full content of postgresql.conf to be mounted in container
 listen_addresses = '*'
 temp_file_limit = 1000
@@ -199,7 +199,7 @@ temp_file_limit = 1000
 </ul>
 <p><em>De nombreux applicatifs utilisent <code>SIGHUP</code> pour recharger une configuration sans avoir à faire un redémarrage complet, cette feature n'est pas spécifique à Docker mais néanmoins très pratique.</em> </p>
 <hr />
-<p><em>Besoin: vous souhaitez configurer une procedure de backup des données via un au container <code>postgres</code> qui fera un dump régulier de la BDD</em></p>
+<p><em>Besoin: vous souhaitez configurer une procédure de backup des données via un container <code>postgres</code> annexe qui fera un dump régulier de la BDD</em></p>
 <p>Lancer un container utilisant permettant d'effectuer un backup:</p>
 <ul>
 <li>utiliser la même image que le service <code>db</code></li>
@@ -213,7 +213,7 @@ temp_file_limit = 1000
 </ul>
 </li>
 </ul>
-<p><em>Il est possible de monter le même dossier/fichier sur plusieurs containers, pratique dans divers situations comme le backup de données</em></p>
+<p><em>Il est possible de monter le même dossier/fichier sur plusieurs containers, pratique dans diverses situations comme le backup de données</em></p>
 <p>Bonus: configurer une tâche <em>cron</em> qui lancera toutes les heures notre backup. Pour créer une tâche cron:</p>
 <pre><code># run cron editor for user
 crontab -e

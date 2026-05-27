@@ -9,7 +9,7 @@ Lancer la stack `docker-compose.yml`. Par défaut, un réseau est créé et atta
 
 - Identifier le réseau `bridge` créé et utilisé par la stack par défaut
   - Utiliser la CLI Docker: `docker network --help` 
-- Identifier l'ensemble des réseaux actuellement existant et le Driver utilisé par chacun
+- Identifier l'ensemble des réseaux actuellement existants et le Driver utilisé par chacun
 - Inspecter le réseau utilisé par la stack Compose et:
   - Trouver la liste des containers associés au réseau
   - Identifier le subnet utilisé par le réseau

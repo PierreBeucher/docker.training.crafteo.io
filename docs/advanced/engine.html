@@ -173,13 +173,13 @@
 <p>Suite à l'installation de Docker sur Linux:</p>
 <ul>
 <li>Docker est installé comme service Linux (<code>systemd</code>)</li>
-<li>La CLI <code>dockerd</code> est utilisé pour lancer le Docker daemon</li>
+<li>La CLI <code>dockerd</code> est utilisée pour lancer le Docker daemon</li>
 <li>Il est possible d'overrider les configurations du daemon via des options CLI au lancement du service ou via un fichier <code>/etc/docker/daemon.json</code> lu par <code>dockerd</code> par défaut</li>
 </ul>
 <p>Quelques infos et rappels:</p>
 <ul>
 <li>Le <strong>Docker daemon</strong> est aussi appelé <strong>Docker host</strong> ou <strong>Docker server</strong></li>
-<li>Le Docker client (CLI <code>docker</code>) communique avec le client via API REST en utilisant la socket <code>/var/run/docker.sock</code> par défaut. Le client peut aussi contacter directement une adresse tel que <code>tcp://127.0.0.1:2375</code> ou <code>tcp://198.265.78.1:2376</code> en fonction des configurations du Daemon</li>
+<li>Le Docker client (CLI <code>docker</code>) communique avec le daemon via API REST en utilisant la socket <code>/var/run/docker.sock</code> par défaut. Le client peut aussi contacter directement une adresse tel que <code>tcp://127.0.0.1:2375</code> ou <code>tcp://198.265.78.1:2376</code> en fonction des configurations du Daemon</li>
 <li>Memo de commandes <code>systemctl</code> utile pour manipuler les services Linux:
 <pre><code># restart, stop, get status of docker
 sudo systemctl [restart|stop|status|...] docker
@@ -197,7 +197,7 @@ sudo journalctl -u docker -r
 </li>
 </ul>
 <h1 id="exercices"><a class="header" href="#exercices">Exercices</a></h1>
-<p>Créer un fichier <code>etc/docker/daemon.json</code> et y configuer les options suivantes pour le Docker daemon:</p>
+<p>Créer un fichier <code>etc/docker/daemon.json</code> et y configurer les options suivantes pour le Docker daemon:</p>
 <ul>
 <li>Activer le mode debug</li>
 <li>Configurer le daemon Docker pour écouter sur <code>127.0.0.1:2375</code></li>
@@ -217,20 +217,20 @@ sudo journalctl -u docker -r
 </ul>
 <hr />
 <p>Certains déploiements mettent à disposition un daemon Docker accessible à distance. (i.e. le daemon Docker est installé sur une machine différente du client Docker)</p>
-<p>Cela peut-être utile dans certaines situations, par exemple pour partager un daemon avec une équipe de développeur ou un système de CI et accéler le build d'image: le cache de build pourra être réutilisé facilement et ainsi réduire le temps de build (pratique dans certains cas ou un build sans cache dure 20+ min et avec cache seulement quelques secondes!)</p>
+<p>Cela peut-être utile dans certaines situations, par exemple pour partager un daemon avec une équipe de développeurs ou un système de CI et accélérer le build d'image: le cache de build pourra être réutilisé facilement et ainsi réduire le temps de build (pratique dans certains cas où un build sans cache dure 20+ min et avec cache seulement quelques secondes!)</p>
 <p>Un tel déploiement demande de sécuriser les communications entre le client Docker et le daemon. Utilisant HTTP par défaut, il faut y configurer TLS pour passer en HTTPS. </p>
 <p>Configurer le daemon Docker pour:</p>
 <ul>
 <li>écouter sur <code>127.0.0.1:2376</code></li>
 <li>Configurer l'authentification du serveur en TLS - un client pourra ainsi authentifier le serveur lors de son utilisation (similaire à la connection à un site web en HTTPS)</li>
-<li>(Optionnel) Configurer l'authentification du client en TLS - le client devra s'authentifier auprès du serveur avec un certificate pour pouvoir utiliser le daemon</li>
+<li>(Optionnel) Configurer l'authentification du client en TLS - le client devra s'authentifier auprès du serveur avec un certificat pour pouvoir utiliser le daemon</li>
 </ul>
 <p>Ce setup s'appelle une double-authentification TLS. Pour ce besoin il faut un certificat et une clé pour être utilisé par le Daemon (idem pour le client):</p>
 <ul>
 <li>Le client va &quot;truster&quot; un CA (certificate Authority) et le daemon fournira un certificat signé par ce CA pour s'authentifier (c'est exactement le même processus en se connectant à un site web en HTTPS)</li>
 <li>Le Daemon va &quot;truster&quot; un CA (généralement le même), et le client devra fournir un certificat signé par ce CA pour être autorisé par le daemon</li>
 </ul>
-<p>Dans le cadre de l'exercice nous pourrons générer nos propre CA et certificats. Pour générer une clé et un certificat autosigné:</p>
+<p>Dans le cadre de l'exercice nous pourrons générer nos propres CA et certificats. Pour générer une clé et un certificat autosigné:</p>
 <pre><code># generate CA cert and key
 openssl genrsa -out ca.key 4096
 openssl req  -nodes -new -x509  -keyout ca.key -out ca.cert

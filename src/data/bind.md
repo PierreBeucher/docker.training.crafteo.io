@@ -10,7 +10,7 @@
 
 ---
   
-*Besoin: vous devez configurer plus finement la base de donnée via un fichier de configuration `postgresql.conf` fourni par votre administrateur système et qui doit être utilisé par la BDD:*
+*Besoin: vous devez configurer plus finement la base de données via un fichier de configuration `postgresql.conf` fourni par votre administrateur système et qui doit être utilisé par la BDD:*
 
 ```
 # Full content of postgresql.conf to be mounted in container
@@ -29,7 +29,7 @@ temp_file_limit = 1000
 
 ---
 
-*Besoin: vous souhaitez configurer une procedure de backup des données via un au container `postgres` qui fera un dump régulier de la BDD*
+*Besoin: vous souhaitez configurer une procédure de backup des données via un container `postgres` annexe qui fera un dump régulier de la BDD*
 
 
 Lancer un container utilisant permettant d'effectuer un backup:
@@ -43,7 +43,7 @@ Lancer un container utilisant permettant d'effectuer un backup:
   ```
     - Attention: pour résoudre le nom d'hôte `db` le container de backup doit se trouver sur le même réseau.
 
-*Il est possible de monter le même dossier/fichier sur plusieurs containers, pratique dans divers situations comme le backup de données*
+*Il est possible de monter le même dossier/fichier sur plusieurs containers, pratique dans diverses situations comme le backup de données*
 
 Bonus: configurer une tâche *cron* qui lancera toutes les heures notre backup. Pour créer une tâche cron:
 

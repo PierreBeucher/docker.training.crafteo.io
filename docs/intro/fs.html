@@ -170,13 +170,13 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="docker---file-system"><a class="header" href="#docker---file-system">Docker - File System</a></h1>
-<p>Les fichiers de nos containers et images ne sortent pas de n'importe ou! </p>
+<p>Les fichiers de nos containers et images ne sortent pas de n'importe où! </p>
 <h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
 <p>Lancer un container <code>httpd:alpine</code> nommé <code>filesystem</code> et y créer un fichier. Trouver l'emplacement des fichiers du container sur la machine hôte.</p>
 <ul>
 <li><code>docker exec -it filesystem bash</code> avec <code>touch somefile</code> pour créer un fichier</li>
 <li><code>docker exec filesystem sh -c 'touch somefile'</code> pour les pros ;)</li>
-<li><code>docker -h</code> est toujous notre ami!</li>
+<li><code>docker -h</code> est toujours notre ami!</li>
 </ul>
 <hr />
 <p>Trouver l'emplacement des fichiers de l'image <code>httpd:alpine</code> sur la machine hôte. </p>

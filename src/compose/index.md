@@ -1,4 +1,4 @@
-# Crafteo - Docker Training : volumes & dataaaa
+# Crafteo - Docker Training : volumes & data
 
 - [Base](base.md)
 - [Build](build.md)

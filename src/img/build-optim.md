@@ -1,4 +1,4 @@
-# Optimization de build
+# Optimisation de build
 
 Problèmes typiques de build: 
 - temps de build (notamment download des dépendances)

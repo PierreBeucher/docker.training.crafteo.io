@@ -1,6 +1,6 @@
 # Docker - File System
 
-Les fichiers de nos containers et images ne sortent pas de n'importe ou! 
+Les fichiers de nos containers et images ne sortent pas de n'importe où! 
 
 ## Exercices
 
@@ -8,7 +8,7 @@ Lancer un container `httpd:alpine` nommé `filesystem` et y créer un fichier. T
 
 - `docker exec -it filesystem bash` avec `touch somefile` pour créer un fichier
 - `docker exec filesystem sh -c 'touch somefile'` pour les pros ;)
-- `docker -h` est toujous notre ami!
+- `docker -h` est toujours notre ami!
 
 ---
 

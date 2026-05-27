@@ -195,7 +195,7 @@ ENTRYPOINT [&quot;httpd&quot;]
 <h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
 <p>Créer un dossier <code>mybuild</code> et y créer un fichier <code>Dockerfile</code> avec le contenu de l'exemple ci-dessus. <strong>Builder</strong> une image Docker à partir du Dockerfile et la <strong>tagger <code>myapache:1.0</code></strong></p>
 <ul>
-<li>votre image doit apparaitre via <code>docker images</code></li>
+<li>votre image doit apparaître via <code>docker images</code></li>
 </ul>
 <hr />
 <p>Lancer un container utilisant votre image <code>myapache</code> et exposer <code>8089:80</code>, vérifier le fonctionnement.</p>
@@ -209,7 +209,7 @@ ENTRYPOINT [&quot;httpd&quot;]
 </ul>
 <hr />
 <p>Créez un fichier <code>index.html</code> avec un contenu customisé, par exemple <code>echo &quot;Hello from file&quot; &gt; index.html</code>.</p>
-<p>Modifier votre Dockerfile pour y ajouter une instruction <code>COPY</code> permettant de copier <code>index.html</code> à l'emplacement <code>/var/www/localhost/htdocs/</code> (emplacement par défaut du package Alpine <code>apache2</code>, différent de l'image officiel <code>httpd</code>). </p>
+<p>Modifier votre Dockerfile pour y ajouter une instruction <code>COPY</code> permettant de copier <code>index.html</code> à l'emplacement <code>/var/www/localhost/htdocs/</code> (emplacement par défaut du package Alpine <code>apache2</code>, différent de l'image officielle <code>httpd</code>). </p>
 <p>Testez le fonctionnement de votre image en lançant un container. </p>
 
                     </main>

@@ -25,7 +25,7 @@ echo 'Hello Docker!' > ./apache/index.html
 
 Lancer un container `httpd:alpine` **montant le fichier `./apache/index.html` sur `htdocs/index.html` du container** (et exposant `8085:80`)
 
-- le chemin complet de destination sera peut-être nécéssaire
+- le chemin complet de destination sera peut-être nécessaire
 - tester avec `curl localhost:8085` ou votre navigateur
 - lancer une session shell dans le container et modifier le fichier `index.html`, re-tester `localhost:8085` et constater les changements
   ```

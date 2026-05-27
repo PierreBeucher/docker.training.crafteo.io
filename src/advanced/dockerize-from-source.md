@@ -2,9 +2,9 @@
 
 Considérons le contexte suivant:
 
-_Vous êtes un opérateur travaillant avec une équipe de développeur. L'équipe de dev viens de vous livrer le code source d'une application web que vous devez déployer sous Docker._
+_Vous êtes un opérateur travaillant avec une équipe de développeurs. L'équipe de dev vient de vous livrer le code source d'une application web que vous devez déployer sous Docker._
 
-_L'application est codé en [NodeJS](https://nodejs.org/en/) et a pour but d'afficher un message à partir d'un fichier de configuration. Le code source de l'application se trouve à l'emplacement suivant: [NodeJS app](https://github.com/PierreBeucher/example-voting-app/tree/master/resources/nodejs-sample)_
+_L'application est codée en [NodeJS](https://nodejs.org/en/) et a pour but d'afficher un message à partir d'un fichier de configuration. Le code source de l'application se trouve à l'emplacement suivant: [NodeJS app](https://github.com/PierreBeucher/example-voting-app/tree/master/resources/nodejs-sample)_
 
 Les développeurs vous donnent les instructions suivantes:
 

@@ -31,7 +31,7 @@ ENTRYPOINT ["httpd"]
 
 Créer un dossier `mybuild` et y créer un fichier `Dockerfile` avec le contenu de l'exemple ci-dessus. **Builder** une image Docker à partir du Dockerfile et la **tagger `myapache:1.0`**
 
-- votre image doit apparaitre via `docker images`
+- votre image doit apparaître via `docker images`
 
 ---
 
@@ -46,6 +46,6 @@ Lancer un container utilisant votre image `myapache` et exposer `8089:80`, véri
 
 Créez un fichier `index.html` avec un contenu customisé, par exemple `echo "Hello from file" > index.html`.
 
-Modifier votre Dockerfile pour y ajouter une instruction `COPY` permettant de copier `index.html` à l'emplacement `/var/www/localhost/htdocs/` (emplacement par défaut du package Alpine `apache2`, différent de l'image officiel `httpd`). 
+Modifier votre Dockerfile pour y ajouter une instruction `COPY` permettant de copier `index.html` à l'emplacement `/var/www/localhost/htdocs/` (emplacement par défaut du package Alpine `apache2`, différent de l'image officielle `httpd`). 
 
 Testez le fonctionnement de votre image en lançant un container. 

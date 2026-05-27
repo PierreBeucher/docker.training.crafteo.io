@@ -193,24 +193,24 @@ docker pull redis:alpine
 <ul>
 <li>Exporter l'image <code>vote:newtag</code> comme archive
 <ul>
-<li>Trouver la commande adapée via <code>docker image --help</code></li>
+<li>Trouver la commande adaptée via <code>docker image --help</code></li>
 <li>Cette action peut prendre quelques secondes...</li>
 </ul>
 </li>
 <li>Supprimer l'image Vote de votre système local
 <ul>
-<li>L'image ne doit plus apparaitre avec <code>docker images</code></li>
+<li>L'image ne doit plus apparaître avec <code>docker images</code></li>
 <li>Si besoin, il sera possible de la re-builder from scratch</li>
 </ul>
 </li>
 <li>Re-importer l'image Vote depuis l'archive créée précédemment
 <ul>
-<li><code>docker images</code> doit affiche l'image</li>
+<li><code>docker images</code> doit afficher l'image</li>
 </ul>
 </li>
 </ul>
 <hr />
-<p>Lancer un container basé sur <code>vote:newtag</code> et ouvrez une session bash dans le container (<code>docker exec ...</code>) pour modifier le contenu du fichier <code>/app/app.py</code> afin de modifier les options <em>Cat/Dog</em> pour <em>Windows/Mac</em> (les variables <code>options_a|b</code>) Redémarer le container pour constater les changements.</p>
+<p>Lancer un container basé sur <code>vote:newtag</code> et ouvrez une session bash dans le container (<code>docker exec ...</code>) pour modifier le contenu du fichier <code>/app/app.py</code> afin de modifier les options <em>Cat/Dog</em> pour <em>Windows/Mac</em> (les variables <code>options_a|b</code>) Redémarrer le container pour constater les changements.</p>
 <p>Il est possible de créer une image Docker directement à partir d'un container (sans passer par <code>docker build</code>). Ce principe est équivalent à créer une image de VM via un snapshot de VM existante afin de lancer des clones de la VM d'origine.</p>
 <p>Créer une nouvelle image à partir du container modifié précédemment <strong>sans passer par <code>docker build</code></strong>, tagger cette image <code>voting-app:from-container</code> puis démarrer un container à partir de celle-ci et tester.</p>
 

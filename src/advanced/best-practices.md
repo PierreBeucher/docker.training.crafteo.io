@@ -2,7 +2,7 @@
 
 Quelques exercices sur les bonnes pratiques avec Docker: limitation de ressources, healthcheck, logging...
 
-Les exercices utiliserons le `docker-compose.yml` suivant:
+Les exercices utiliseront le `docker-compose.yml` suivant:
 
 ```
 version: "3.7"

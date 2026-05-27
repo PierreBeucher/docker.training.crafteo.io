@@ -171,7 +171,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="crafteo---docker-training"><a class="header" href="#crafteo---docker-training">Crafteo - Docker Training</a></h1>
-<p>Bienvenue sur les exercices de la formation Docker ! Suivre les liens du menu pour y accéder aux exercices.</p>
+<p>Bienvenue sur les exercices de la formation Docker ! Suivez les liens du menu pour y accéder aux exercices.</p>
 <p>Plus d'info sur <a href="https://crafteo.io">crafteo.io</a> et <a href="https://blog.crafteo.io">blog.crafteo.io</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="docker---basics"><a class="header" href="#docker---basics">Docker - basics</a></h1>
 <pre><code>docker --help|-h
@@ -189,7 +189,7 @@ docker run [OPTIONS] IMAGE
 &gt; docker logs [OPTIONS] CONTAINER
 
 # start, stop, restart containers
-&gt; docker start|stop|restart CONTNER
+&gt; docker start|stop|restart CONTAINER
 </code></pre>
 <h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
 <p>Lancer un container utilisant l'image <strong><code>httpd:alpine</code></strong> (image officielle Apache HTTP server) <strong>en mode détaché (daemon)</strong> et le <strong>nommer <code>myapache</code></strong></p>
@@ -206,7 +206,7 @@ docker run [OPTIONS] IMAGE
 <hr />
 <p><strong>Arrêter</strong> puis <strong>redémarrer</strong> le container <code>myapache</code></p>
 <ul>
-<li>Plusieurs solutions possible utilisant le même set de commandes</li>
+<li>Plusieurs solutions possibles utilisant le même set de commandes</li>
 </ul>
 <hr />
 <p><strong>Supprimer</strong> le container <code>myapache</code></p>
@@ -265,7 +265,7 @@ docker run -h
 <hr />
 <p>Obtenir les <strong>statistiques</strong>  d’usage ressources (CPU, RAM...) du container</p>
 <ul>
-<li>pratique pour débugger dans certain cas</li>
+<li>pratique pour débugger dans certains cas</li>
 </ul>
 <hr />
 <p><strong>Mettre à jour</strong> la configuration du container <code>myalpine</code> pour le redémarrer automatiquement lors du boot de la machine</p>
@@ -287,7 +287,7 @@ docker exec -h
 <li>le FS de votre container est-il le même que celui de votre machine? </li>
 </ul>
 <hr />
-<p>Modifier le fichier <code>htdocs/index.html</code> dans le container et vérifier ce que renvoi <code>localhost:8083</code></p>
+<p>Modifier le fichier <code>htdocs/index.html</code> dans le container et vérifier ce que renvoie <code>localhost:8083</code></p>
 <ul>
 <li>Utiliser une commande <code>echo &quot;Test content&quot; &gt; index.html</code> ou <code>vi</code></li>
 <li>Que se passe-t-il si on lance un autre container utilisant la même image? Lancer un autre container <code>httpd:alpine</code> exposant <code>8084:80</code> et comparer!</li>
@@ -299,13 +299,13 @@ docker exec -h
 <li><code>pstree -p</code> permet d'afficher l'ensemble des process sous forme d'arbre parent/enfant</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="docker---file-system"><a class="header" href="#docker---file-system">Docker - File System</a></h1>
-<p>Les fichiers de nos containers et images ne sortent pas de n'importe ou! </p>
+<p>Les fichiers de nos containers et images ne sortent pas de n'importe où! </p>
 <h2 id="exercices-4"><a class="header" href="#exercices-4">Exercices</a></h2>
 <p>Lancer un container <code>httpd:alpine</code> nommé <code>filesystem</code> et y créer un fichier. Trouver l'emplacement des fichiers du container sur la machine hôte.</p>
 <ul>
 <li><code>docker exec -it filesystem bash</code> avec <code>touch somefile</code> pour créer un fichier</li>
 <li><code>docker exec filesystem sh -c 'touch somefile'</code> pour les pros ;)</li>
-<li><code>docker -h</code> est toujous notre ami!</li>
+<li><code>docker -h</code> est toujours notre ami!</li>
 </ul>
 <hr />
 <p>Trouver l'emplacement des fichiers de l'image <code>httpd:alpine</code> sur la machine hôte. </p>
@@ -332,7 +332,7 @@ echo 'Hello Docker!' &gt; ./apache/index.html
 </code></pre>
 <p>Lancer un container <code>httpd:alpine</code> <strong>montant le fichier <code>./apache/index.html</code> sur <code>htdocs/index.html</code> du container</strong> (et exposant <code>8085:80</code>)</p>
 <ul>
-<li>le chemin complet de destination sera peut-être nécéssaire</li>
+<li>le chemin complet de destination sera peut-être nécessaire</li>
 <li>tester avec <code>curl localhost:8085</code> ou votre navigateur</li>
 <li>lancer une session shell dans le container et modifier le fichier <code>index.html</code>, re-tester <code>localhost:8085</code> et constater les changements
 <pre><code># rappel: lancer une session shell
@@ -350,18 +350,18 @@ docker exec -it mycontainer sh
 <h2 id="exercices-6"><a class="header" href="#exercices-6">Exercices</a></h2>
 <p>Créer un volume Docker nommé <code>httpd_vol</code> </p>
 <ul>
-<li>cette étape est optionnelle pour la suite, mais il serait intéréssant de comprendre pourquoi</li>
+<li>cette étape est optionnelle pour la suite, mais il serait intéressant de comprendre pourquoi</li>
 </ul>
 <hr />
 <p>Lancer un container <code>httpd:alpine</code> nommé <code>containervol</code> montant le volume Docker <code>htdocs_vol</code> sur <code>/usr/local/apache2/htdocs</code>. Vérifier le contenu du dossier <code>htdocs</code> dans le container une fois démarré. </p>
 <ul>
 <li>que se passe-t-il si le Volume n'existe pas au préalable?</li>
-<li>afficher les montages avec <code>df -h</code> ou <code>mount</code> donne des infos intéréssantes</li>
+<li>afficher les montages avec <code>df -h</code> ou <code>mount</code> donne des infos intéressantes</li>
 </ul>
 <hr />
-<p>Modifier le contenu de <code>htodcs/index.html</code> dans le container <code>containervol</code> puis stoppez et supprimer le container <code>containervol</code>. Relancer un nouveau container nommé <code>containervol2</code> montant <code>httpd_vol</code></p>
+<p>Modifier le contenu de <code>htdocs/index.html</code> dans le container <code>containervol</code> puis stoppez et supprimez le container <code>containervol</code>. Relancer un nouveau container nommé <code>containervol2</code> montant <code>httpd_vol</code></p>
 <ul>
-<li>plutôt pratique pour backuper et manipuler des données lorsqu'une base de donnée type Mongo ou MySQL tourne en containerisée</li>
+<li>plutôt pratique pour backuper et manipuler des données lorsqu'une base de données type Mongo ou MySQL tourne en containerisée</li>
 </ul>
 <hr />
 <p>Lancer un container basé sur <code>busybox</code> montant <code>httpd_vol</code> en parallèle 
@@ -392,7 +392,7 @@ ENTRYPOINT [&quot;httpd&quot;]
 <h2 id="exercices-7"><a class="header" href="#exercices-7">Exercices</a></h2>
 <p>Créer un dossier <code>mybuild</code> et y créer un fichier <code>Dockerfile</code> avec le contenu de l'exemple ci-dessus. <strong>Builder</strong> une image Docker à partir du Dockerfile et la <strong>tagger <code>myapache:1.0</code></strong></p>
 <ul>
-<li>votre image doit apparaitre via <code>docker images</code></li>
+<li>votre image doit apparaître via <code>docker images</code></li>
 </ul>
 <hr />
 <p>Lancer un container utilisant votre image <code>myapache</code> et exposer <code>8089:80</code>, vérifier le fonctionnement.</p>
@@ -406,7 +406,7 @@ ENTRYPOINT [&quot;httpd&quot;]
 </ul>
 <hr />
 <p>Créez un fichier <code>index.html</code> avec un contenu customisé, par exemple <code>echo &quot;Hello from file&quot; &gt; index.html</code>.</p>
-<p>Modifier votre Dockerfile pour y ajouter une instruction <code>COPY</code> permettant de copier <code>index.html</code> à l'emplacement <code>/var/www/localhost/htdocs/</code> (emplacement par défaut du package Alpine <code>apache2</code>, différent de l'image officiel <code>httpd</code>). </p>
+<p>Modifier votre Dockerfile pour y ajouter une instruction <code>COPY</code> permettant de copier <code>index.html</code> à l'emplacement <code>/var/www/localhost/htdocs/</code> (emplacement par défaut du package Alpine <code>apache2</code>, différent de l'image officielle <code>httpd</code>). </p>
 <p>Testez le fonctionnement de votre image en lançant un container. </p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="docker-compose---basics"><a class="header" href="#docker-compose---basics">Docker Compose - basics</a></h1>
 <p>Nous utiliserons l'application Example Voting App pour l'exercice. Elle se trouve dans le dossier <code>~/example-voting-app</code>.</p>
@@ -414,7 +414,7 @@ ENTRYPOINT [&quot;httpd&quot;]
 <ul>
 <li>Vote: permet de voter pour Chien ou Chat</li>
 <li>Result: permet de voir les résultats des votes</li>
-<li>Worker: Traite les votes pour les insérer en base de donnée</li>
+<li>Worker: Traite les votes pour les insérer en base de données</li>
 <li>Redis: gère les votes en cours via un système de queue</li>
 <li>DB (Postgres): stocke les résultats</li>
 </ul>
@@ -428,13 +428,13 @@ ENTRYPOINT [&quot;httpd&quot;]
 </ul>
 </li>
 </ul>
-<p><strong>🔖 Conseil: Ajoutez des liens à fos favoris, ils seront utiles !</strong></p>
+<p><strong>🔖 Conseil: Ajoutez des liens à vos favoris, ils seront utiles !</strong></p>
 <p><em>Note: la CLI <code>docker-compose</code> standalone a été dépréciée en faveur de <code>docker compose</code></em></p>
 <hr />
 <h2 id="exercices-8"><a class="header" href="#exercices-8">Exercices</a></h2>
 <h3 id="lancement-dune-stack-docker-compose"><a class="header" href="#lancement-dune-stack-docker-compose">Lancement d'une stack Docker Compose</a></h3>
 <ul>
-<li>Utiliser la CLI <code>docker compose</code> pour lancer la stack en mode détachée
+<li>Utiliser la CLI <code>docker compose</code> pour lancer la stack en mode détaché
 <pre><code>docker compose --help
 </code></pre>
 </li>
@@ -465,7 +465,7 @@ POSTGRES_PASSWORD: &quot;postgres&quot;
 <li>Configuration du service <code>db</code> pour utiliser directement un ou plusieurs fichiers <code>.env</code> et passer les variables dans le container</li>
 </ul>
 <h3 id="healthcheck--depends-on"><a class="header" href="#healthcheck--depends-on">Healthcheck &amp; depends on</a></h3>
-<p>Faisons en sorte de démarrer le service Worker après nous êtes assuré que la base de donnée Postgres soit disponible:</p>
+<p>Faisons en sorte de démarrer le service Worker après nous être assuré que la base de données Postgres soit disponible:</p>
 <p>Ajouter une instruction <code>healthcheck</code> au service <code>db</code>:</p>
 <ul>
 <li>Faire un bind mount du script <code>resources/healthchecks/postgres.sh</code> dans le container</li>
@@ -489,8 +489,8 @@ docker compose --help
 <hr />
 <p>Lancer la stack Compose avec les options suivantes:</p>
 <ul>
-<li>Mode détachée (Tout comme <code>docker</code>, <code>docker compose</code> lance les containers en mode interactif par défaut)</li>
-<li>Forcer la récréation des containers déjà existants</li>
+<li>Mode détaché (Tout comme <code>docker</code>, <code>docker compose</code> lance les containers en mode interactif par défaut)</li>
+<li>Forcer la recréation des containers déjà existants</li>
 </ul>
 <hr />
 <p>Lancer la stack puis modifier le fichier <code>docker-compose.yml</code> pour changer le port exposé de <code>result</code> pour <code>5002</code>. Appliquer les changements à la stack avec une commande <code>docker compose</code>.</p>
@@ -502,18 +502,18 @@ docker compose --help
 <li>Lister les containers de la stack</li>
 <li>Afficher les logs de l'ensemble des containers de la stack</li>
 <li>Afficher les logs d'un container de la stack et suivre les changements</li>
-<li>Executer une session shell interactive dans le container <code>vote</code></li>
+<li>Exécuter une session shell interactive dans le container <code>vote</code></li>
 <li>Arrêter et supprimer la stack, puis ne lancer que le service <code>vote</code></li>
 <li>Arrêter et supprimer la stack</li>
 </ul>
 <p>Ces commandes seraient possibles directement avec <code>docker</code> en y spécifiant les options requises. <code>docker compose</code> intéragi avec le Daemon Docker tout comme <code>docker</code>.</p>
 <hr />
-<p>Plusieurs stacks peuvent coéxister en s'assurant qu'il n'y a pas de conflits de ports ou autre.</p>
+<p>Plusieurs stacks peuvent coexister en s'assurant qu'il n'y a pas de conflits de ports ou autre.</p>
 <p>Copier le fichier <code>docker-compose.yml</code> et nommer cette copie <code>docker-compose-bis.yml</code> puis lancer 2 stacks en parallèle</p>
 <ul>
-<li>Celle utilisant <code>docker-compose.yml</code> doit être nommé <code>app</code></li>
+<li>Celle utilisant <code>docker-compose.yml</code> doit être nommée <code>app</code></li>
 <li>Celle utilisant <code>docker-compose-bis.yml</code> doit être nommée <code>app-bis</code></li>
-<li>Attention aux conflits de nom de container et ports: le nom des containers doivent être uniques ainsi que les ports exposées sur la machine</li>
+<li>Attention aux conflits de nom de container et ports: le nom des containers doivent être uniques ainsi que les ports exposés sur la machine</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="docker-compose---ateliers-avancés"><a class="header" href="#docker-compose---ateliers-avancés">Docker Compose - ateliers avancés</a></h1>
 <h2 id="volumes"><a class="header" href="#volumes">Volumes</a></h2>
@@ -542,7 +542,7 @@ docker compose --help
 <h2 id="override-docker-composeyml"><a class="header" href="#override-docker-composeyml">Override <code>docker-compose.yml</code></a></h2>
 <p>Docker Compose permet d'utiliser plusieurs fichiers de configuration <code>.yml</code> pour étendre une configuration de base.</p>
 <ul>
-<li>Trouver dans la documentation la référence à ce méchanisme d'extention des configurations</li>
+<li>Trouver dans la documentation la référence à ce mécanisme d'extension des configurations</li>
 <li>Créer un fichier <code>docker-compose.dev.yml</code> étendant <code>docker-compose.yml</code> tel que:
 <ul>
 <li>le service <code>vote</code> monte le code source <code>vote/</code> à l'emplacement <code>/app</code></li>
@@ -559,7 +559,7 @@ FLASK_ENV=development
 </ul>
 <p>Cette configuration permet de monter le code source de l'application Vote (Python) directement dans le container et de relancer l'application dynamiquement au sein du container sans avoir à re-builder ou redémarrer le container.</p>
 <p>Cette méthode utilise les fonctionnalités de Flask (serveur web Python) mais la plupart des frameworks permettent un setup similaire pour les environnement de développement.</p>
-<p>Il est ainsi possible de définir une configuration de base Docker Compose avec des overrides selon différent contextes (dev, CI, production, etc.)</p>
+<p>Il est ainsi possible de définir une configuration de base Docker Compose avec des overrides selon différents contextes (dev, CI, production, etc.)</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bridge-networking"><a class="header" href="#bridge-networking">Bridge networking</a></h1>
 <p>Quelques exercices sur Bridge networking avec Docker.</p>
 <h1 id="exercices-11"><a class="header" href="#exercices-11">Exercices</a></h1>
@@ -570,7 +570,7 @@ FLASK_ENV=development
 <li>Utiliser la CLI Docker: <code>docker network --help</code> </li>
 </ul>
 </li>
-<li>Identifier l'ensemble des réseaux actuellement existant et le Driver utilisé par chacun</li>
+<li>Identifier l'ensemble des réseaux actuellement existants et le Driver utilisé par chacun</li>
 <li>Inspecter le réseau utilisé par la stack Compose et:
 <ul>
 <li>Trouver la liste des containers associés au réseau</li>
@@ -637,7 +637,7 @@ $ getent hosts worker
 <li>Configurer les services pour utiliser ce réseau déjà existant et appliquer les configurations </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bridge-networking---advanced"><a class="header" href="#bridge-networking---advanced">Bridge networking - advanced</a></h1>
-<p>Recherchons comment Docker intéragi avec le système Linux pour manager les réseaux et interfaces:</p>
+<p>Recherchons comment Docker interagit avec le système Linux pour manager les réseaux et interfaces:</p>
 <ul>
 <li>Lancer la stack Compose </li>
 <li>Trouver l'interface réseau Linux sous-jacente du réseau Docker utilisé par la stack
@@ -674,7 +674,7 @@ $ getent hosts worker
 <li>Observer le contenu du dossier <code>/home/docker/db-data</code></li>
 </ul>
 <hr />
-<p><em>Besoin: vous devez configurer plus finement la base de donnée via un fichier de configuration <code>postgresql.conf</code> fourni par votre administrateur système et qui doit être utilisé par la BDD:</em></p>
+<p><em>Besoin: vous devez configurer plus finement la base de données via un fichier de configuration <code>postgresql.conf</code> fourni par votre administrateur système et qui doit être utilisé par la BDD:</em></p>
 <pre><code># Full content of postgresql.conf to be mounted in container
 listen_addresses = '*'
 temp_file_limit = 1000
@@ -695,7 +695,7 @@ temp_file_limit = 1000
 </ul>
 <p><em>De nombreux applicatifs utilisent <code>SIGHUP</code> pour recharger une configuration sans avoir à faire un redémarrage complet, cette feature n'est pas spécifique à Docker mais néanmoins très pratique.</em> </p>
 <hr />
-<p><em>Besoin: vous souhaitez configurer une procedure de backup des données via un au container <code>postgres</code> qui fera un dump régulier de la BDD</em></p>
+<p><em>Besoin: vous souhaitez configurer une procédure de backup des données via un container <code>postgres</code> annexe qui fera un dump régulier de la BDD</em></p>
 <p>Lancer un container utilisant permettant d'effectuer un backup:</p>
 <ul>
 <li>utiliser la même image que le service <code>db</code></li>
@@ -709,7 +709,7 @@ temp_file_limit = 1000
 </ul>
 </li>
 </ul>
-<p><em>Il est possible de monter le même dossier/fichier sur plusieurs containers, pratique dans divers situations comme le backup de données</em></p>
+<p><em>Il est possible de monter le même dossier/fichier sur plusieurs containers, pratique dans diverses situations comme le backup de données</em></p>
 <p>Bonus: configurer une tâche <em>cron</em> qui lancera toutes les heures notre backup. Pour créer une tâche cron:</p>
 <pre><code># run cron editor for user
 crontab -e
@@ -733,7 +733,7 @@ docker run -v myvolume:/data some_image
 <p><em>Besoin: vous souhaitez gérer les données Postgres via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup</em></p>
 <p>Modifier <code>docker-compose.yml</code> pour:</p>
 <ul>
-<li>configurer un volume <code>psqsl-data</code> et</li>
+<li>configurer un volume <code>psql-data</code> et</li>
 <li>monter ce volume à l'emplacement <code>/var/lib/postgresql/data</code> du service <code>db</code></li>
 <li>redémarrer le service <code>db</code> pour prendre en compte les modifications</li>
 </ul>
@@ -744,7 +744,7 @@ docker run -v myvolume:/data some_image
 </ul>
 <p>Cleanup: supprimer la stack Docker Compose et les volumes utilisés par Postgres </p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="montage-tmpfs"><a class="header" href="#montage-tmpfs">Montage <code>tmpfs</code></a></h1>
-<p>Exercices sur le montage de volume de type <em>tmpfs</em>*</p>
+<p>Exercices sur le montage de volume de type <em>tmpfs</em></p>
 <h2 id="exercices-14"><a class="header" href="#exercices-14">Exercices</a></h2>
 <p><em>Contexte: les données Redis sont dans notre cas considérées comme éphémères et ne doivent pas être persistées sur le disque ou dans le writable layer du container. De plus, pour optimiser les performances les données Redis doivent être stockées en mémoire directement.</em></p>
 <p>Modifier <code>docker-compose.yml</code> pour:</p>
@@ -760,7 +760,7 @@ docker run -v myvolume:/data some_image
 </code></pre>
 </li>
 <li>redémarrer le container</li>
-<li>vérifier l'éxistence du fichier précédemment créé</li>
+<li>vérifier l'existence du fichier précédemment créé</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="container-layer-data"><a class="header" href="#container-layer-data">Container Layer data</a></h1>
 <p>Quelques exercices de manipulation des données d'un container</p>
@@ -785,9 +785,9 @@ pourrait modifier le comportement du container.</em></p>
 <p><strong>Inspecter</strong> le container <code>vote</code> et trouver l'emplacement des données du layer container sur le disque local. </p>
 <p><em>Il est possible de modifier directement les données depuis le disque... mais c'est très fortement déconseillé et risque la corruption de l'installation Docker!</em></p>
 <hr />
-<p>Supprimer le container <code>vote</code> et le récréer puis:</p>
+<p>Supprimer le container <code>vote</code> et le recréer puis:</p>
 <ul>
-<li>Lancer une session shell dans le container et vérifier si l'état des fichiers <code>/test.txt</code> et <code>app.py</code></li>
+<li>Lancer une session shell dans le container et vérifier l'état des fichiers <code>/test.txt</code> et <code>app.py</code></li>
 <li>Vérifier l'existence des données du container layer sur le disque</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="copy"><a class="header" href="#copy">Copy</a></h1>
@@ -815,30 +815,30 @@ docker pull redis:alpine
 <ul>
 <li>Exporter l'image <code>vote:newtag</code> comme archive
 <ul>
-<li>Trouver la commande adapée via <code>docker image --help</code></li>
+<li>Trouver la commande adaptée via <code>docker image --help</code></li>
 <li>Cette action peut prendre quelques secondes...</li>
 </ul>
 </li>
 <li>Supprimer l'image Vote de votre système local
 <ul>
-<li>L'image ne doit plus apparaitre avec <code>docker images</code></li>
+<li>L'image ne doit plus apparaître avec <code>docker images</code></li>
 <li>Si besoin, il sera possible de la re-builder from scratch</li>
 </ul>
 </li>
 <li>Re-importer l'image Vote depuis l'archive créée précédemment
 <ul>
-<li><code>docker images</code> doit affiche l'image</li>
+<li><code>docker images</code> doit afficher l'image</li>
 </ul>
 </li>
 </ul>
 <hr />
-<p>Lancer un container basé sur <code>vote:newtag</code> et ouvrez une session bash dans le container (<code>docker exec ...</code>) pour modifier le contenu du fichier <code>/app/app.py</code> afin de modifier les options <em>Cat/Dog</em> pour <em>Windows/Mac</em> (les variables <code>options_a|b</code>) Redémarer le container pour constater les changements.</p>
+<p>Lancer un container basé sur <code>vote:newtag</code> et ouvrez une session bash dans le container (<code>docker exec ...</code>) pour modifier le contenu du fichier <code>/app/app.py</code> afin de modifier les options <em>Cat/Dog</em> pour <em>Windows/Mac</em> (les variables <code>options_a|b</code>) Redémarrer le container pour constater les changements.</p>
 <p>Il est possible de créer une image Docker directement à partir d'un container (sans passer par <code>docker build</code>). Ce principe est équivalent à créer une image de VM via un snapshot de VM existante afin de lancer des clones de la VM d'origine.</p>
 <p>Créer une nouvelle image à partir du container modifié précédemment <strong>sans passer par <code>docker build</code></strong>, tagger cette image <code>voting-app:from-container</code> puis démarrer un container à partir de celle-ci et tester.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="voting-app-build-python-image"><a class="header" href="#voting-app-build-python-image">Voting App: Build Python image</a></h1>
-<p>L'appplication Voting App dispose de plusieurs services:</p>
+<p>L'application Voting App dispose de plusieurs services:</p>
 <ul>
-<li><strong>Worker</strong>: récupère les votes et les stockes en base de donnée</li>
+<li><strong>Worker</strong>: récupère les votes et les stocke en base de données</li>
 <li><strong>Vote</strong>: application web permettant de voter</li>
 <li><strong>Result</strong> : permet d'afficher les résultats</li>
 </ul>
@@ -848,7 +848,7 @@ docker pull redis:alpine
 <p>Le code du service Vote se trouve dans <code>vote/</code>:</p>
 <ul>
 <li><code>app.py</code> est le fichier applicatif permettant de lancer l'application</li>
-<li><code>requirements.txt</code> contiens les dépendences de l'application</li>
+<li><code>requirements.txt</code> contient les dépendances de l'application</li>
 </ul>
 <p>Pour l'instant le service utilise une image Docker déjà buildée:</p>
 <pre><code>services:
@@ -864,10 +864,10 @@ docker pull redis:alpine
 </ul>
 </li>
 <li>
-<p>L'ensemble du code source du service (fichiers dans <code>/vote</code>) doit être <strong>copiée dans l'image Docker</strong></p>
+<p>L'ensemble du code source du service (fichiers dans <code>/vote</code>) doit être <strong>copié dans l'image Docker</strong></p>
 </li>
 <li>
-<p>L'image Docker doit contenir l'ensemble du service. Pour <strong>installer les dépendences</strong>, utiliser la commande</p>
+<p>L'image Docker doit contenir l'ensemble du service. Pour <strong>installer les dépendances</strong>, utiliser la commande</p>
 <pre><code>pip install -r requirements.txt
 </code></pre>
 </li>
@@ -875,7 +875,7 @@ docker pull redis:alpine
 <p>La commande qui doit être lancée au démarrage du container est:</p>
 <pre><code>gunicorn app:app -b 0.0.0.0:80
 </code></pre>
-<p>et doit être <strong>éxecutée depuis le dossier contenant l'ensemble du code source</strong> du service (le service exposera le port 80 par défaut une fois lancé)</p>
+<p>et doit être <strong>exécutée depuis le dossier contenant l'ensemble du code source</strong> du service (le service exposera le port 80 par défaut une fois lancé)</p>
 </li>
 </ul>
 <p>Exercices:</p>
@@ -884,7 +884,7 @@ docker pull redis:alpine
 <li>Builder votre image Vote et la tagger <code>vote:local</code> (mettre à jour la <code>docker-compose.yml</code> en conséquence)</li>
 <li>Lancer la stack avec votre nouvelle image <code>vote</code></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="optimization-de-build"><a class="header" href="#optimization-de-build">Optimization de build</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="optimisation-de-build"><a class="header" href="#optimisation-de-build">Optimisation de build</a></h1>
 <p>Problèmes typiques de build: </p>
 <ul>
 <li>temps de build (notamment download des dépendances)</li>
@@ -957,7 +957,7 @@ docker compose run vote --log-level DEBUG
 # gunicorn app:app --log-level DEBUG
 #
 </code></pre>
-<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme un port différent ou un niveau de debug plus élévé)</p>
+<p>Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme un port différent ou un niveau de debug plus élevé)</p>
 <h2 id="cas-2"><a class="header" href="#cas-2">Cas 2</a></h2>
 <p>La commande lancée au démarrage par défaut doit être:</p>
 <pre><code>gunicorn app:app -b 0.0.0.0:80
@@ -980,7 +980,7 @@ docker compose run vote --log-level DEBUG
 # gunicorn app:app -b 0.0.0.0:80 --log-level DEBUG
 #
 </code></pre>
-<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme niveau de debug plus élévé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)</p>
+<p>Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme niveau de debug plus élevé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)</p>
 <h2 id="cas-3"><a class="header" href="#cas-3">Cas 3</a></h2>
 <p>La commande lancée au démarrage par défaut doit être:</p>
 <pre><code>gunicorn app:app -b 0.0.0.0:80
@@ -1003,7 +1003,7 @@ docker compose run vote sh
 # Lance une session shell interactive
 #
 </code></pre>
-<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différent au lancement du container.</p>
+<p>Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différente au lancement du container.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="instruction-de-build-dockerfile-avancées"><a class="header" href="#instruction-de-build-dockerfile-avancées">Instruction de build Dockerfile avancées</a></h1>
 <p>De nombreuses instructions de build existent pour Dockerfile.</p>
 <p>La documentation officielle <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a> référence l'ensemble des instructions disponibles</p>
@@ -1033,18 +1033,18 @@ adduser -S crafteo
 </code></pre>
 </li>
 </ul>
-<p>Il sera nécéssaire d'ajouter le chemin <code>/home/crafteo/.local/bin</code> au <code>PATH</code> du user <code>crafteo</code> pour éxecuter les binaires installés par Python.</p>
+<p>Il sera nécessaire d'ajouter le chemin <code>/home/crafteo/.local/bin</code> au <code>PATH</code> du user <code>crafteo</code> pour exécuter les binaires installés par Python.</p>
 <ul>
 <li>Ajouter une instruction au Dockerfile permettant de définir la variable <code>PATH</code> tel que:
 <pre><code>PATH=$PATH:/home/crafteo/.local/bin
 </code></pre>
 </li>
 </ul>
-<p>Attention: il n'est pas possible de binder un port &lt;1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port <code>8080</code>.</p>
+<p>Attention: il n'est pas possible de binder un port &lt;1024 avec un utilisateur non-root avec Linux, il sera nécessaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port <code>8080</code>.</p>
 <hr />
 <p>Ajouter un healthcheck permettant de vérifier le fonctionnement de l'image avec <code>curl localhost:80</code>. Ce healthcheck permettra de vérifier que l'image est bien active si une réponse est renvoyée lors d'un appel à <code>localhost:80</code></p>
 <ul>
-<li>Il peut-être nécéssaire d'installer <code>curl</code> ou d'utiliser une image de base ou il l'est déjà</li>
+<li>Il peut être nécessaire d'installer <code>curl</code> ou d'utiliser une image de base où il l'est déjà</li>
 <li>Pour installer <code>curl</code> sous Linux Alpine:
 <pre><code>apk add curl
 </code></pre>
@@ -1063,7 +1063,7 @@ docker build -t vote:builder vote
 <div style="break-before: page; page-break-before: always;"></div><h1 id="harbor"><a class="header" href="#harbor">Harbor</a></h1>
 <p>Harbor est un outil de registry Docker. Nous allons créer un compte sur https://demo.goharbor.io pour expérimenter les fonctionnalités. </p>
 <h2 id="exercices-18"><a class="header" href="#exercices-18">Exercices</a></h2>
-<p>Après le build locale nos images Example Voting App, pushons les sur une Registry pour les partager !</p>
+<p>Après le build local de nos images Example Voting App, pushons les sur une Registry pour les partager !</p>
 <p>Aller sur <a href="https://demo.goharbor.io">demo.goharbor.io</a> et créez-vous un compte (gratuit). </p>
 <ul>
 <li>Créer un projet <code>example-voting-app</code></li>
@@ -1077,9 +1077,9 @@ docker build -t vote:builder vote
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="docker-hub---registry-docker-officielle"><a class="header" href="#docker-hub---registry-docker-officielle">Docker Hub - Registry Docker officielle</a></h1>
-<p>Cette série d'exercice démontrera l'usage de Docker Hub, la registry officielle. Nous allons créer un compte, s'authentifier avec la CLI <code>docker</code> et pusher nos imagees buildées localement directement sur la registry.</p>
+<p>Cette série d'exercice démontrera l'usage de Docker Hub, la registry officielle. Nous allons créer un compte, s'authentifier avec la CLI <code>docker</code> et pusher nos images buildées localement directement sur la registry.</p>
 <h2 id="exercices-19"><a class="header" href="#exercices-19">Exercices</a></h2>
-<p>Après le build locale nos images Example Voting App, poussons les sur la Registry!</p>
+<p>Après le build local de nos images Example Voting App, poussons les sur la Registry!</p>
 <p>Aller sur <a href="https://hub.docker.com/">hub.docker.com</a> et créez vous un compte (gratuit). </p>
 <ul>
 <li>Avec votre compte, créer un repository sur Docker Hub nommé <code>voting-app-vote</code> qui sera utilisé pour héberger l'image <code>vote</code></li>
@@ -1101,7 +1101,7 @@ docker build -t vote:builder vote
 <hr />
 <p>Les images pushées sur la registry peuvent maintenant être utilisée publiquement. Il est aussi possible de les rendre privées, auquel cas il sera obligatoire de s'authentifier sur la registry avant de pouvoir les puller. </p>
 <ul>
-<li>Essayer de puller les images construires et pushées depuis la registry de votre voisin</li>
+<li>Essayer de puller les images construites et pushées depuis la registry de votre voisin</li>
 <li>Essayer de pusher une image construite par vous-même sur la registry de votre voisin</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="self-hosted-docker-registry"><a class="header" href="#self-hosted-docker-registry">Self-hosted Docker Registry</a></h1>
@@ -1117,8 +1117,8 @@ docker push localhost:5010/ubuntu
 <p>Pour plus de détails, voir <a href="https://docs.docker.com/registry/deploying/">la documentation officielle Docker</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dockerizer-une-application-depuis-le-code-source"><a class="header" href="#dockerizer-une-application-depuis-le-code-source">Dockerizer une application depuis le code source</a></h1>
 <p>Considérons le contexte suivant:</p>
-<p><em>Vous êtes un opérateur travaillant avec une équipe de développeur. L'équipe de dev viens de vous livrer le code source d'une application web que vous devez déployer sous Docker.</em></p>
-<p><em>L'application est codé en <a href="https://nodejs.org/en/">NodeJS</a> et a pour but d'afficher un message à partir d'un fichier de configuration. Le code source de l'application se trouve à l'emplacement suivant: <a href="https://github.com/PierreBeucher/example-voting-app/tree/master/resources/nodejs-sample">NodeJS app</a></em></p>
+<p><em>Vous êtes un opérateur travaillant avec une équipe de développeurs. L'équipe de dev vient de vous livrer le code source d'une application web que vous devez déployer sous Docker.</em></p>
+<p><em>L'application est codée en <a href="https://nodejs.org/en/">NodeJS</a> et a pour but d'afficher un message à partir d'un fichier de configuration. Le code source de l'application se trouve à l'emplacement suivant: <a href="https://github.com/PierreBeucher/example-voting-app/tree/master/resources/nodejs-sample">NodeJS app</a></em></p>
 <p>Les développeurs vous donnent les instructions suivantes:</p>
 <ul>
 <li>L'application peut se lancer avec NodeJS 15+</li>
@@ -1178,7 +1178,7 @@ docker compose -f docker-compose.yml -f resources/traefik.yml up -d
 <p><em>Note: le certificat TLS ne sera pas reconnu par votre navigateur, ils sont fournis par <code>(STAGING) Let's Encrypt</code>, une version de test des certificats <a href="https://letsencrypt.org/">Let's Encrypt</a></em></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="docker-quelques-bonnes-pratiques"><a class="header" href="#docker-quelques-bonnes-pratiques">Docker: quelques bonnes pratiques!</a></h1>
 <p>Quelques exercices sur les bonnes pratiques avec Docker: limitation de ressources, healthcheck, logging...</p>
-<p>Les exercices utiliserons le <code>docker-compose.yml</code> suivant:</p>
+<p>Les exercices utiliseront le <code>docker-compose.yml</code> suivant:</p>
 <pre><code>version: &quot;3.7&quot;
 
 services:
@@ -1234,8 +1234,8 @@ services:
 </ul>
 <p>Vérifier l'existence des logs dans <code>/tmp/docker-logs</code></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="logging-with-docker-example-elk-stack"><a class="header" href="#logging-with-docker-example-elk-stack">Logging with Docker example: ELK Stack</a></h1>
-<p>Déployons une stack ELK (Logstash, Elasticearch, Kibana) que nous pourrons utiliser pour obtenir les logs de nos containers:</p>
-<p><code>resources/elk-stack.yml</code> contiens les configurations d'une stack ELK. La déployer avec:</p>
+<p>Déployons une stack ELK (Logstash, Elasticsearch, Kibana) que nous pourrons utiliser pour obtenir les logs de nos containers:</p>
+<p><code>resources/elk-stack.yml</code> contient les configurations d'une stack ELK. La déployer avec:</p>
 <pre><code class="language-sh"># make elk
 docker compose -f resources/elk-stack.yml up -d
 </code></pre>
@@ -1271,13 +1271,13 @@ docker compose up -d
 <p>Suite à l'installation de Docker sur Linux:</p>
 <ul>
 <li>Docker est installé comme service Linux (<code>systemd</code>)</li>
-<li>La CLI <code>dockerd</code> est utilisé pour lancer le Docker daemon</li>
+<li>La CLI <code>dockerd</code> est utilisée pour lancer le Docker daemon</li>
 <li>Il est possible d'overrider les configurations du daemon via des options CLI au lancement du service ou via un fichier <code>/etc/docker/daemon.json</code> lu par <code>dockerd</code> par défaut</li>
 </ul>
 <p>Quelques infos et rappels:</p>
 <ul>
 <li>Le <strong>Docker daemon</strong> est aussi appelé <strong>Docker host</strong> ou <strong>Docker server</strong></li>
-<li>Le Docker client (CLI <code>docker</code>) communique avec le client via API REST en utilisant la socket <code>/var/run/docker.sock</code> par défaut. Le client peut aussi contacter directement une adresse tel que <code>tcp://127.0.0.1:2375</code> ou <code>tcp://198.265.78.1:2376</code> en fonction des configurations du Daemon</li>
+<li>Le Docker client (CLI <code>docker</code>) communique avec le daemon via API REST en utilisant la socket <code>/var/run/docker.sock</code> par défaut. Le client peut aussi contacter directement une adresse tel que <code>tcp://127.0.0.1:2375</code> ou <code>tcp://198.265.78.1:2376</code> en fonction des configurations du Daemon</li>
 <li>Memo de commandes <code>systemctl</code> utile pour manipuler les services Linux:
 <pre><code># restart, stop, get status of docker
 sudo systemctl [restart|stop|status|...] docker
@@ -1295,7 +1295,7 @@ sudo journalctl -u docker -r
 </li>
 </ul>
 <h1 id="exercices-21"><a class="header" href="#exercices-21">Exercices</a></h1>
-<p>Créer un fichier <code>etc/docker/daemon.json</code> et y configuer les options suivantes pour le Docker daemon:</p>
+<p>Créer un fichier <code>etc/docker/daemon.json</code> et y configurer les options suivantes pour le Docker daemon:</p>
 <ul>
 <li>Activer le mode debug</li>
 <li>Configurer le daemon Docker pour écouter sur <code>127.0.0.1:2375</code></li>
@@ -1315,20 +1315,20 @@ sudo journalctl -u docker -r
 </ul>
 <hr />
 <p>Certains déploiements mettent à disposition un daemon Docker accessible à distance. (i.e. le daemon Docker est installé sur une machine différente du client Docker)</p>
-<p>Cela peut-être utile dans certaines situations, par exemple pour partager un daemon avec une équipe de développeur ou un système de CI et accéler le build d'image: le cache de build pourra être réutilisé facilement et ainsi réduire le temps de build (pratique dans certains cas ou un build sans cache dure 20+ min et avec cache seulement quelques secondes!)</p>
+<p>Cela peut-être utile dans certaines situations, par exemple pour partager un daemon avec une équipe de développeurs ou un système de CI et accélérer le build d'image: le cache de build pourra être réutilisé facilement et ainsi réduire le temps de build (pratique dans certains cas où un build sans cache dure 20+ min et avec cache seulement quelques secondes!)</p>
 <p>Un tel déploiement demande de sécuriser les communications entre le client Docker et le daemon. Utilisant HTTP par défaut, il faut y configurer TLS pour passer en HTTPS. </p>
 <p>Configurer le daemon Docker pour:</p>
 <ul>
 <li>écouter sur <code>127.0.0.1:2376</code></li>
 <li>Configurer l'authentification du serveur en TLS - un client pourra ainsi authentifier le serveur lors de son utilisation (similaire à la connection à un site web en HTTPS)</li>
-<li>(Optionnel) Configurer l'authentification du client en TLS - le client devra s'authentifier auprès du serveur avec un certificate pour pouvoir utiliser le daemon</li>
+<li>(Optionnel) Configurer l'authentification du client en TLS - le client devra s'authentifier auprès du serveur avec un certificat pour pouvoir utiliser le daemon</li>
 </ul>
 <p>Ce setup s'appelle une double-authentification TLS. Pour ce besoin il faut un certificat et une clé pour être utilisé par le Daemon (idem pour le client):</p>
 <ul>
 <li>Le client va &quot;truster&quot; un CA (certificate Authority) et le daemon fournira un certificat signé par ce CA pour s'authentifier (c'est exactement le même processus en se connectant à un site web en HTTPS)</li>
 <li>Le Daemon va &quot;truster&quot; un CA (généralement le même), et le client devra fournir un certificat signé par ce CA pour être autorisé par le daemon</li>
 </ul>
-<p>Dans le cadre de l'exercice nous pourrons générer nos propre CA et certificats. Pour générer une clé et un certificat autosigné:</p>
+<p>Dans le cadre de l'exercice nous pourrons générer nos propres CA et certificats. Pour générer une clé et un certificat autosigné:</p>
 <pre><code># generate CA cert and key
 openssl genrsa -out ca.key 4096
 openssl req  -nodes -new -x509  -keyout ca.key -out ca.cert

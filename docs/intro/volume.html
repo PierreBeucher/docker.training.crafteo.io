@@ -176,18 +176,18 @@
 <h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
 <p>Créer un volume Docker nommé <code>httpd_vol</code> </p>
 <ul>
-<li>cette étape est optionnelle pour la suite, mais il serait intéréssant de comprendre pourquoi</li>
+<li>cette étape est optionnelle pour la suite, mais il serait intéressant de comprendre pourquoi</li>
 </ul>
 <hr />
 <p>Lancer un container <code>httpd:alpine</code> nommé <code>containervol</code> montant le volume Docker <code>htdocs_vol</code> sur <code>/usr/local/apache2/htdocs</code>. Vérifier le contenu du dossier <code>htdocs</code> dans le container une fois démarré. </p>
 <ul>
 <li>que se passe-t-il si le Volume n'existe pas au préalable?</li>
-<li>afficher les montages avec <code>df -h</code> ou <code>mount</code> donne des infos intéréssantes</li>
+<li>afficher les montages avec <code>df -h</code> ou <code>mount</code> donne des infos intéressantes</li>
 </ul>
 <hr />
-<p>Modifier le contenu de <code>htodcs/index.html</code> dans le container <code>containervol</code> puis stoppez et supprimer le container <code>containervol</code>. Relancer un nouveau container nommé <code>containervol2</code> montant <code>httpd_vol</code></p>
+<p>Modifier le contenu de <code>htdocs/index.html</code> dans le container <code>containervol</code> puis stoppez et supprimez le container <code>containervol</code>. Relancer un nouveau container nommé <code>containervol2</code> montant <code>httpd_vol</code></p>
 <ul>
-<li>plutôt pratique pour backuper et manipuler des données lorsqu'une base de donnée type Mongo ou MySQL tourne en containerisée</li>
+<li>plutôt pratique pour backuper et manipuler des données lorsqu'une base de données type Mongo ou MySQL tourne en containerisée</li>
 </ul>
 <hr />
 <p>Lancer un container basé sur <code>busybox</code> montant <code>httpd_vol</code> en parallèle 

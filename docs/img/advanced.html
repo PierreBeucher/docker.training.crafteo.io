@@ -198,18 +198,18 @@ adduser -S crafteo
 </code></pre>
 </li>
 </ul>
-<p>Il sera nécéssaire d'ajouter le chemin <code>/home/crafteo/.local/bin</code> au <code>PATH</code> du user <code>crafteo</code> pour éxecuter les binaires installés par Python.</p>
+<p>Il sera nécessaire d'ajouter le chemin <code>/home/crafteo/.local/bin</code> au <code>PATH</code> du user <code>crafteo</code> pour exécuter les binaires installés par Python.</p>
 <ul>
 <li>Ajouter une instruction au Dockerfile permettant de définir la variable <code>PATH</code> tel que:
 <pre><code>PATH=$PATH:/home/crafteo/.local/bin
 </code></pre>
 </li>
 </ul>
-<p>Attention: il n'est pas possible de binder un port &lt;1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port <code>8080</code>.</p>
+<p>Attention: il n'est pas possible de binder un port &lt;1024 avec un utilisateur non-root avec Linux, il sera nécessaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port <code>8080</code>.</p>
 <hr />
 <p>Ajouter un healthcheck permettant de vérifier le fonctionnement de l'image avec <code>curl localhost:80</code>. Ce healthcheck permettra de vérifier que l'image est bien active si une réponse est renvoyée lors d'un appel à <code>localhost:80</code></p>
 <ul>
-<li>Il peut-être nécéssaire d'installer <code>curl</code> ou d'utiliser une image de base ou il l'est déjà</li>
+<li>Il peut être nécessaire d'installer <code>curl</code> ou d'utiliser une image de base où il l'est déjà</li>
 <li>Pour installer <code>curl</code> sous Linux Alpine:
 <pre><code>apk add curl
 </code></pre>

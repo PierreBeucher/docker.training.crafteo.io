@@ -1,6 +1,6 @@
 # Bridge networking - advanced
 
-Recherchons comment Docker intéragi avec le système Linux pour manager les réseaux et interfaces:
+Recherchons comment Docker interagit avec le système Linux pour manager les réseaux et interfaces:
 
 - Lancer la stack Compose 
 - Trouver l'interface réseau Linux sous-jacente du réseau Docker utilisé par la stack

@@ -185,7 +185,7 @@ docker run -v myvolume:/data some_image
 <p><em>Besoin: vous souhaitez gérer les données Postgres via un volume plutôt qu'un bind mount afin de limiter l'accès aux données depuis la machine locale et faciliter les procédures de backup</em></p>
 <p>Modifier <code>docker-compose.yml</code> pour:</p>
 <ul>
-<li>configurer un volume <code>psqsl-data</code> et</li>
+<li>configurer un volume <code>psql-data</code> et</li>
 <li>monter ce volume à l'emplacement <code>/var/lib/postgresql/data</code> du service <code>db</code></li>
 <li>redémarrer le service <code>db</code> pour prendre en compte les modifications</li>
 </ul>

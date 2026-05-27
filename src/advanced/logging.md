@@ -1,8 +1,8 @@
 # Logging with Docker example: ELK Stack 
 
-Déployons une stack ELK (Logstash, Elasticearch, Kibana) que nous pourrons utiliser pour obtenir les logs de nos containers:
+Déployons une stack ELK (Logstash, Elasticsearch, Kibana) que nous pourrons utiliser pour obtenir les logs de nos containers:
 
-`resources/elk-stack.yml` contiens les configurations d'une stack ELK. La déployer avec:
+`resources/elk-stack.yml` contient les configurations d'une stack ELK. La déployer avec:
 
 ```sh
 # make elk
