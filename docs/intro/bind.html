@@ -189,7 +189,7 @@ echo 'Hello Docker!' &gt; ./apache/index.html
 </code></pre>
 <p>Lancer un container <code>httpd:alpine</code> <strong>montant le fichier <code>./apache/index.html</code> sur <code>htdocs/index.html</code> du container</strong> (et exposant <code>8085:80</code>)</p>
 <ul>
-<li>le chemin complet de destination sera peut-être nécéssaire</li>
+<li>le chemin complet de destination sera peut-être nécessaire</li>
 <li>tester avec <code>curl localhost:8085</code> ou votre navigateur</li>
 <li>lancer une session shell dans le container et modifier le fichier <code>index.html</code>, re-tester <code>localhost:8085</code> et constater les changements
 <pre><code># rappel: lancer une session shell

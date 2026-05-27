@@ -225,7 +225,7 @@ docker compose run vote --log-level DEBUG
 # gunicorn app:app --log-level DEBUG
 #
 </code></pre>
-<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme un port différent ou un niveau de debug plus élévé)</p>
+<p>Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme un port différent ou un niveau de debug plus élevé)</p>
 <h2 id="cas-2"><a class="header" href="#cas-2">Cas 2</a></h2>
 <p>La commande lancée au démarrage par défaut doit être:</p>
 <pre><code>gunicorn app:app -b 0.0.0.0:80
@@ -248,7 +248,7 @@ docker compose run vote --log-level DEBUG
 # gunicorn app:app -b 0.0.0.0:80 --log-level DEBUG
 #
 </code></pre>
-<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme niveau de debug plus élévé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)</p>
+<p>Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à <code>gunicorn</code> des options différentes (comme niveau de debug plus élevé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)</p>
 <h2 id="cas-3"><a class="header" href="#cas-3">Cas 3</a></h2>
 <p>La commande lancée au démarrage par défaut doit être:</p>
 <pre><code>gunicorn app:app -b 0.0.0.0:80
@@ -271,7 +271,7 @@ docker compose run vote sh
 # Lance une session shell interactive
 #
 </code></pre>
-<p>Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différent au lancement du container.</p>
+<p>Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différente au lancement du container.</p>
 
                     </main>
 

@@ -175,7 +175,7 @@
 <ul>
 <li>Vote: permet de voter pour Chien ou Chat</li>
 <li>Result: permet de voir les résultats des votes</li>
-<li>Worker: Traite les votes pour les insérer en base de donnée</li>
+<li>Worker: Traite les votes pour les insérer en base de données</li>
 <li>Redis: gère les votes en cours via un système de queue</li>
 <li>DB (Postgres): stocke les résultats</li>
 </ul>
@@ -189,13 +189,13 @@
 </ul>
 </li>
 </ul>
-<p><strong>🔖 Conseil: Ajoutez des liens à fos favoris, ils seront utiles !</strong></p>
+<p><strong>🔖 Conseil: Ajoutez des liens à vos favoris, ils seront utiles !</strong></p>
 <p><em>Note: la CLI <code>docker-compose</code> standalone a été dépréciée en faveur de <code>docker compose</code></em></p>
 <hr />
 <h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
 <h3 id="lancement-dune-stack-docker-compose"><a class="header" href="#lancement-dune-stack-docker-compose">Lancement d'une stack Docker Compose</a></h3>
 <ul>
-<li>Utiliser la CLI <code>docker compose</code> pour lancer la stack en mode détachée
+<li>Utiliser la CLI <code>docker compose</code> pour lancer la stack en mode détaché
 <pre><code>docker compose --help
 </code></pre>
 </li>
@@ -226,7 +226,7 @@ POSTGRES_PASSWORD: &quot;postgres&quot;
 <li>Configuration du service <code>db</code> pour utiliser directement un ou plusieurs fichiers <code>.env</code> et passer les variables dans le container</li>
 </ul>
 <h3 id="healthcheck--depends-on"><a class="header" href="#healthcheck--depends-on">Healthcheck &amp; depends on</a></h3>
-<p>Faisons en sorte de démarrer le service Worker après nous êtes assuré que la base de donnée Postgres soit disponible:</p>
+<p>Faisons en sorte de démarrer le service Worker après nous être assuré que la base de données Postgres soit disponible:</p>
 <p>Ajouter une instruction <code>healthcheck</code> au service <code>db</code>:</p>
 <ul>
 <li>Faire un bind mount du script <code>resources/healthchecks/postgres.sh</code> dans le container</li>

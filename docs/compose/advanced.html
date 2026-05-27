@@ -196,7 +196,7 @@
 <h2 id="override-docker-composeyml"><a class="header" href="#override-docker-composeyml">Override <code>docker-compose.yml</code></a></h2>
 <p>Docker Compose permet d'utiliser plusieurs fichiers de configuration <code>.yml</code> pour étendre une configuration de base.</p>
 <ul>
-<li>Trouver dans la documentation la référence à ce méchanisme d'extention des configurations</li>
+<li>Trouver dans la documentation la référence à ce mécanisme d'extension des configurations</li>
 <li>Créer un fichier <code>docker-compose.dev.yml</code> étendant <code>docker-compose.yml</code> tel que:
 <ul>
 <li>le service <code>vote</code> monte le code source <code>vote/</code> à l'emplacement <code>/app</code></li>
@@ -213,7 +213,7 @@ FLASK_ENV=development
 </ul>
 <p>Cette configuration permet de monter le code source de l'application Vote (Python) directement dans le container et de relancer l'application dynamiquement au sein du container sans avoir à re-builder ou redémarrer le container.</p>
 <p>Cette méthode utilise les fonctionnalités de Flask (serveur web Python) mais la plupart des frameworks permettent un setup similaire pour les environnement de développement.</p>
-<p>Il est ainsi possible de définir une configuration de base Docker Compose avec des overrides selon différent contextes (dev, CI, production, etc.)</p>
+<p>Il est ainsi possible de définir une configuration de base Docker Compose avec des overrides selon différents contextes (dev, CI, production, etc.)</p>
 
                     </main>
 

@@ -170,9 +170,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="voting-app-build-python-image"><a class="header" href="#voting-app-build-python-image">Voting App: Build Python image</a></h1>
-<p>L'appplication Voting App dispose de plusieurs services:</p>
+<p>L'application Voting App dispose de plusieurs services:</p>
 <ul>
-<li><strong>Worker</strong>: récupère les votes et les stockes en base de donnée</li>
+<li><strong>Worker</strong>: récupère les votes et les stocke en base de données</li>
 <li><strong>Vote</strong>: application web permettant de voter</li>
 <li><strong>Result</strong> : permet d'afficher les résultats</li>
 </ul>
@@ -182,7 +182,7 @@
 <p>Le code du service Vote se trouve dans <code>vote/</code>:</p>
 <ul>
 <li><code>app.py</code> est le fichier applicatif permettant de lancer l'application</li>
-<li><code>requirements.txt</code> contiens les dépendences de l'application</li>
+<li><code>requirements.txt</code> contient les dépendances de l'application</li>
 </ul>
 <p>Pour l'instant le service utilise une image Docker déjà buildée:</p>
 <pre><code>services:
@@ -198,10 +198,10 @@
 </ul>
 </li>
 <li>
-<p>L'ensemble du code source du service (fichiers dans <code>/vote</code>) doit être <strong>copiée dans l'image Docker</strong></p>
+<p>L'ensemble du code source du service (fichiers dans <code>/vote</code>) doit être <strong>copié dans l'image Docker</strong></p>
 </li>
 <li>
-<p>L'image Docker doit contenir l'ensemble du service. Pour <strong>installer les dépendences</strong>, utiliser la commande</p>
+<p>L'image Docker doit contenir l'ensemble du service. Pour <strong>installer les dépendances</strong>, utiliser la commande</p>
 <pre><code>pip install -r requirements.txt
 </code></pre>
 </li>
@@ -209,7 +209,7 @@
 <p>La commande qui doit être lancée au démarrage du container est:</p>
 <pre><code>gunicorn app:app -b 0.0.0.0:80
 </code></pre>
-<p>et doit être <strong>éxecutée depuis le dossier contenant l'ensemble du code source</strong> du service (le service exposera le port 80 par défaut une fois lancé)</p>
+<p>et doit être <strong>exécutée depuis le dossier contenant l'ensemble du code source</strong> du service (le service exposera le port 80 par défaut une fois lancé)</p>
 </li>
 </ul>
 <p>Exercices:</p>
