@@ -4,7 +4,7 @@ Harbor est un outil de registry Docker. Nous allons créer un compte sur https:/
 
 ## Exercices
 
-Après le build locale nos images Example Voting App, pushons les sur une Registry pour les partager !
+Après le build local de nos images Example Voting App, pushons les sur une Registry pour les partager !
 
 Aller sur [demo.goharbor.io](https://demo.goharbor.io) et créez-vous un compte (gratuit). 
 

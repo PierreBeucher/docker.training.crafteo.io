@@ -26,6 +26,6 @@ pourrait modifier le comportement du container.*
 
 ---
 
-Supprimer le container `vote` et le récréer puis:
-- Lancer une session shell dans le container et vérifier si l'état des fichiers `/test.txt` et `app.py`
+Supprimer le container `vote` et le recréer puis:
+- Lancer une session shell dans le container et vérifier l'état des fichiers `/test.txt` et `app.py`
 - Vérifier l'existence des données du container layer sur le disque

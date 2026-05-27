@@ -30,7 +30,7 @@ Docker Compose permet de définir des variables qui seront substituées aux vari
 
 Docker Compose permet d'utiliser plusieurs fichiers de configuration `.yml` pour étendre une configuration de base.
 
-- Trouver dans la documentation la référence à ce méchanisme d'extention des configurations
+- Trouver dans la documentation la référence à ce mécanisme d'extension des configurations
 - Créer un fichier `docker-compose.dev.yml` étendant `docker-compose.yml` tel que:
   - le service `vote` monte le code source `vote/` à l'emplacement `/app`
   - le service `vote` utilise la commande `python -m flask run -h 0.0.0.0 -p 80`
@@ -46,5 +46,5 @@ Cette configuration permet de monter le code source de l'application Vote (Pytho
 
 Cette méthode utilise les fonctionnalités de Flask (serveur web Python) mais la plupart des frameworks permettent un setup similaire pour les environnement de développement.
 
-Il est ainsi possible de définir une configuration de base Docker Compose avec des overrides selon différent contextes (dev, CI, production, etc.)
+Il est ainsi possible de définir une configuration de base Docker Compose avec des overrides selon différents contextes (dev, CI, production, etc.)
 

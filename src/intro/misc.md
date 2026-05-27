@@ -29,7 +29,7 @@ Afficher l’ensemble des processus du container `myalpine`
 
 Obtenir les **statistiques**  d’usage ressources (CPU, RAM...) du container
 
-- pratique pour débugger dans certain cas
+- pratique pour débugger dans certains cas
 
 ---
 

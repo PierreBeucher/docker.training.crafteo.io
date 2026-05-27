@@ -6,7 +6,7 @@ Le fichier `docker-compose.yml` décrit l'ensemble des **services** définissant
 
 - Vote: permet de voter pour Chien ou Chat
 - Result: permet de voir les résultats des votes
-- Worker: Traite les votes pour les insérer en base de donnée
+- Worker: Traite les votes pour les insérer en base de données
 - Redis: gère les votes en cours via un système de queue
 - DB (Postgres): stocke les résultats
 
@@ -18,7 +18,7 @@ Documentation de référence:
 - [Docker Compose CLI](https://docs.docker.com/reference/cli/docker/compose/)
   - Par ex, `service` et les sous-éléments sont documentés dans [_Services top-level elements_](https://docs.docker.com/reference/compose-file/services/)
 
-**🔖 Conseil: Ajoutez des liens à fos favoris, ils seront utiles !**
+**🔖 Conseil: Ajoutez des liens à vos favoris, ils seront utiles !**
 
 _Note: la CLI `docker-compose` standalone a été dépréciée en faveur de `docker compose`_
 
@@ -28,7 +28,7 @@ _Note: la CLI `docker-compose` standalone a été dépréciée en faveur de `doc
 
 ### Lancement d'une stack Docker Compose
 
-- Utiliser la CLI `docker compose` pour lancer la stack en mode détachée
+- Utiliser la CLI `docker compose` pour lancer la stack en mode détaché
   ```
   docker compose --help
   ```
@@ -62,7 +62,7 @@ Créer un fichier `.env` et modifier le service `db` pour passer les variables d
 
 ### Healthcheck & depends on
 
-Faisons en sorte de démarrer le service Worker après nous êtes assuré que la base de donnée Postgres soit disponible:
+Faisons en sorte de démarrer le service Worker après nous être assuré que la base de données Postgres soit disponible:
 
 Ajouter une instruction `healthcheck` au service `db`:
 - Faire un bind mount du script `resources/healthchecks/postgres.sh` dans le container

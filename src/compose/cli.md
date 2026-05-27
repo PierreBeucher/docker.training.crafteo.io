@@ -17,8 +17,8 @@ Utiliser une commande permettant de **puller** l'ensemble des images de la stack
 
 Lancer la stack Compose avec les options suivantes:
 
-- Mode détachée (Tout comme `docker`, `docker compose` lance les containers en mode interactif par défaut)
-- Forcer la récréation des containers déjà existants
+- Mode détaché (Tout comme `docker`, `docker compose` lance les containers en mode interactif par défaut)
+- Forcer la recréation des containers déjà existants
 
 ---
 
@@ -33,7 +33,7 @@ Quelques manipulations:
 - Lister les containers de la stack
 - Afficher les logs de l'ensemble des containers de la stack
 - Afficher les logs d'un container de la stack et suivre les changements
-- Executer une session shell interactive dans le container `vote`
+- Exécuter une session shell interactive dans le container `vote`
 - Arrêter et supprimer la stack, puis ne lancer que le service `vote`
 - Arrêter et supprimer la stack
 
@@ -41,10 +41,10 @@ Ces commandes seraient possibles directement avec `docker` en y spécifiant les 
 
 ---
 
-Plusieurs stacks peuvent coéxister en s'assurant qu'il n'y a pas de conflits de ports ou autre.
+Plusieurs stacks peuvent coexister en s'assurant qu'il n'y a pas de conflits de ports ou autre.
 
 Copier le fichier `docker-compose.yml` et nommer cette copie `docker-compose-bis.yml` puis lancer 2 stacks en parallèle
 
-- Celle utilisant `docker-compose.yml` doit être nommé `app`
+- Celle utilisant `docker-compose.yml` doit être nommée `app`
 - Celle utilisant `docker-compose-bis.yml` doit être nommée `app-bis`
-- Attention aux conflits de nom de container et ports: le nom des containers doivent être uniques ainsi que les ports exposées sur la machine
+- Attention aux conflits de nom de container et ports: le nom des containers doivent être uniques ainsi que les ports exposés sur la machine

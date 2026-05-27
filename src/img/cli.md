@@ -32,17 +32,17 @@ Import/export d'image
 Une image Docker n'est rien d'autre qu'une archive contenant des fichiers. Exportons notre image sous forme d'archive avant de la ré-importer comme image Docker.
 
 - Exporter l'image `vote:newtag` comme archive
-    - Trouver la commande adapée via `docker image --help`
+    - Trouver la commande adaptée via `docker image --help`
     - Cette action peut prendre quelques secondes...
 - Supprimer l'image Vote de votre système local
-    - L'image ne doit plus apparaitre avec `docker images`
+    - L'image ne doit plus apparaître avec `docker images`
     - Si besoin, il sera possible de la re-builder from scratch
 - Re-importer l'image Vote depuis l'archive créée précédemment
-    - `docker images` doit affiche l'image
+    - `docker images` doit afficher l'image
 
 ---
 
-Lancer un container basé sur `vote:newtag` et ouvrez une session bash dans le container (`docker exec ...`) pour modifier le contenu du fichier `/app/app.py` afin de modifier les options *Cat/Dog* pour *Windows/Mac* (les variables `options_a|b`) Redémarer le container pour constater les changements.
+Lancer un container basé sur `vote:newtag` et ouvrez une session bash dans le container (`docker exec ...`) pour modifier le contenu du fichier `/app/app.py` afin de modifier les options *Cat/Dog* pour *Windows/Mac* (les variables `options_a|b`) Redémarrer le container pour constater les changements.
 
 Il est possible de créer une image Docker directement à partir d'un container (sans passer par `docker build`). Ce principe est équivalent à créer une image de VM via un snapshot de VM existante afin de lancer des clones de la VM d'origine.
 

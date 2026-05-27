@@ -73,7 +73,7 @@ docker compose run vote --log-level DEBUG
 #
 ```
 
-Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à `gunicorn` des options différentes (comme un port différent ou un niveau de debug plus élévé)
+Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à `gunicorn` des options différentes (comme un port différent ou un niveau de debug plus élevé)
 
 ## Cas 2
 
@@ -104,7 +104,7 @@ docker compose run vote --log-level DEBUG
 #
 ```
 
-Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à `gunicorn` des options différentes (comme niveau de debug plus élévé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)
+Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de passer à `gunicorn` des options différentes (comme niveau de debug plus élevé) tout en semi-forçant l'utilisation de certaines options (dans notre cas, l'utilisation du port 80)
 
 ## Cas 3
 
@@ -136,4 +136,4 @@ docker compose run vote sh
 #
 ```
 
-Cette configuration peut-être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différent au lancement du container.
+Cette configuration peut être utilisée pour fournir une image lançant notre serveur Vote en permettant à l'utilisateur final de lancer un binaire ou une commande différente au lancement du container.

@@ -1,11 +1,11 @@
 # Docker Hub - Registry Docker officielle
 
 
-Cette série d'exercice démontrera l'usage de Docker Hub, la registry officielle. Nous allons créer un compte, s'authentifier avec la CLI `docker` et pusher nos imagees buildées localement directement sur la registry.  
+Cette série d'exercice démontrera l'usage de Docker Hub, la registry officielle. Nous allons créer un compte, s'authentifier avec la CLI `docker` et pusher nos images buildées localement directement sur la registry.  
 
 ## Exercices
 
-Après le build locale nos images Example Voting App, poussons les sur la Registry!
+Après le build local de nos images Example Voting App, poussons les sur la Registry!
 
 Aller sur [hub.docker.com](https://hub.docker.com/) et créez vous un compte (gratuit). 
 
@@ -26,5 +26,5 @@ Nous avons à présent accès au Docker Hub depuis notre machine
 
 Les images pushées sur la registry peuvent maintenant être utilisée publiquement. Il est aussi possible de les rendre privées, auquel cas il sera obligatoire de s'authentifier sur la registry avant de pouvoir les puller. 
 
-- Essayer de puller les images construires et pushées depuis la registry de votre voisin
+- Essayer de puller les images construites et pushées depuis la registry de votre voisin
 - Essayer de pusher une image construite par vous-même sur la registry de votre voisin

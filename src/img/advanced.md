@@ -35,20 +35,20 @@ Configurer l'image pour que l'utilisateur `crafteo` soit utilisé pour lancer le
   adduser -S crafteo
   ```
 
-Il sera nécéssaire d'ajouter le chemin `/home/crafteo/.local/bin` au `PATH` du user `crafteo` pour éxecuter les binaires installés par Python.
+Il sera nécessaire d'ajouter le chemin `/home/crafteo/.local/bin` au `PATH` du user `crafteo` pour exécuter les binaires installés par Python.
 
 - Ajouter une instruction au Dockerfile permettant de définir la variable `PATH` tel que:
   ```
   PATH=$PATH:/home/crafteo/.local/bin
   ```
 
-Attention: il n'est pas possible de binder un port <1024 avec un utilisateur non-root avec Linux, il sera nécéssaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port `8080`.
+Attention: il n'est pas possible de binder un port <1024 avec un utilisateur non-root avec Linux, il sera nécessaire d'utiliser un port plus élevé. Modifier votre Dockerfile pour lancer l'application en utilisant le port `8080`.
 
 ---
 
 Ajouter un healthcheck permettant de vérifier le fonctionnement de l'image avec `curl localhost:80`. Ce healthcheck permettra de vérifier que l'image est bien active si une réponse est renvoyée lors d'un appel à `localhost:80`
 
-- Il peut-être nécéssaire d'installer `curl` ou d'utiliser une image de base ou il l'est déjà
+- Il peut être nécessaire d'installer `curl` ou d'utiliser une image de base où il l'est déjà
 - Pour installer `curl` sous Linux Alpine:
   ```
   apk add curl

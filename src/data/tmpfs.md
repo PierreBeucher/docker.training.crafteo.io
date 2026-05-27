@@ -1,6 +1,6 @@
 # Montage `tmpfs`
 
-Exercices sur le montage de volume de type *tmpfs**
+Exercices sur le montage de volume de type *tmpfs*
 
 ## Exercices
 
@@ -20,5 +20,5 @@ Lancer une session shell dans le container `redis` et:
   echo test > /data/test 
   ```
 - redémarrer le container
-- vérifier l'éxistence du fichier précédemment créé
+- vérifier l'existence du fichier précédemment créé
 

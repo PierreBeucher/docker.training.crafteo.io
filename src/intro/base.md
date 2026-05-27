@@ -17,7 +17,7 @@ docker run [OPTIONS] IMAGE
 > docker logs [OPTIONS] CONTAINER
 
 # start, stop, restart containers
-> docker start|stop|restart CONTNER
+> docker start|stop|restart CONTAINER
 ```
 
 ## Exercices
@@ -40,7 +40,7 @@ Afficher les **2 dernières lignes** de logs de myapache et **suivre les changem
 
 **Arrêter** puis **redémarrer** le container `myapache`
 
-- Plusieurs solutions possible utilisant le même set de commandes
+- Plusieurs solutions possibles utilisant le même set de commandes
 
 ---
 

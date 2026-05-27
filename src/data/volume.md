@@ -21,7 +21,7 @@ docker run -v myvolume:/data some_image
 
 Modifier `docker-compose.yml` pour:
 
-- configurer un volume `psqsl-data` et
+- configurer un volume `psql-data` et
 - monter ce volume à l'emplacement `/var/lib/postgresql/data` du service `db`
 - redémarrer le service `db` pour prendre en compte les modifications
 
