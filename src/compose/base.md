@@ -40,21 +40,25 @@ Les services Vote et Result expose une interface web accessible depuis la machin
 ### Configuration de services Docker Compose
 
 Modifier le service Redis pour:
- - Utiliser l'image `redis:7.2.1`
+ - Utiliser l'image `redis:8.8.0`
  - Nommer le container `my_redis` au démarrage
- - Ajouter une variable d'environnement `FOO=BAR`
-
+ - Ajouter une variable d'environnement `SKIP_FIX_PERMS=1`
+   - Cette variable change le comportement de Redis au démarrage pour du setup de permissions. 
+   - Vérifier que le container a bien pris en compte ce changement. Plusieurs méthodes sont possibles
+  
 ### Fichier `.env` et variables d'environnement
 
-Il est possible de référencer des variables d'environnements dans notre fichier `docker-compose.yml` et de spécifier un fichier `.env` contenant des variables d'environnements par défaut. Par exemple:
+Il est possible d'interpoler des variables d'environnements dans notre fichier `docker-compose.yml` à l'aide de fichiers `.env`. Par exemple:
 
 ```
 # .env example
-DOTENV_POSTGRES_USER: "postgres"
-DOTENV_POSTGRES_PASSWORD: "postgres"
+POSTGRES_USER: "postgres"
+POSTGRES_PASSWORD: "postgres"
 ```
 
-Créer un fichier `.env` et modifier le service `db` pour utiliser les valeurs de ce fichier plutôt que des valeurs hardcodées.
+Créer un fichier `.env` et modifier le service `db` pour passer les variables d'environnement depuis celui-ci. Plusieurs méthodes possibles:
+- Interpolation de variable
+- Configuration du service `db` pour utiliser directement un ou plusieurs fichiers `.env` et passer les variables dans le container
 
 ### Healthcheck & depends on
 

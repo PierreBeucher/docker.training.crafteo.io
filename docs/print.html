@@ -444,17 +444,26 @@ ENTRYPOINT [&quot;httpd&quot;]
 <h3 id="configuration-de-services-docker-compose"><a class="header" href="#configuration-de-services-docker-compose">Configuration de services Docker Compose</a></h3>
 <p>Modifier le service Redis pour:</p>
 <ul>
-<li>Utiliser l'image <code>redis:7.2.1</code></li>
+<li>Utiliser l'image <code>redis:8.8.0</code></li>
 <li>Nommer le container <code>my_redis</code> au démarrage</li>
-<li>Ajouter une variable d'environnement <code>FOO=BAR</code></li>
+<li>Ajouter une variable d'environnement <code>SKIP_FIX_PERMS=1</code>
+<ul>
+<li>Cette variable change le comportement de Redis au démarrage pour du setup de permissions. </li>
+<li>Vérifier que le container a bien pris en compte ce changement. Plusieurs méthodes sont possibles</li>
+</ul>
+</li>
 </ul>
 <h3 id="fichier-env-et-variables-denvironnement"><a class="header" href="#fichier-env-et-variables-denvironnement">Fichier <code>.env</code> et variables d'environnement</a></h3>
-<p>Il est possible de référencer des variables d'environnements dans notre fichier <code>docker-compose.yml</code> et de spécifier un fichier <code>.env</code> contenant des variables d'environnements par défaut. Par exemple:</p>
+<p>Il est possible d'interpoler des variables d'environnements dans notre fichier <code>docker-compose.yml</code> à l'aide de fichiers <code>.env</code>. Par exemple:</p>
 <pre><code># .env example
-DOTENV_POSTGRES_USER: &quot;postgres&quot;
-DOTENV_POSTGRES_PASSWORD: &quot;postgres&quot;
+POSTGRES_USER: &quot;postgres&quot;
+POSTGRES_PASSWORD: &quot;postgres&quot;
 </code></pre>
-<p>Créer un fichier <code>.env</code> et modifier le service <code>db</code> pour utiliser les valeurs de ce fichier plutôt que des valeurs hardcodées.</p>
+<p>Créer un fichier <code>.env</code> et modifier le service <code>db</code> pour passer les variables d'environnement depuis celui-ci. Plusieurs méthodes possibles:</p>
+<ul>
+<li>Interpolation de variable</li>
+<li>Configuration du service <code>db</code> pour utiliser directement un ou plusieurs fichiers <code>.env</code> et passer les variables dans le container</li>
+</ul>
 <h3 id="healthcheck--depends-on"><a class="header" href="#healthcheck--depends-on">Healthcheck &amp; depends on</a></h3>
 <p>Faisons en sorte de démarrer le service Worker après nous êtes assuré que la base de donnée Postgres soit disponible:</p>
 <p>Ajouter une instruction <code>healthcheck</code> au service <code>db</code>:</p>
