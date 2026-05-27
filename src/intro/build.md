@@ -35,10 +35,12 @@ Créer un dossier `mybuild` et y créer un fichier `Dockerfile` avec le contenu 
 
 ---
 
-Lancer un container utilisant votre image `myapache` et exposer `8089:80`, vérifier le fonctionnement
+Lancer un container utilisant votre image `myapache` et exposer `8089:80`, vérifier le fonctionnement.
+
 
 - rappel: `curl localhost:8089` ou navigateur
 - essayer de monter des volumes pour obtenir un fichier `index.html` customisé!
+  - Attention: le fichier `index.html` est maintenant dans `/var/www/localhost/htdocs`. Le package Alpine `apache2` natif a un comportement différent: l'emplacement des fichiers n'est pas le même. 
 
 ---
 

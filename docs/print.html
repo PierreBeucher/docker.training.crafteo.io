@@ -395,10 +395,14 @@ ENTRYPOINT [&quot;httpd&quot;]
 <li>votre image doit apparaitre via <code>docker images</code></li>
 </ul>
 <hr />
-<p>Lancer un container utilisant votre image <code>myapache</code> et exposer <code>8089:80</code>, vérifier le fonctionnement</p>
+<p>Lancer un container utilisant votre image <code>myapache</code> et exposer <code>8089:80</code>, vérifier le fonctionnement.</p>
 <ul>
 <li>rappel: <code>curl localhost:8089</code> ou navigateur</li>
-<li>essayer de monter des volumes pour obtenir un fichier <code>index.html</code> customisé!</li>
+<li>essayer de monter des volumes pour obtenir un fichier <code>index.html</code> customisé!
+<ul>
+<li>Attention: le fichier <code>index.html</code> est maintenant dans <code>/var/www/localhost/htdocs</code>. Le package Alpine <code>apache2</code> natif a un comportement différent: l'emplacement des fichiers n'est pas le même. </li>
+</ul>
+</li>
 </ul>
 <hr />
 <p>Créez un fichier <code>index.html</code> avec un contenu customisé, par exemple <code>echo &quot;Hello from file&quot; &gt; index.html</code>.</p>
